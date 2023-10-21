@@ -1,0 +1,6 @@
+export * from './UpperNavbar/UpperNavbar'
+export * from './LowerNavbar/LowerNavbar'
+export * from './Carrousel/Carrousel'
+export * from './MainTextContainer/MainTextContainer'
+export * from './MainPageMiddleContainer/MainPageMiddleContainer'
+export * from './NewsContainer/NewsContainer'

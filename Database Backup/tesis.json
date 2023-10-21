@@ -1,0 +1,429 @@
+[{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b02d"
+  },
+  "tituloTesis": "Optimización de Métodos de Control Biológico para Plagas en Cultivos de Café",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Agricultura Sostenible",
+  "resumenTesis": "Esta tesis investiga diferentes enfoques de control biológico para combatir plagas...",
+  "pathFotoTitulo": "/tesis/tesis2/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis2/imagen_extra_1.jpg",
+    "/tesis/tesis2/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis2/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Gómez, R. et al. (2023). Integrated Pest Management in Coffee Cultivation. Journal of Sustainable Agriculture, 45(2), 200-215.",
+    "Hernández, M. et al. (2023). Biocontrol Strategies for Coffee Pests. International Journal of Pest Management, 10(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2020-06-10",
+  "fechaFinalizacion": "2021-12-15",
+  "palabrasClave": [
+    "Control Biológico",
+    "Cultivos de Café",
+    "Plagas Agrícolas"
+  ],
+  "gradoObtenido": "Licenciatura en Agricultura Sostenible",
+  "estudiantesParticipantes": [
+    "Javier Sánchez",
+    "María Castro"
+  ],
+  "tematicaEstudio": "Agricultura Sostenible",
+  "anioTesis": 2021,
+  "grupoAsesor": "Grupo de Investigación en Agricultura Sostenible",
+  "alcanceTesis": "La tesis contribuye a la identificación...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Agronomía"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b02e"
+  },
+  "tituloTesis": "Evaluación de Agentes de Control Biológico para Plagas en Horticultura Urbana",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Horticultura",
+  "resumenTesis": "Esta investigación se enfoca en evaluar la efectividad de diferentes agentes...",
+  "pathFotoTitulo": "/tesis/tesis3/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis3/imagen_extra_1.jpg",
+    "/tesis/tesis3/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis3/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Pérez, A. et al. (2023). Biological Control in Urban Horticulture. Urban Agriculture Journal, 12(3), 280-295.",
+    "Gutiérrez, E. et al. (2023). Pest Management in Urban Gardens. Journal of Urban Ecology, 10(4), 400-415."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2019-09-20",
+  "fechaFinalizacion": "2020-12-05",
+  "palabrasClave": [
+    "Control Biológico",
+    "Horticultura Urbana",
+    "Plagas"
+  ],
+  "gradoObtenido": "Licenciatura en Horticultura",
+  "estudiantesParticipantes": [
+    "María Fernández",
+    "Alejandro Solís"
+  ],
+  "tematicaEstudio": "Horticultura",
+  "anioTesis": 2020,
+  "grupoAsesor": "Grupo de Investigación en Horticultura Urbana",
+  "alcanceTesis": "La tesis busca proporcionar...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Agronomía"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b02f"
+  },
+  "tituloTesis": "Desarrollo de Sistemas de Riego Inteligentes para Cultivos Sostenibles",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Ingeniería Agrícola",
+  "resumenTesis": "En esta tesis se investiga el diseño y desarrollo de sistemas de riego...",
+  "pathFotoTitulo": "/tesis/tesis4/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis4/imagen_extra_1.jpg",
+    "/tesis/tesis4/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis4/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Rojas, D. et al. (2023). Smart Irrigation Systems for Sustainable Agriculture. Journal of Agricultural Engineering, 45(4), 400-415.",
+    "Gómez, L. et al. (2023). Precision Agriculture and Water Management. Agricultural Water Management, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2021-01-10",
+  "fechaFinalizacion": "2022-06-30",
+  "palabrasClave": [
+    "Sistemas de Riego",
+    "Cultivos Sostenibles",
+    "Ingeniería Agrícola"
+  ],
+  "gradoObtenido": "Ingeniería Agrícola",
+  "estudiantesParticipantes": [
+    "David Rojas",
+    "Laura Gómez"
+  ],
+  "tematicaEstudio": "Ingeniería Agrícola",
+  "anioTesis": 2022,
+  "grupoAsesor": "Grupo de Investigación en Ingeniería Agrícola",
+  "alcanceTesis": "La tesis se centra en la creación...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Ingeniería Agrícola"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b030"
+  },
+  "tituloTesis": "Efectos de Prácticas de Manejo en la Diversidad de Insectos en Agroecosistemas",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Agroecología",
+  "resumenTesis": "Esta investigación analiza cómo diferentes prácticas de manejo afectan...",
+  "pathFotoTitulo": "/tesis/tesis5/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis5/imagen_extra_1.jpg",
+    "/tesis/tesis5/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis5/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Solís, E. et al. (2023). Effects of Agroecological Practices on Insect Diversity. Agroecology Journal, 45(4), 400-415.",
+    "Ramos, M. et al. (2023). Biodiversity Conservation in Agroecosystems. Ecological Applications, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2020-08-05",
+  "fechaFinalizacion": "2022-03-25",
+  "palabrasClave": [
+    "Prácticas de Manejo",
+    "Diversidad de Insectos",
+    "Agroecología"
+  ],
+  "gradoObtenido": "Licenciatura en Agroecología",
+  "estudiantesParticipantes": [
+    "Eduardo Solís",
+    "María Ramos"
+  ],
+  "tematicaEstudio": "Agroecología",
+  "anioTesis": 2022,
+  "grupoAsesor": "Grupo de Investigación en Agroecología",
+  "alcanceTesis": "La tesis busca comprender losefectos de las prácticas de manejo en la biodiversidad de insectos...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Biología"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b031"
+  },
+  "tituloTesis": "Desarrollo de Estrategias de Conservación de Suelos en Cultivos de Banano",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Agricultura Tropical",
+  "resumenTesis": "Esta tesis se enfoca en el desarrollo de estrategias para la conservación...",
+  "pathFotoTitulo": "/tesis/tesis6/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis6/imagen_extra_1.jpg",
+    "/tesis/tesis6/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis6/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Mora, J. et al. (2023). Soil Conservation Practices in Banana Plantations. Agriculture, Ecosystems & Environment, 45(4), 400-415.",
+    "Campos, A. et al. (2023). Sustainable Soil Management in Tropical Agroecosystems. Soil Science Society of America Journal, 12(3), 280-295."
+  ],
+  "estadoTesis": "En Ejecución",
+  "fechaInicio": "2022-02-20",
+  "fechaFinalizacion": "",
+  "palabrasClave": [
+    "Conservación de Suelos",
+    "Cultivos de Banano",
+    "Agricultura Tropical"
+  ],
+  "gradoObtenido": "Licenciatura en Agricultura Tropical",
+  "estudiantesParticipantes": [
+    "José Mora",
+    "Ana Campos"
+  ],
+  "tematicaEstudio": "Agricultura Tropical",
+  "anioTesis": null,
+  "grupoAsesor": "Grupo de Investigación en Agricultura Tropical",
+  "alcanceTesis": "La tesis tiene como objetivo proponer...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Agronomía"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b032"
+  },
+  "tituloTesis": "Análisis de Técnicas de Reforestación en Áreas Degradadas",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Silvicultura",
+  "resumenTesis": "En esta investigación se analizan diferentes técnicas de reforestación...",
+  "pathFotoTitulo": "/tesis/tesis7/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis7/imagen_extra_1.jpg",
+    "/tesis/tesis7/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis7/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Guzmán, F. et al. (2023). Reforestation Techniques for Degraded Areas. Forest Ecology and Management, 45(4), 400-415.",
+    "Vargas, L. et al. (2023). Ecological Restoration in Degraded Landscapes. Restoration Ecology, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2019-07-15",
+  "fechaFinalizacion": "2020-12-10",
+  "palabrasClave": [
+    "Técnicas de Reforestación",
+    "Áreas Degradadas",
+    "Silvicultura"
+  ],
+  "gradoObtenido": "Licenciatura en Silvicultura",
+  "estudiantesParticipantes": [
+    "Fabiola Guzmán",
+    "Luis Vargas"
+  ],
+  "tematicaEstudio": "Silvicultura",
+  "anioTesis": 2020,
+  "grupoAsesor": "Grupo de Investigación en Silvicultura Sostenible",
+  "alcanceTesis": "La tesis abarca la evaluación de...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Ingeniería Forestal"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b033"
+  },
+  "tituloTesis": "Impacto de la Contaminación del Aire en la Salud de los Habitantes Urbanos",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Salud Ambiental",
+  "resumenTesis": "Esta tesis evalúa el impacto de la contaminación del aire en la salud de...",
+  "pathFotoTitulo": "/tesis/tesis8/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis8/imagen_extra_1.jpg",
+    "/tesis/tesis8/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis8/archivo_tesis.pdf",
+  "citasReferencias": [
+    "López, C. et al. (2023). Air Pollution and Health Impacts. Environmental Health Perspectives, 45(4), 400-415.",
+    "Ramírez, J. et al. (2023). Urban Air Quality and Public Health. Journal of Urban Health, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2020-03-05",
+  "fechaFinalizacion": "2021-10-20",
+  "palabrasClave": [
+    "Contaminación del Aire",
+    "Salud Urbana",
+    "Salud Ambiental"
+  ],
+  "gradoObtenido": "Licenciatura en Salud Ambiental",
+  "estudiantesParticipantes": [
+    "Carolina López",
+    "Juan Ramírez"
+  ],
+  "tematicaEstudio": "Salud Ambiental",
+  "anioTesis": 2021,
+  "grupoAsesor": "Grupo de Investigación en Salud Ambiental",
+  "alcanceTesis": "La tesis busca entender cómo la contaminación del aire...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Salud Ambiental"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b034"
+  },
+  "tituloTesis": "Diseño de Estrategias Educativas para la Promoción de la Agricultura Sostenible",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Educación Agrícola",
+  "resumenTesis": "Esta tesis se enfoca en el diseño de estrategias educativas para promover...",
+  "pathFotoTitulo": "/tesis/tesis9/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis9/imagen_extra_1.jpg",
+    "/tesis/tesis9/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis9/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Méndez, G. et al. (2023). Educational Strategies for Sustainable Agriculture. Environmental Education Research, 45(4), 400-415.",
+    "Gutiérrez, P. et al. (2023). Agricultural Education for Sustainability. Journal of Agricultural Education and Extension, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2021-01-25",
+  "fechaFinalizacion": "2022-09-15",
+  "palabrasClave": [
+    "Educación Agrícola",
+    "Agricultura Sostenible",
+    "Estrategias Educativas"
+  ],
+  "gradoObtenido": "Licenciatura en Educación Agrícola",
+  "estudiantesParticipantes": [
+    "Gabriela Méndez",
+    "Pedro Gutiérrez"
+  ],
+  "tematicaEstudio": "Educación Agrícola",
+  "anioTesis": 2022,
+  "grupoAsesor": "Grupo de Investigación en Educación Agrícola",
+  "alcanceTesis": "La tesis se enfoca en desarrollar...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Educación Agrícola"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b035"
+  },
+  "tituloTesis": "Evaluación de la Biodiversidad Acuática en Ríos de Montaña",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Ecología de Agua Dulce",
+  "resumenTesis": "En esta investigación se evalúa la biodiversidad acuática en ríos de montaña...",
+  "pathFotoTitulo": "/tesis/tesis10/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis10/imagen_extra_1.jpg",
+    "/tesis/tesis10/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis10/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Acosta, R. et al. (2023). Freshwater Biodiversity Assessment in Mountain Rivers. Freshwater Biology, 45(4), 400-415.",
+    "Fuentes, L. et al. (2023). Aquatic Ecology in Mountain Streams. Aquatic Sciences, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2020-04-10",
+  "fechaFinalizacion": "2021-11-30",
+  "palabrasClave": [
+    "Biodiversidad Acuática",
+    "Ríos de Montaña",
+    "Ecología Acuática"
+  ],
+  "gradoObtenido": "Licenciatura en Ecología",
+  "estudiantesParticipantes": [
+    "Roberto Acosta",
+    "Luis Fuentes"
+  ],
+  "tematicaEstudio": "Ecología de Agua Dulce",
+  "anioTesis": 2021,
+  "grupoAsesor": "Grupo de Investigación en Ecología Acuática",
+  "alcanceTesis": "La tesis busca comprender...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Biología"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b036"
+  },
+  "tituloTesis": "Desarrollo de Plataforma Web para Monitoreo de Fauna Silvestre",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Tecnologías de la Información",
+  "resumenTesis": "Esta tesis se enfoca en el desarrollo de una plataforma web para el monitoreo...",
+  "pathFotoTitulo": "/tesis/tesis11/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis11/imagen_extra_1.jpg",
+    "/tesis/tesis11/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis11/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Martínez, A. et al. (2023). Web-based Wildlife Monitoring Systems. Journal of Biodiversity Informatics, 45(4), 400-415.",
+    "Chacón, R. et al. (2023). Technology in Biodiversity Conservation. Conservation Science and Practice, 12(3), 280-295."
+  ],
+  "estadoTesis": "Finalizada",
+  "fechaInicio": "2021-06-10",
+  "fechaFinalizacion": "2022-12-15",
+  "palabrasClave": [
+    "Plataforma Web",
+    "Monitoreo de Fauna Silvestre",
+    "Tecnologías de la Información"
+  ],
+  "gradoObtenido": "Licenciatura en Tecnologías de la Información",
+  "estudiantesParticipantes": [
+    "Andrea Martínez",
+    "Ricardo Chacón"
+  ],
+  "tematicaEstudio": "Tecnologías de la Información",
+  "anioTesis": 2022,
+  "grupoAsesor": "Grupo de Investigación en Tecnologías de la Información Aplicadas a la Ecología",
+  "alcanceTesis": "La tesis se centra en el diseño...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Ingeniería en Computación"
+},
+{
+  "_id": {
+    "$oid": "64e2a8b41ec0c77c5761b037"
+  },
+  "tituloTesis": "Efectos de la Variabilidad Climática en la Producción de Café",
+  "grupoEvaluador": "Comité de Evaluación de Tesis de Climatología Agrícola",
+  "resumenTesis": "En esta investigación se analizan los efectos de la variabilidad climática...",
+  "pathFotoTitulo": "/tesis/tesis12/foto_titulo.jpg",
+  "imagenesExtras": [
+    "/tesis/tesis12/imagen_extra_1.jpg",
+    "/tesis/tesis12/imagen_extra_2.jpg"
+  ],
+  "pathArchivo": "/tesis/tesis12/archivo_tesis.pdf",
+  "citasReferencias": [
+    "Sánchez, E. et al. (2023). Climate Variability and Coffee Production. Agricultural and Forest Meteorology, 45(4), 400-415.",
+    "González, R. et al. (2023). Climate Change Impacts on Coffee Agriculture. Climatic Change, 12(3), 280-295."
+  ],
+  "estadoTesis": "En Ejecución",
+  "fechaInicio": "2022-03-20",
+  "fechaFinalizacion": "",
+  "palabrasClave": [
+    "Variabilidad Climática",
+    "Producción de Café",
+    "Climatología Agrícola"
+  ],
+  "gradoObtenido": "Licenciatura en Climatología Agrícola",
+  "estudiantesParticipantes": [
+    "Elena Sánchez",
+    "Roberto González"
+  ],
+  "tematicaEstudio": "Climatología Agrícola",
+  "anioTesis": null,
+  "grupoAsesor": "Grupo de Investigación en Climatología Agrícola",
+  "alcanceTesis": "La tesis tiene como objetivo analizar...",
+  "empresasParticipantes": [],
+  "financiamiento": "Estudiantes",
+  "institucionAcademica": "Instituto Tecnológico de Costa Rica",
+  "departamentoTesis": "Escuela de Agricultura"
+}]

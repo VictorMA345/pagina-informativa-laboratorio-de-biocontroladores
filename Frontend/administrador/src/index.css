@@ -1,0 +1,43 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+header {
+  background: #fff;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages{
+  margin: 10px;
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.link-react{
+  text-decoration: none;
+  color: white;
+}
+.link-react:hover{
+  text-decoration: none;
+  color: #C0C0C0;
+}
+
+body, html {
+  background-image: url('../src/images/background.png');  
+  margin: 0;
+  padding: 0;
+}

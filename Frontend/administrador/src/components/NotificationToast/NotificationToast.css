@@ -1,0 +1,29 @@
+.notification-toast-container{
+    position: fixed;
+    margin: 2rem;
+}
+.notification-toast-header{
+    color: white;
+    background-color: #5bb450;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* NotificationToast.css */
+.notification-toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .notification-toast-enter-active,
+  .notification-toast-exit-active {
+    transition: opacity 0.5s;
+  }
+  
+  .notification-toast-enter,
+  .notification-toast-exit {
+    opacity: 0;
+  }
+  

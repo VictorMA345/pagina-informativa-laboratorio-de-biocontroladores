@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b070"
+  },
+  "enfermedad": "Royas en hojas",
+  "cultivo": "Trigo",
+  "fitopatógeno": "Puccinia spp.",
+  "autor": "M. Sánchez",
+  "descripcion": "Las royas en hojas, causadas por diversas especies de Puccinia, afectan al cultivo de trigo. Provocan manchas en las hojas y debilitan la planta, reduciendo su rendimiento.",
+  "imagenes": [
+    "path/imagen21.jpg",
+    "path/imagen22.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b071"
+  },
+  "enfermedad": "Antracnosis de la vaina",
+  "cultivo": "Frijol",
+  "fitopatógeno": "Colletotrichum lindemuthianum",
+  "autor": "J. C. Hernandez",
+  "descripcion": "La antracnosis de la vaina, causada por el hongo Colletotrichum lindemuthianum, afecta al cultivo de frijol. Causa manchas en las vainas, reduciendo la calidad de la cosecha.",
+  "imagenes": [
+    "path/imagen23.jpg",
+    "path/imagen24.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b072"
+  },
+  "enfermedad": "Podredumbre del cuello",
+  "cultivo": "Cebolla",
+  "fitopatógeno": "Rhizoctonia spp.",
+  "autor": "L. J. Martinez",
+  "descripcion": "La podredumbre del cuello, causada por diversas especies de Rhizoctonia, afecta al cultivo de cebolla. Daña el cuello y las raíces, provocando marchitamiento y pérdida de calidad.",
+  "imagenes": [
+    "path/imagen25.jpg",
+    "path/imagen26.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b073"
+  },
+  "enfermedad": "Virus del enrollamiento de las hojas",
+  "cultivo": "Pepino",
+  "fitopatógeno": "Cucumber leafroll virus",
+  "autor": "E. A. Rodriguez",
+  "descripcion": "El virus del enrollamiento de las hojas del pepino causa deformaciones y enrollamiento de las hojas. Reduce la capacidad fotosintética y afecta la producción.",
+  "imagenes": [
+    "path/imagen27.jpg",
+    "path/imagen28.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b074"
+  },
+  "enfermedad": "Mosaico en mijo",
+  "cultivo": "Mijo",
+  "fitopatógeno": "Mijo mosaic virus",
+  "autor": "K. L. Patel",
+  "descripcion": "El mosaico en mijo es causado por el virus Mijo mosaic. Provoca patrones de mosaico en las hojas, reduciendo la capacidad fotosintética y afectando el rendimiento.",
+  "imagenes": [
+    "path/imagen29.jpg",
+    "path/imagen30.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b075"
+  },
+  "enfermedad": "Mancha angular",
+  "cultivo": "Frijol",
+  "fitopatógeno": "Isariopsis griseola",
+  "autor": "R. D. Ramirez",
+  "descripcion": "La mancha angular, causada por el hongo Isariopsis griseola, afecta al cultivo de frijol. Causa manchas en las hojas y en los frutos, reduciendo la calidad de la cosecha.",
+  "imagenes": [
+    "path/imagen31.jpg",
+    "path/imagen32.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2ac7b1ec0c77c5761b076"
+  },
+  "enfermedad": "Septoriosis en hojas",
+  "cultivo": "Tomate",
+  "fitopatógeno": "Septoria lycopersici",
+  "autor": "G. M. Lopez",
+  "descripcion": "La septoriosis en hojas, causada por el hongo Septoria lycopersici, afecta al cultivo de tomate. Provoca manchas necróticas en las hojas, debilitando la planta.",
+  "imagenes": [
+    "path/imagen33.jpg",
+    "path/imagen34.jpg"
+  ],
+  "documento": "path/documento_enfermedad.pdf"
+}]

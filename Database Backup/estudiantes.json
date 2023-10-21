@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b041"
+  },
+  "carneEstudiante": "202312345",
+  "cedula": "123456789",
+  "nombreCompleto": "Ana García López",
+  "fotoPerfil": "/estudiantes/ana_garcia/foto_perfil.jpg",
+  "carrera": "Ingeniería en Biotecnología",
+  "genero": "Femenino",
+  "correoElectronico": "ana.garcia@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/ana_garcia/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b042"
+  },
+  "carneEstudiante": "202312345",
+  "cedula": "123456789",
+  "nombreCompleto": "Ana García López",
+  "fotoPerfil": "/estudiantes/ana_garcia/foto_perfil.jpg",
+  "carrera": "Ingeniería en Biotecnología",
+  "genero": "Femenino",
+  "correoElectronico": "ana.garcia@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/ana_garcia/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b043"
+  },
+  "carneEstudiante": "202300001",
+  "cedula": "123456789",
+  "nombreCompleto": "Carlos Rodríguez Pérez",
+  "fotoPerfil": "/estudiantes/carlos_rodriguez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Computación",
+  "genero": "Masculino",
+  "correoElectronico": "carlos.rodriguez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/carlos_rodriguez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b044"
+  },
+  "carneEstudiante": "202300003",
+  "cedula": "555555555",
+  "nombreCompleto": "Javier Sánchez Rodríguez",
+  "fotoPerfil": "/estudiantes/javier_sanchez/foto_perfil.jpg",
+  "carrera": "Ingeniería Industrial",
+  "genero": "Masculino",
+  "correoElectronico": "javier.sanchez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/javier_sanchez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b045"
+  },
+  "carneEstudiante": "202300004",
+  "cedula": "111111111",
+  "nombreCompleto": "Laura Méndez Gómez",
+  "fotoPerfil": "/estudiantes/laura_mendez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Alimentos",
+  "genero": "Femenino",
+  "correoElectronico": "laura.mendez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/laura_mendez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b046"
+  },
+  "carneEstudiante": "202300005",
+  "cedula": "222222222",
+  "nombreCompleto": "Andrés Gutiérrez Pérez",
+  "fotoPerfil": "/estudiantes/andres_gutierrez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Mecatrónica",
+  "genero": "Masculino",
+  "correoElectronico": "andres.gutierrez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/andres_gutierrez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b047"
+  },
+  "carneEstudiante": "202300005",
+  "cedula": "222222222",
+  "nombreCompleto": "Andrés Gutiérrez Pérez",
+  "fotoPerfil": "/estudiantes/andres_gutierrez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Mecatrónica",
+  "genero": "Masculino",
+  "correoElectronico": "andres.gutierrez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/andres_gutierrez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b048"
+  },
+  "carneEstudiante": "202300006",
+  "cedula": "333333333",
+  "nombreCompleto": "Ana Martínez López",
+  "fotoPerfil": "/estudiantes/ana_martinez/foto_perfil.jpg",
+  "carrera": "Ingeniería Ambiental",
+  "genero": "Femenino",
+  "correoElectronico": "ana.martinez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/ana_martinez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b049"
+  },
+  "carneEstudiante": "202300007",
+  "cedula": "444444444",
+  "nombreCompleto": "David Pérez Rodríguez",
+  "fotoPerfil": "/estudiantes/david_perez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Informática",
+  "genero": "Masculino",
+  "correoElectronico": "david.perez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/david_perez/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b04a"
+  },
+  "carneEstudiante": "202300008",
+  "cedula": "555555555",
+  "nombreCompleto": "Luisa Torres Gómez",
+  "fotoPerfil": "/estudiantes/luisa_torres/foto_perfil.jpg",
+  "carrera": "Ingeniería en Diseño Industrial",
+  "genero": "Femenino",
+  "correoElectronico": "luisa.torres@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/luisa_torres/curriculum.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a97c1ec0c77c5761b04b"
+  },
+  "carneEstudiante": "202300009",
+  "cedula": "666666666",
+  "nombreCompleto": "José Ramírez Castro",
+  "fotoPerfil": "/estudiantes/jose_ramirez/foto_perfil.jpg",
+  "carrera": "Ingeniería en Telecomunicaciones",
+  "genero": "Masculino",
+  "correoElectronico": "jose.ramirez@example.com",
+  "anioIngreso": 2023,
+  "curriculum": "/estudiantes/jose_ramirez/curriculum.pdf"
+}]

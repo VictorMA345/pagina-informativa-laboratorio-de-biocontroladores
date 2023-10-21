@@ -1,0 +1,26 @@
+/* carousel-styles.css */
+.container {
+    margin: 0 auto; /* Centra el Carousel en la página */
+    max-width: 1500px; /* Define un ancho máximo para el Carousel */
+    padding: 0 15px; /* Agrega márgenes a los lados */
+  }
+  
+  .carousel {
+    margin-top: 5%;
+    background-color: #f8f9fa; /* Cambia el color de fondo del carrusel */
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el título y la descripción */
+    color: #fff; /* Color del texto en la descripción */
+    border-radius: 5px; /* Borde redondeado para el título y la descripción */
+  }
+  
+  .carousel-caption h3 {
+    font-size: 24px; /* Tamaño de fuente del título */
+  }
+  
+  .carousel-caption p {
+    font-size: 16px; /* Tamaño de fuente de la descripción */
+  }
+  

@@ -1,0 +1,39 @@
+.logo-image{
+    margin-left: 2rem;
+}
+
+.lower-navbar{
+    width: 100%;
+    background-color: #C0C0C0;
+}
+.lower-navbar-container{
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
+}
+.lower-navbar-links{
+    color: black !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+/* Agrega estos estilos para controlar la apariencia de la Navbar en dispositivos pequeños */
+@media (max-width: 768px) {
+    .lower-navbar {
+      padding: 10px; /* Añade espacio entre el contenido y el borde de la Navbar */
+    }
+  
+    .lower-navbar-container {
+      flex-direction: column; /* Apila los elementos verticalmente en dispositivos pequeños */
+      align-items: center; /* Centra los elementos en el eje X */
+    }
+  
+    .lower-navbar-links {
+      margin-top: 20px; /* Añade espacio entre los enlaces */
+      text-align: center; /* Centra el texto de los enlaces */
+    }
+  
+    .navbar-toggler {
+      order: 2; /* Mueve el botón del menú hamburguesa al final en dispositivos pequeños */
+    }
+  }
+  

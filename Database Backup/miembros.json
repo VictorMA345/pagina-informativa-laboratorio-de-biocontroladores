@@ -1,0 +1,163 @@
+[{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b058"
+  },
+  "nombreCompleto": "Ana García López",
+  "rolLaboratorio": "Investigadora",
+  "correo": "ana.garcia@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Femenino",
+  "fotoPerfil": "/miembros/ana_garcia/foto_perfil.jpg",
+  "areaEspecializacion": "Entomología Agrícola",
+  "proyectosParticipacion": [
+    "Desarrollo de Métodos de Control de Plagas",
+    "Estudio de Interacciones Planta-Insecto"
+  ],
+  "publicaciones": [
+    "García, A., Smith, J. (2022). Control biológico de plagas en cultivos.",
+    "Martínez, R., García, A. (2021). Interacciones entre depredadores y presas en agroecosistemas."
+  ],
+  "curriculumDocumento": "/miembros/ana_garcia/curriculum.pdf",
+  "resumen": "Entomóloga con experiencia en el estudio de insectos plagas y su manejo integrado en la agricultura.",
+  "fechaNacimiento": "1990-05-15"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b059"
+  },
+  "nombreCompleto": "Ana García López",
+  "rolLaboratorio": "Investigadora",
+  "correo": "ana.garcia@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Femenino",
+  "fotoPerfil": "/miembros/ana_garcia/foto_perfil.jpg",
+  "areaEspecializacion": "Entomología Agrícola",
+  "proyectosParticipacion": [
+    "Desarrollo de Métodos de Control de Plagas",
+    "Estudio de Interacciones Planta-Insecto"
+  ],
+  "publicaciones": [
+    "García, A., Smith, J. (2022). Control biológico de plagas en cultivos.",
+    "Martínez, R., García, A. (2021). Interacciones entre depredadores y presas en agroecosistemas."
+  ],
+  "curriculumDocumento": "/miembros/ana_garcia/curriculum.pdf",
+  "resumen": "Entomóloga con experiencia en el estudio de insectos plagas y su manejo integrado en la agricultura.",
+  "fechaNacimiento": "1990-05-15"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b05a"
+  },
+  "nombreCompleto": "Juan Pérez Rodríguez",
+  "rolLaboratorio": "Estudiante de Investigación",
+  "correo": "juan.perez@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Masculino",
+  "fotoPerfil": "/miembros/juan_perez/foto_perfil.jpg",
+  "areaEspecializacion": "Biología Molecular",
+  "proyectosParticipacion": [
+    "Estudio de Genética de Insectos Beneficiosos"
+  ],
+  "publicaciones": [],
+  "curriculumDocumento": "/miembros/juan_perez/curriculum.pdf",
+  "resumen": "Estudiante de biología interesado en el estudio de la genética de insectos beneficiosos para la agricultura.",
+  "fechaNacimiento": "1995-10-02"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b05b"
+  },
+  "nombreCompleto": "María Fernández Morales",
+  "rolLaboratorio": "Técnica de Laboratorio",
+  "correo": "maria.fernandez@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Femenino",
+  "fotoPerfil": "/miembros/maria_fernandez/foto_perfil.jpg",
+  "areaEspecializacion": "Microbiología",
+  "proyectosParticipacion": [
+    "Caracterización de Microorganismos Beneficiosos"
+  ],
+  "publicaciones": [],
+  "curriculumDocumento": "/miembros/maria_fernandez/curriculum.pdf",
+  "resumen": "Técnica de laboratorio con experiencia en microbiología y análisis de microorganismos beneficiosos para la agricultura.",
+  "fechaNacimiento": "1988-02-20"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b05c"
+  },
+  "nombreCompleto": "Carlos Rodríguez Soto",
+  "rolLaboratorio": "Investigador Principal",
+  "correo": "carlos.rodriguez@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Masculino",
+  "fotoPerfil": "/miembros/carlos_rodriguez/foto_perfil.jpg",
+  "areaEspecializacion": "Ecología de Paisajes",
+  "proyectosParticipacion": [
+    "Impacto de Prácticas Agrícolas en la Biodiversidad"
+  ],
+  "publicaciones": [
+    "Rodríguez, C., García, A. (2023). Conservación de fauna beneficiosa en agroecosistemas.",
+    "Rodríguez, C., Soto, M. (2022). Evaluación de impacto ambiental en cultivos agroforestales."
+  ],
+  "curriculumDocumento": "/miembros/carlos_rodriguez/curriculum.pdf",
+  "resumen": "Ecólogo con enfoque en la ecología de paisajes agrícolas y su influencia en la biodiversidad.",
+  "fechaNacimiento": "1982-09-12"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b05d"
+  },
+  "nombreCompleto": "Laura Mora Jiménez",
+  "rolLaboratorio": "Coordinadora de Proyectos",
+  "correo": "laura.mora@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Femenino",
+  "fotoPerfil": "/miembros/laura_mora/foto_perfil.jpg",
+  "areaEspecializacion": "Gestión de Proyectos Científicos",
+  "proyectosParticipacion": [
+    "Coordinación de Proyectos de Investigación"
+  ],
+  "publicaciones": [],
+  "curriculumDocumento": "/miembros/laura_mora/curriculum.pdf",
+  "resumen": "Profesional en gestión de proyectos con experiencia en la coordinación de iniciativas científicas y de investigación.",
+  "fechaNacimiento": "1987-07-28"
+},
+{
+  "_id": {
+    "$oid": "64e2aacc1ec0c77c5761b05e"
+  },
+  "nombreCompleto": "Ricardo Navarro Vargas",
+  "rolLaboratorio": "Estudiante en Práctica",
+  "correo": "ricardo.navarro@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Masculino",
+  "fotoPerfil": "/miembros/ricardo_navarro/foto_perfil.jpg",
+  "areaEspecializacion": "Biología de la Conservación",
+  "proyectosParticipacion": [
+    "Monitoreo de Especies Amenazadas"
+  ],
+  "publicaciones": [],
+  "curriculumDocumento": "/miembros/ricardo_navarro/curriculum.pdf",
+  "resumen": "Estudiante apasionado por la biología de la conservación y el monitoreo de especies en peligro.",
+  "fechaNacimiento": "2000-03-10"
+},
+{
+  "_id": {
+    "$oid": "64e2aad71ec0c77c5761b060"
+  },
+  "nombreCompleto": "Andrés Sánchez Ramírez",
+  "rolLaboratorio": "Asistente de Investigación",
+  "correo": "andres.sanchez@example.com",
+  "telefono": "+123-456-7890",
+  "genero": "Masculino",
+  "fotoPerfil": "/miembros/andres_sanchez/foto_perfil.jpg",
+  "areaEspecializacion": "Control Biológico de Plagas",
+  "proyectosParticipacion": [
+    "Desarrollo de Agentes Microbianos para Control de Plagas"
+  ],
+  "publicaciones": [],
+  "curriculumDocumento": "/miembros/andres_sanchez/curriculum.pdf",
+  "resumen": "Apasionado por la investigación en el control biológico de plagas utilizando agentes microbianos.",
+  "fechaNacimiento": "1993-11-25"
+}]

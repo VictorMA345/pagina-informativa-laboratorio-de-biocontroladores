@@ -1,0 +1,19 @@
+/* navbar-styles.css */
+.navbar-custom {
+    background-color: #1D3557; 
+    color: white;
+  }
+  
+  .nav-link-custom {
+    font-size: 18px;
+    color: white !important; 
+    font-weight: bold;
+  }
+  .nav-link-custom:hover {
+    font-size: 18px;
+    color: lightgray !important; 
+    font-weight: bold;
+  }
+  
+  
+ 

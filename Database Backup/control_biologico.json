@@ -1,0 +1,170 @@
+[{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b019"
+  },
+  "nombreInvestigacion": "Control biológico de la mosca blanca",
+  "encargados": [
+    "Ana García",
+    "Carlos Martínez"
+  ],
+  "fechaPublicacion": "2023-07-15",
+  "textoExplicativo": "Esta investigación se centra en el desarrollo de estrategias de control biológico para la mosca blanca, una plaga que afecta a varios cultivos. El equipo liderado por Ana García y Carlos Martínez ha explorado la introducción de parasitoides naturales y el uso de microorganismos beneficiosos para reducir la población de mosca blanca de manera sostenible.",
+  "imagenes": [
+    "/images/investigacion_mosca_blanca_1.jpg",
+    "/images/investigacion_mosca_blanca_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_mosca_blanca.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01a"
+  },
+  "nombreInvestigacion": "Uso de feromonas en el control de polillas",
+  "encargados": [
+    "Elena López",
+    "Andrés Jiménez"
+  ],
+  "fechaPublicacion": "2023-06-20",
+  "textoExplicativo": "En esta investigación, Elena López y Andrés Jiménez exploran la aplicación de feromonas para el control de polillas que dañan cultivos de manera significativa. El estudio abarca la identificación de feromonas específicas, su síntesis y su implementación en sistemas de monitoreo y confusión sexual para reducir las infestaciones de polillas.",
+  "imagenes": [
+    "/images/investigacion_polillas_1.jpg",
+    "/images/investigacion_polillas_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_polillas.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01b"
+  },
+  "nombreInvestigacion": "Efecto de microorganismos en el control de nematodos",
+  "encargados": [
+    "María Torres",
+    "Diego Herrera"
+  ],
+  "fechaPublicacion": "2023-08-10",
+  "textoExplicativo": "María Torres y Diego Herrera lideran esta investigación centrada en el uso de microorganismos beneficiosos para el control de nematodos en cultivos. El estudio aborda la interacción entre microorganismos y nematodos en el suelo, con el objetivo de desarrollar soluciones de control efectivas y sustentables.",
+  "imagenes": [
+    "/images/investigacion_nematodos_1.jpg",
+    "/images/investigacion_nematodos_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_nematodos.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01c"
+  },
+  "nombreInvestigacion": "Conservación de depredadores naturales en paisajes agrícolas",
+  "encargados": [
+    "Hugo Pérez",
+    "Laura Vargas"
+  ],
+  "fechaPublicacion": "2023-07-02",
+  "textoExplicativo": "Hugo Pérez y Laura Vargas colaboran en esta investigación que explora la conservación de depredadores naturales en entornos agrícolas. El estudio examina cómo la planificación del paisaje puede influir en la presencia y eficacia de depredadores para el control de plagas en cultivos.",
+  "imagenes": [
+    "/images/investigacion_depredadores_1.jpg",
+    "/images/investigacion_depredadores_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_depredadores.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01d"
+  },
+  "nombreInvestigacion": "Bioinsecticidas a base de microbios",
+  "encargados": [
+    "Sofía Torres",
+    "Daniel Ramírez"
+  ],
+  "fechaPublicacion": "2023-06-15",
+  "textoExplicativo": "Sofía Torres y Daniel Ramírez colaboran en la investigación de bioinsecticidas formulados con microorganismos. El estudio se centra en la selección y evaluación de microbios con potencial insecticida y su formulación en productos efectivos y seguros para el control de plagas en diferentes cultivos.",
+  "imagenes": [
+    "/images/investigacion_bioinsecticidas_1.jpg",
+    "/images/investigacion_bioinsecticidas_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_bioinsecticidas.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01e"
+  },
+  "nombreInvestigacion": "Manejo integrado de enfermedades en cultivos",
+  "encargados": [
+    "Isabel López",
+    "María Fernanda Soto"
+  ],
+  "fechaPublicacion": "2023-05-20",
+  "textoExplicativo": "Isabel López y María Fernanda Soto lideran esta investigación que aborda el manejo integrado de enfermedades en cultivos. El estudio combina estrategias biológicas, químicas y culturales para prevenir y controlar enfermedades en sistemas agrícolas, reduciendo la necesidad de pesticidas convencionales.",
+  "imagenes": [
+    "/images/investigacion_enfermedades_1.jpg",
+    "/images/investigacion_enfermedades_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_enfermedades.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b01f"
+  },
+  "nombreInvestigacion": "Conservación de polinizadores en paisajes agrícolas",
+  "encargados": [
+    "Luisa Rodríguez",
+    "Alejandro Fernández"
+  ],
+  "fechaPublicacion": "2023-04-10",
+  "textoExplicativo": "Luisa Rodríguez y Alejandro Fernández investigan la conservación de polinizadores en ambientes agrícolas. La investigación se enfoca en la promoción de hábitats y prácticas que favorezcan a polinizadores nativos, contribuyendo a la polinización efectiva y a la producción de cultivos.",
+  "imagenes": [
+    "/images/investigacion_polinizadores_1.jpg",
+    "/images/investigacion_polinizadores_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_polinizadores.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b020"
+  },
+  "nombreInvestigacion": "Control biológico en sistemas hidropónicos",
+  "encargados": [
+    "Andrés Jiménez",
+    "Laura Vargas"
+  ],
+  "fechaPublicacion": "2023-03-05",
+  "textoExplicativo": "Andrés Jiménez y Laura Vargas investigan la implementación de estrategias de control biológico en sistemas hidropónicos. El estudio evalúa la eficacia de agentes de biocontrol y microorganismos benéficos en ambientes hidropónicos, ofreciendo alternativas sostenibles para la protección de cultivos.",
+  "imagenes": [
+    "/images/investigacion_hidroponicos_1.jpg",
+    "/images/investigacion_hidroponicos_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_hidroponicos.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b021"
+  },
+  "nombreInvestigacion": "Control de ácaros en cultivos hortícolas",
+  "encargados": [
+    "Carlos Martínez",
+    "Elena López"
+  ],
+  "fechaPublicacion": "2023-02-01",
+  "textoExplicativo": "Carlos Martínez y Elena López lideran esta investigación que se enfoca en el desarrollo de estrategias de control biológico para la gestión de ácaros en cultivos hortícolas. El estudio explora la utilización de ácaros depredadores y hongos entomopatógenos como alternativas efectivas a los pesticidas convencionales.",
+  "imagenes": [
+    "/images/investigacion_acaros_1.jpg",
+    "/images/investigacion_acaros_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_acaros.pdf"
+},
+{
+  "_id": {
+    "$oid": "64e2a7fd1ec0c77c5761b022"
+  },
+  "nombreInvestigacion": "Resistencia de plantas a plagas y enfermedades",
+  "encargados": [
+    "Alejandro Fernández",
+    "María Torres"
+  ],
+  "fechaPublicacion": "2023-01-10",
+  "textoExplicativo": "Alejandro Fernández y María Torres investigan los mecanismos de resistencia de las plantas a plagas y enfermedades. El estudio aborda la identificación de genes y compuestos bioquímicos que contribuyen a la defensa de las plantas, con el objetivo de mejorar la selección y desarrollo de variedades resistentes.",
+  "imagenes": [
+    "/images/investigacion_resistencia_1.jpg",
+    "/images/investigacion_resistencia_2.jpg"
+  ],
+  "documentoDetallado": "/documents/investigacion_resistencia.pdf"
+}]

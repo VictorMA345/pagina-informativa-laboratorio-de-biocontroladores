@@ -1,0 +1,208 @@
+[{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00a"
+  },
+  "nombreCompleto": "Ana García",
+  "listaDeEstudios": [
+    "Licenciatura en Biología",
+    "Máster en Entomología"
+  ],
+  "proyectosColaborados": [
+    "Control de plagas en cultivos",
+    "Investigación de depredadores naturales"
+  ],
+  "fotoPerfil": "/images/ana_garcia.jpg",
+  "descripcion": "Ana García es una bióloga especializada en entomología. Su pasión por los insectos y su conocimiento profundo sobre los ciclos de vida de los depredadores naturales la han convertido en una pieza fundamental en nuestro laboratorio. Ha colaborado en varios proyectos exitosos de control biológico de plagas y es conocida por su dedicación y determinación en el campo de la investigación."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00b"
+  },
+  "nombreCompleto": "Carlos Martínez",
+  "listaDeEstudios": [
+    "Ingeniería Agronómica",
+    "Doctorado en Genética Vegetal"
+  ],
+  "proyectosColaborados": [
+    "Desarrollo de cultivos resistentes",
+    "Investigación de resistencia a pesticidas"
+  ],
+  "fotoPerfil": "/images/carlos_martinez.jpg",
+  "descripcion": "Carlos Martínez es un agrónomo con experiencia en genética de cultivos. Ha desempeñado un papel esencial en nuestro laboratorio al investigar y desarrollar cultivos resistentes a plagas y enfermedades. Su enfoque en la sostenibilidad agrícola y la seguridad alimentaria lo convierten en un valioso colaborador en la búsqueda de soluciones innovadoras para la agricultura."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00c"
+  },
+  "nombreCompleto": "Elena López",
+  "listaDeEstudios": [
+    "Microbiología Aplicada",
+    "Máster en Biotecnología Agrícola"
+  ],
+  "proyectosColaborados": [
+    "Desarrollo de agentes de biocontrol",
+    "Investigación de microorganismos beneficiosos"
+  ],
+  "fotoPerfil": "/images/elena_lopez.jpg",
+  "descripcion": "Elena López es una microbióloga apasionada por la biotecnología aplicada a la agricultura. Su experiencia en la identificación y selección de microorganismos beneficiosos ha sido fundamental en el desarrollo de nuestros agentes de biocontrol. Elena es conocida por su creatividad en el diseño de estrategias para mejorar la salud del suelo y el rendimiento de los cultivos."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00d"
+  },
+  "nombreCompleto": "Luisa Rodríguez",
+  "listaDeEstudios": [
+    "Biología Marina",
+    "Máster en Ecología Acuática"
+  ],
+  "proyectosColaborados": [
+    "Restauración de ecosistemas acuáticos",
+    "Control de plagas en ambientes marinos"
+  ],
+  "fotoPerfil": "/images/luisa_rodriguez.jpg",
+  "descripcion": "Luisa Rodríguez es una bióloga marina con experiencia en ecología acuática. Su dedicación a la conservación de ecosistemas acuáticos y su habilidad para diseñar estrategias de control de plagas en ambientes marinos la convierten en una valiosa colaboradora. Ha liderado proyectos exitosos de restauración de hábitats marinos y es reconocida por su pasión por la vida marina."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00e"
+  },
+  "nombreCompleto": "Alejandro Fernández",
+  "listaDeEstudios": [
+    "Agronomía Sostenible",
+    "Máster en Agroecología"
+  ],
+  "proyectosColaborados": [
+    "Promoción de prácticas agrícolas sostenibles",
+    "Investigación de polinizadores nativos"
+  ],
+  "fotoPerfil": "/images/alejandro_fernandez.jpg",
+  "descripcion": "Alejandro Fernández es un experto en agronomía sostenible y agroecología. Su enfoque en la promoción de prácticas agrícolas respetuosas con el medio ambiente ha tenido un impacto positivo en la comunidad agrícola local. Ha liderado proyectos de investigación sobre la importancia de los polinizadores nativos en la producción de alimentos y es un defensor apasionado de la agricultura regenerativa."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b00f"
+  },
+  "nombreCompleto": "María Torres",
+  "listaDeEstudios": [
+    "Zoología",
+    "Doctorado en Comportamiento Animal"
+  ],
+  "proyectosColaborados": [
+    "Estudio del comportamiento de depredadores",
+    "Control biológico en áreas urbanas"
+  ],
+  "fotoPerfil": "/images/maria_torres.jpg",
+  "descripcion": "María Torres es una zoóloga con experiencia en el estudio del comportamiento animal. Sus investigaciones sobre los hábitos de depredadores y su interacción con el entorno han contribuido al desarrollo de estrategias efectivas de control biológico en áreas urbanas. María es conocida por su habilidad para observar y analizar patrones de comportamiento animal de manera minuciosa."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b010"
+  },
+  "nombreCompleto": "Andrés Jiménez",
+  "listaDeEstudios": [
+    "Biotecnología",
+    "Máster en Ingeniería Genética"
+  ],
+  "proyectosColaborados": [
+    "Desarrollo de agentes microbianos para biocontrol",
+    "Búsqueda de genes de resistencia"
+  ],
+  "fotoPerfil": "/images/andres_jimenez.jpg",
+  "descripcion": "Andrés Jiménez es un experto en biotecnología con énfasis en ingeniería genética. Su experiencia en la modificación de microorganismos para el control biológico de plagas ha sido fundamental en el desarrollo de nuestros agentes microbianos. Andrés es un apasionado por la búsqueda de genes de resistencia y su aplicación en la agricultura sostenible."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b011"
+  },
+  "nombreCompleto": "Laura Vargas",
+  "listaDeEstudios": [
+    "Ciencias Ambientales",
+    "Máster en Gestión de Recursos Naturales"
+  ],
+  "proyectosColaborados": [
+    "Monitoreo de impacto ambiental en cultivos",
+    "Promoción de prácticas de conservación"
+  ],
+  "fotoPerfil": "/images/laura_vargas.jpg",
+  "descripcion": "Laura Vargas es una especialista en ciencias ambientales con un enfoque en la gestión de recursos naturales. Ha liderado proyectos de monitoreo de impacto ambiental en cultivos y promoción de prácticas de conservación en la agricultura. Su compromiso con la sostenibilidad y la educación ambiental ha inspirado a otros a adoptar prácticas más responsables."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b012"
+  },
+  "nombreCompleto": "Diego Herrera",
+  "listaDeEstudios": [
+    "Biología Molecular",
+    "Doctorado en Genómica de Microorganismos"
+  ],
+  "proyectosColaborados": [
+    "Secuenciación de genomas de microorganismos",
+    "Optimización de agentes de control biológico"
+  ],
+  "fotoPerfil": "/images/diego_herrera.jpg",
+  "descripcion": "Diego Herrera es un biólogo molecular con amplia experiencia en genómica de microorganismos. Su trabajo en la secuenciación de genomas de microbios benéficos ha contribuido al desarrollo de agentes de control biológico más eficientes. Diego es conocido por su enfoque meticuloso y su pasión por desentrañar los secretos genéticos de los microorganismos."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b013"
+  },
+  "nombreCompleto": "Isabel López",
+  "listaDeEstudios": [
+    "Entomología",
+    "Máster en Taxonomía de Insectos"
+  ],
+  "proyectosColaborados": [
+    "Identificación de insectos benéficos",
+    "Control de plagas en invernaderos"
+  ],
+  "fotoPerfil": "/images/isabel_lopez.jpg",
+  "descripcion": "Isabel López es una entomóloga con experiencia en la identificación de insectos benéficos. Su habilidad para distinguir entre especies y evaluar su impacto en los cultivos ha sido esencial para el control de plagas en invernaderos. Isabel es reconocida por su pasión por los insectos y su compromiso con la salud de los cultivos."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b014"
+  },
+  "nombreCompleto": "Daniel Ramírez",
+  "listaDeEstudios": [
+    "Ingeniería en Alimentos",
+    "Máster en Tecnología de Alimentos"
+  ],
+  "proyectosColaborados": [
+    "Desarrollo de formulaciones de biopesticidas",
+    "Evaluación de seguridad alimentaria"
+  ],
+  "fotoPerfil": "/images/daniel_ramirez.jpg",
+  "descripcion": "Daniel Ramírez es un ingeniero en alimentos con experiencia en tecnología de alimentos. Ha contribuido al desarrollo de formulaciones de biopesticidas seguros y efectivos para la protección de los cultivos. Su enfoque en la seguridad alimentaria y la minimización de impactos ambientales lo convierten en un activo importante en nuestra búsqueda de soluciones sustentables."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b015"
+  },
+  "nombreCompleto": "María Fernanda Soto",
+  "listaDeEstudios": [
+    "Biología Molecular",
+    "Doctorado en Biotecnología Vegetal"
+  ],
+  "proyectosColaborados": [
+    "Modificación genética de cultivos",
+    "Investigación de genes de resistencia"
+  ],
+  "fotoPerfil": "/images/maria_fernanda_soto.jpg",
+  "descripcion": "María Fernanda Soto es una experta en biología molecular con enfoque en biotecnología vegetal. Ha liderado proyectos de modificación genética de cultivos para mejorar su resistencia a plagas y enfermedades. Su pasión por la investigación y su habilidad en la manipulación genética la convierten en una valiosa colaboradora en la búsqueda de soluciones agrícolas innovadoras."
+},
+{
+  "_id": {
+    "$oid": "64e2a7bd1ec0c77c5761b016"
+  },
+  "nombreCompleto": "Hugo Pérez",
+  "listaDeEstudios": [
+    "Ecología",
+    "Máster en Conservación de la Biodiversidad"
+  ],
+  "proyectosColaborados": [
+    "Restauración de hábitats naturales",
+    "Evaluación de impacto ambiental"
+  ],
+  "fotoPerfil": "/images/hugo_perez.jpg",
+  "descripcion": "Hugo Pérez es un ecólogo con experiencia en conservación de la biodiversidad. Ha contribuido a la restauración de hábitats naturales y a la evaluación de impacto ambiental en proyectos agrícolas. Hugo es un defensor apasionado de la coexistencia entre la agricultura y la biodiversidad, y su trabajo busca equilibrar la producción y la conservación."
+}]

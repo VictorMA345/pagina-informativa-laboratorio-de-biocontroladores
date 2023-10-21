@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b04e"
+  },
+  "nombreServicio": "Análisis de Control Biológico",
+  "descripcion": "Realizamos análisis exhaustivos de control biológico para identificar y combatir plagas de manera efectiva.",
+  "tipoServicio": "Análisis de Plagas",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/analisis_control_biologico/foto1.jpg",
+    "/servicios/analisis_control_biologico/foto2.jpg",
+    "/servicios/analisis_control_biologico/foto3.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b04f"
+  },
+  "nombreServicio": "Análisis de Control Biológico",
+  "descripcion": "Realizamos análisis exhaustivos de control biológico para identificar y combatir plagas de manera efectiva.",
+  "tipoServicio": "Análisis de Plagas",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/analisis_control_biologico/foto1.jpg",
+    "/servicios/analisis_control_biologico/foto2.jpg",
+    "/servicios/analisis_control_biologico/foto3.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b050"
+  },
+  "nombreServicio": "Asesoramiento Técnico en Agricultura Sostenible",
+  "descripcion": "Ofrecemos asesoramiento técnico para implementar prácticas de agricultura sostenible y respetuosa con el medio ambiente.",
+  "tipoServicio": "Asesoramiento",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/asesoramiento_agricultura_sostenible/foto1.jpg",
+    "/servicios/asesoramiento_agricultura_sostenible/foto2.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b051"
+  },
+  "nombreServicio": "Identificación de Plagas y Enfermedades",
+  "descripcion": "Utilizamos técnicas avanzadas para identificar plagas y enfermedades que afectan a los cultivos y proponemos soluciones.",
+  "tipoServicio": "Identificación de Plagas",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/identificacion_plagas/foto1.jpg",
+    "/servicios/identificacion_plagas/foto2.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b052"
+  },
+  "nombreServicio": "Capacitación en Biocontrol",
+  "descripcion": "Ofrecemos programas de capacitación en técnicas de control biológico para agricultores y profesionales del sector.",
+  "tipoServicio": "Capacitación",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/capacitacion_biocontrol/foto1.jpg",
+    "/servicios/capacitacion_biocontrol/foto2.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9d61ec0c77c5761b053"
+  },
+  "nombreServicio": "Monitoreo de Fauna Beneficiosa",
+  "descripcion": "Realizamos monitoreo y estudio de la fauna beneficiosa para promover su presencia en los cultivos.",
+  "tipoServicio": "Monitoreo de Fauna",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/monitoreo_fauna_beneficiosa/foto1.jpg",
+    "/servicios/monitoreo_fauna_beneficiosa/foto2.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+},
+{
+  "_id": {
+    "$oid": "64e2a9de1ec0c77c5761b055"
+  },
+  "nombreServicio": "Evaluación de Efectividad de Bioinsecticidas",
+  "descripcion": "Realizamos pruebas y evaluaciones de bioinsecticidas para determinar su eficacia en el control de plagas específicas.",
+  "tipoServicio": "Evaluación de Efectividad",
+  "informacionContacto": {
+    "telefono": "+123-456-7890",
+    "correoElectronico": "contacto@lab-biocontroladores.com"
+  },
+  "fotosServicio": [
+    "/servicios/evaluacion_efectividad_bioinsecticidas/foto1.jpg",
+    "/servicios/evaluacion_efectividad_bioinsecticidas/foto2.jpg"
+  ],
+  "fechaPublicacion": "2023-08-16"
+}]

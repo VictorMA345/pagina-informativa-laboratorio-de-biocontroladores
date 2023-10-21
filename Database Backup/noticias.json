@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b025"
+  },
+  "titulo": "Nuevos Avances en el Control de Plagas",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "El Laboratorio de Biocontroladores anuncia avances emocionantes en el desarrollo de estrategias de control de plagas sostenibles...",
+  "imagenes": [
+    "/images/noticia_avances_1.jpg",
+    "/images/noticia_avances_2.jpg"
+  ],
+  "categoria": "Avances Científicos",
+  "citasBibliograficas": [
+    "Smith, J. et al. (2023). Sustainable Pest Control Methods. Journal of Agricultural Science, 45(2), 200-215.",
+    "García, A. et al. (2023). Innovations in Pest Management. Biocontrol Research, 12(4), 450-468."
+  ],
+  "textoCompleto": "El Laboratorio de Biocontroladores se complace en anunciar...",
+  "documentoComplementario": "/documents/noticia_avances_completo.pdf",
+  "fechaPublicacion": "2023-08-25"
+},
+{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b026"
+  },
+  "titulo": "Descubrimiento de Nuevo Agente Bioinsecticida",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "Los científicos del Laboratorio de Biocontroladores han identificado un nuevo agente bioinsecticida...",
+  "imagenes": [
+    "/images/noticia_bioinsecticida_1.jpg",
+    "/images/noticia_bioinsecticida_2.jpg"
+  ],
+  "categoria": "Avances Científicos",
+  "citasBibliograficas": [
+    "Martínez, C. et al. (2023). Novel Bioinsecticide from Microbial Isolates. Pest Management Science, 50(3), 300-315.",
+    "López, E. et al. (2023). Potential of Bioinsecticides in Pest Control. Journal of Biological Control, 8(2), 180-195."
+  ],
+  "textoCompleto": "Los investigadores del Laboratorio de Biocontroladores han logrado un hito...",
+  "documentoComplementario": "/documents/noticia_bioinsecticida_completo.pdf",
+  "fechaPublicacion": "2023-09-10"
+},
+{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b027"
+  },
+  "titulo": "Evento de Conferencia Internacional en Biocontrol",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "El Laboratorio de Biocontroladores anuncia la participación en la Conferencia Internacional sobre Control Biológico...",
+  "imagenes": [
+    "/images/noticia_conferencia_1.jpg",
+    "/images/noticia_conferencia_2.jpg"
+  ],
+  "categoria": "Eventos y Conferencias",
+  "citasBibliograficas": [],
+  "textoCompleto": "El Laboratorio de Biocontroladores se enorgullece de...",
+  "documentoComplementario": null,
+  "fechaPublicacion": "2023-08-15"
+},
+{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b028"
+  },
+  "titulo": "Colaboración Exitosa en Proyecto de Conservación",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "El Laboratorio de Biocontroladores celebra el éxito de su colaboración en un proyecto de conservación...",
+  "imagenes": [
+    "/images/noticia_colaboracion_1.jpg",
+    "/images/noticia_colaboracion_2.jpg"
+  ],
+  "categoria": "Logros y Colaboraciones",
+  "citasBibliograficas": [
+    "Torres, M. et al. (2023). Collaborative Approaches in Biodiversity Conservation. Conservation Biology, 25(5), 600-615.",
+    "Fernández, A. et al. (2023). Synergistic Conservation Efforts in Biocontrol. Journal of Conservation Science, 10(3), 320-335."
+  ],
+  "textoCompleto": "El Laboratorio de Biocontroladores se complace en...",
+  "documentoComplementario": null,
+  "fechaPublicacion": "2023-07-05"
+},
+{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b029"
+  },
+  "titulo": "Descubrimiento de Nuevos Agentes de Control Biológico",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "El Laboratorio de Biocontroladores anuncia el emocionante descubrimiento de varios nuevos agentes de control biológico...",
+  "imagenes": [
+    "/images/noticia_descubrimiento_1.jpg",
+    "/images/noticia_descubrimiento_2.jpg"
+  ],
+  "categoria": "Avances Científicos",
+  "citasBibliograficas": [
+    "Ramírez, D. et al. (2023). Biocontrol Agents from Natural Habitats. Ecological Applications, 18(4), 400-415.",
+    "Vargas, L. et al. (2023). Exploring Novel Biocontrol Candidates. Journal of Applied Entomology, 15(1), 120-135."
+  ],
+  "textoCompleto": "El Laboratorio de Biocontroladores ha hecho un importante...",
+  "documentoComplementario": null,
+  "fechaPublicacion": "2023-06-20"
+},
+{
+  "_id": {
+    "$oid": "64e2a83b1ec0c77c5761b02a"
+  },
+  "titulo": "Celebración del Día Internacional de la Biodiversidad",
+  "publicador": "Laboratorio de Biocontroladores",
+  "resumen": "El Laboratorio de Biocontroladores se une a la celebración del Día Internacional de la Biodiversidad...",
+  "imagenes": [
+    "/images/noticia_biodiversidad_1.jpg",
+    "/images/noticia_biodiversidad_2.jpg"
+  ],
+  "categoria": "Eventos y Celebraciones",
+  "citasBibliograficas": [],
+  "textoCompleto": "En honor al Día Internacional de la Biodiversidad...",
+  "documentoComplementario": null,
+  "fechaPublicacion": "2023-05-22"
+}]

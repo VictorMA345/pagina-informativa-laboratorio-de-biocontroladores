@@ -1,0 +1,205 @@
+[{
+  "_id": {
+    "$oid": "64e2a9211ec0c77c5761b03a"
+  },
+  "investigadores": [
+    "Ana Pérez",
+    "Carlos Rodríguez",
+    "María Gutiérrez"
+  ],
+  "tituloProyecto": "Desarrollo de Métodos de Control Biológico para Plagas Agrícolas",
+  "fechaInicio": "2022-03-15",
+  "fechaFinalizacion": "2023-09-30",
+  "referencias": [
+    "González, R. et al. (2021). Biological Control Strategies. Journal of Agricultural Science, 45(3), 200-215.",
+    "Martínez, A. et al. (2022). Sustainable Pest Management. Pest Management Science, 12(4), 350-365."
+  ],
+  "revista": "Journal of Pest Management",
+  "descripcionProyecto": "Este proyecto tiene como objetivo desarrollar métodos de control biológico...",
+  "imagenes": [
+    "/proyectos/proyecto1/imagen_1.jpg",
+    "/proyectos/proyecto1/imagen_2.jpg"
+  ],
+  "documentos": [
+    "/proyectos/proyecto1/documento_1.pdf",
+    "/proyectos/proyecto1/documento_2.docx"
+  ],
+  "financiamiento": "Consejo Nacional de Investigaciones Científicas y Tecnológicas (CONICIT)",
+  "resumenProyecto": "El proyecto se enfoca en investigar y desarrollar estrategias...",
+  "anioProyecto": 2023,
+  "areasInvestigacion": [
+    "Agricultura",
+    "Ecología"
+  ],
+  "resultadosObtenidos": "Hasta el momento, se han identificado varias especies...",
+  "palabrasClave": [
+    "Control Biológico",
+    "Plagas Agrícolas",
+    "Sostenibilidad"
+  ],
+  "institucion": "Instituto Tecnológico de Costa Rica (ITCR)"
+},
+{
+  "_id": {
+    "$oid": "64e2a9211ec0c77c5761b03b"
+  },
+  "investigadores": [
+    "Luis Hernández",
+    "Elena Ramírez",
+    "Jorge Morales"
+  ],
+  "tituloProyecto": "Evaluación de Microorganismos Beneficiosos para el Control de Enfermedades en Cultivos",
+  "fechaInicio": "2023-01-10",
+  "fechaFinalizacion": "2024-06-30",
+  "referencias": [
+    "Smith, M. et al. (2022). Beneficial Microorganisms for Crop Disease Management. Plant Pathology, 32(2), 150-165.",
+    "García, E. et al. (2023). Biocontrol Strategies against Plant Pathogens. Annual Review of Phytopathology, 15(1), 80-95."
+  ],
+  "revista": "Journal of Plant Pathology",
+  "descripcionProyecto": "El objetivo de este proyecto es evaluar el potencial de microorganismos...",
+  "imagenes": [
+    "/proyectos/proyecto2/imagen_1.jpg",
+    "/proyectos/proyecto2/imagen_2.jpg"
+  ],
+  "documentos": [
+    "/proyectos/proyecto2/documento_1.pdf",
+    "/proyectos/proyecto2/documento_2.docx"
+  ],
+  "financiamiento": "Fondo Nacional de Ciencia y Tecnología (FONACIT)",
+  "resumenProyecto": "El proyecto busca identificar y seleccionar microorganismos...",
+  "anioProyecto": 2024,
+  "areasInvestigacion": [
+    "Agricultura",
+    "Biología"
+  ],
+  "resultadosObtenidos": "Hasta el momento, se han identificado dos cepas bacterianas...",
+  "palabrasClave": [
+    "Microorganismos Beneficiosos",
+    "Control de Enfermedades",
+    "Agricultura Sostenible"
+  ],
+  "institucion": "Instituto Tecnológico de Costa Rica (ITCR)"
+},
+{
+  "_id": {
+    "$oid": "64e2a9211ec0c77c5761b03c"
+  },
+  "investigadores": [
+    "Laura Martínez",
+    "Pedro Fernández",
+    "María Rodríguez"
+  ],
+  "tituloProyecto": "Desarrollo de Tecnologías de Monitoreo para la Conservación de Especies en Peligro",
+  "fechaInicio": "2022-09-20",
+  "fechaFinalizacion": "2023-12-15",
+  "referencias": [
+    "López, R. et al. (2021). Technology for Species Conservation. Conservation Biology, 25(4), 300-315.",
+    "González, A. et al. (2022). Innovative Approaches for Wildlife Monitoring. Ecological Applications, 10(3), 250-265."
+  ],
+  "revista": "Journal of Conservation Technology",
+  "descripcionProyecto": "El proyecto tiene como objetivo desarrollar tecnologías de monitoreo...",
+  "imagenes": [
+    "/proyectos/proyecto3/imagen_1.jpg",
+    "/proyectos/proyecto3/imagen_2.jpg"
+  ],
+  "documentos": [
+    "/proyectos/proyecto3/documento_1.pdf",
+    "/proyectos/proyecto3/documento_2.docx"
+  ],
+  "financiamiento": "Ministerio de Ambiente y Energía (MINAE)",
+  "resumenProyecto": "Se busca crear soluciones tecnológicas que permitan monitorear...",
+  "anioProyecto": 2023,
+  "areasInvestigacion": [
+    "Conservación",
+    "Tecnología"
+  ],
+  "resultadosObtenidos": "Hasta el momento, se ha desarrollado un prototipo de sensor...",
+  "palabrasClave": [
+    "Monitoreo de Especies",
+    "Conservación",
+    "Tecnologías Innovadoras"
+  ],
+  "institucion": "Instituto Tecnológico de Costa Rica (ITCR)"
+},
+{
+  "_id": {
+    "$oid": "64e2a9211ec0c77c5761b03d"
+  },
+  "investigadores": [
+    "Andrés Ramírez",
+    "María Fernández",
+    "Javier Castro"
+  ],
+  "tituloProyecto": "Impacto de la Contaminación en Ecosistemas Acuáticos",
+  "fechaInicio": "2023-06-01",
+  "fechaFinalizacion": "",
+  "referencias": [
+    "Fuentes, L. et al. (2022). Aquatic Ecosystem Pollution Effects. Environmental Science and Pollution Research, 28(5), 400-415.",
+    "Hernández, P. et al. (2023). Assessing Water Contamination Impacts. Aquatic Toxicology, 15(2), 180-195."
+  ],
+  "revista": "Journal of Aquatic Ecology",
+  "descripcionProyecto": "Este proyecto busca analizar el impacto de la contaminación...",
+  "imagenes": [
+    "/proyectos/proyecto4/imagen_1.jpg",
+    "/proyectos/proyecto4/imagen_2.jpg"
+  ],
+  "documentos": [
+    "/proyectos/proyecto4/documento_1.pdf",
+    "/proyectos/proyecto4/documento_2.docx"
+  ],
+  "financiamiento": "Recursos Propios del Laboratorio",
+  "resumenProyecto": "Se pretende evaluar cómo la contaminación afecta la calidad...",
+  "anioProyecto": null,
+  "areasInvestigacion": [
+    "Ecología",
+    "Contaminación Ambiental"
+  ],
+  "resultadosObtenidos": "Aunque el proyecto se encuentra en ejecución, se han identificado...",
+  "palabrasClave": [
+    "Contaminación Acuática",
+    "Ecosistemas Acuáticos",
+    "Impacto Ambiental"
+  ],
+  "institucion": "Instituto Tecnológico de Costa Rica (ITCR)"
+},
+{
+  "_id": {
+    "$oid": "64e2a9211ec0c77c5761b03e"
+  },
+  "investigadores": [
+    "Sofía Martínez",
+    "Juan Carlos Gómez",
+    "María Pérez"
+  ],
+  "tituloProyecto": "Desarrollo de Agentes Biológicos para el Control de Plagas en Cultivos Hortícolas",
+  "fechaInicio": "2023-02-10",
+  "fechaFinalizacion": "2024-11-30",
+  "referencias": [
+    "González, R. et al. (2022). Biological Agents for Crop Pest Management. Crop Protection, 35(3), 220-235.",
+    "Martínez, A. et al. (2023). Biopesticides: Current Trends and Future Prospects. Trends in Biotechnology, 18(4), 280-295."
+  ],
+  "revista": "Journal of Crop Science",
+  "descripcionProyecto": "El proyecto tiene como objetivo desarrollar agentes biológicos...",
+  "imagenes": [
+    "/proyectos/proyecto5/imagen_1.jpg",
+    "/proyectos/proyecto5/imagen_2.jpg"
+  ],
+  "documentos": [
+    "/proyectos/proyecto5/documento_1.pdf",
+    "/proyectos/proyecto5/documento_2.docx"
+  ],
+  "financiamiento": "Ministerio de Agricultura y Ganadería (MAG)",
+  "resumenProyecto": "Se busca crear soluciones de control de plagas más sostenibles...",
+  "anioProyecto": 2024,
+  "areasInvestigacion": [
+    "Agricultura",
+    "Biología"
+  ],
+  "resultadosObtenidos": "Hasta el momento, se ha identificado una cepa bacteriana...",
+  "palabrasClave": [
+    "Control de Plagas",
+    "Agentes Biológicos",
+    "Agricultura Sostenible"
+  ],
+  "institucion": "Instituto Tecnológico de Costa Rica (ITCR)"
+}]

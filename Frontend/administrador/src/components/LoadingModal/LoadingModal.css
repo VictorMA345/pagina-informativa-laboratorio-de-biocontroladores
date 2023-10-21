@@ -1,0 +1,18 @@
+.custom-loading-modal {
+    background: rgba(0, 0, 0, 0.5); /* Fondo difuminado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+.custom-loading-modal-body{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bolder;
+    font-size: x-large;
+    color: black;
+    padding: 50px;
+}

@@ -70,10 +70,6 @@ const postServicio = async (req, res) => {
     if (tipoServicio.length >= 150){
       return res.status(400).json({error: "El nombre es muy largo. por favor usar un nombre más corto"})
     }
-    const contieneSimbolos = /[^A-Za-z0-9\s]/.test(tipoServicio);
-    if (contieneSimbolos){
-      return res.status(400).json({error: "Los tipos de servicio no puede contener símbolos"})
-    }
 
     if (correoElectronico === ""){
       return res.status(400).json({error: "No se puede crear un servicio sin un correo electrónico válido."})
@@ -172,10 +168,6 @@ const patchServicio = async (req, res) => {
   }
   if (req.body.tipoServicio.length >= 150){
     return res.status(400).json({error: "El nombre es muy largo. por favor usar un nombre más corto"})
-  }
-  const contieneSimbolos = /[^A-Za-z0-9\s]/.test(req.body.tipoServicio);
-  if (contieneSimbolos){
-    return res.status(400).json({error: "Los tipos de servicio no puede contener símbolos"})
   }
 
   if (req.body.correoElectronico === ""){

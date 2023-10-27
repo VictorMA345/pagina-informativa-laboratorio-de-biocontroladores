@@ -1,0 +1,13 @@
+.contact-modal-send-button{
+    border: 0;
+    background-color: #1D3557;
+    width: 50%;
+}
+.contact-modal-send-button:hover{
+    border: 0;
+    background-color: #3582CE;
+}
+.contact-modal-footer{
+    display: flex;
+    justify-content: center;
+}

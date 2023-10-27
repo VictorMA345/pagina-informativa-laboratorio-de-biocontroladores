@@ -1,0 +1,17 @@
+.no-results-container {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 5rem; /* Reduje el espacio en blanco alrededor del mensaje */
+  }
+  
+  .no-results-label {
+    border: 2px solid #c0c0c0;
+    border-radius: 10px; /* Reduzco el radio para un aspecto más limpio */
+    padding: 2rem; /* Reduzco el espacio interno para un aspecto más compacto */
+    font-size: 1.5rem; /* Reduzco el tamaño de fuente */
+    text-align: center; /* Centra el texto horizontalmente */
+    background-color: #F0F0F0; /* Cambio el color de fondo */
+    color: gray; /* Cambio el color del texto */
+  }

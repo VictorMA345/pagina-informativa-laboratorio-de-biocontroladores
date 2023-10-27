@@ -175,7 +175,7 @@ export const EditModal : React.FC<EditModalInterface> = ({actions,openEditModal,
       const EditObject = async () => {
         setIsLoading(true);
         handleClose();
-        const timeoutMilliseconds = 60000;  
+        const timeoutMilliseconds = 120000;  
         const timeoutId = setTimeout(() => {
           setIsLoading(false);
           setToastStateMsg("No se ha podido editar el documento!")

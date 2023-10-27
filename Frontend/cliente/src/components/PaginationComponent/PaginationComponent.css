@@ -1,0 +1,12 @@
+.page-index-container{
+    min-width: 100%;
+    background-color: #1D3557;
+    padding: 5rem;    
+}
+
+.pagination{
+    min-width: 100%;
+    display: flex;
+    padding: 15px;
+    justify-content: space-evenly ;
+}

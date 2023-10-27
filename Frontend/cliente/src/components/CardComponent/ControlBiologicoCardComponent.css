@@ -1,0 +1,66 @@
+.control-biologico-card-listgroup{
+    border-radius: 0;
+}
+  
+  .control-biologico-card-component {
+    flex: 0 0 calc(33.33% - 10px);
+    margin-bottom: 1rem;
+    width: 18rem;
+    height: 75vh;
+    @media (max-width: 768px) {
+      flex: 0 0 calc(100% - 10px);
+    }
+  }
+  
+.control-biologico-card-listgroup .list-group-item{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0.5rem;
+}
+.control-biologico-card-listgroup .list-group-item label{
+    font-weight: bolder;
+}
+
+
+.control-biologico-card-button{
+    background-color: #1D3557;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid white;
+}
+.control-biologico-card-button-link,
+.control-biologico-card-button-link:hover{
+    text-decoration: none;
+}
+.control-biologico-card-footer{
+    background-color: white;
+}
+
+.control-biologico-card-listgroup h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para el texto explicativo */
+  .control-biologico-card-listgroup p {
+    font-size: 1rem;
+    overflow: hidden;
+    text-indent: 1.5rem;
+    margin-bottom: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Estilo para mostrar el texto completo al hacer hover sobre él */
+  .control-biologico-card-listgroup:hover p {
+    white-space: initial;
+    overflow: initial;
+    text-overflow: initial;
+  }

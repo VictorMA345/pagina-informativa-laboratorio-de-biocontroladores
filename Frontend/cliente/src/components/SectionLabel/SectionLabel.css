@@ -1,0 +1,11 @@
+.section-label-container{
+    width: 80%;
+    margin-left: 0;
+    margin-top: 2rem;
+    text-align: center;
+    color: white;
+    padding: 25px;
+    background-color: #1D3557;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}

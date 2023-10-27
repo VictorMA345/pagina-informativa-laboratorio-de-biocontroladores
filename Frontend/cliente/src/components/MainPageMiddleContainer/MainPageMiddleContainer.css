@@ -1,34 +1,33 @@
 .middle-main-page-container {
-    margin-top: 2rem;
-    background-color: aliceblue;
     display: flex;
-    justify-content: space-between  ;
+    justify-content: space-between;
     min-width: 100%;
+    margin-top: 2rem;
   }
   
-  .middle-main-page-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .image-container {
-    position: relative;
-  }
-  
+
+.image-container{
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg');
+  width: 70%;
+}
   .text-overlay {
     top: 0;
     left: 0;
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
     background-position: center; /* Centra la imagen en el contenedor */
     color: #fff;
     padding: 15px;
+    font-size: 23px;
     width: 100%; /* Ajusta el ancho del texto */
     box-sizing: border-box; /* Incluye el padding en el ancho */
   }
   
   .main-page-image-title {
     text-align: center;
+    
   }
+
+
+
   
+  /* background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg'); Reemplaza 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo¨*/

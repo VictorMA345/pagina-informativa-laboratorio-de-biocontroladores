@@ -1,0 +1,23 @@
+.filters-search-bar{
+    background-color: white;
+    border-radius: 100px;
+    outline: none;
+}
+.search-icon{
+    color: black;
+}
+.search-button{
+    border: 0px;
+    border-radius: 100px;
+    background-color: white;
+}
+.search-button:hover{
+    border: 0px;
+    border-radius: 100px;
+    background-color: #C0C0C0;
+}
+.search-text{
+    outline: none;
+    border: 0px;
+    border-radius: 100px;
+}

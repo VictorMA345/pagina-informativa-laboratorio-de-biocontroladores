@@ -2,7 +2,7 @@ import { Carousel,Button } from 'react-bootstrap';
 import './Carrousel.css'
 export const Carrousel = () => {
   return (
-<div className="container">
+<div className="carrousel-container">
       <div className="row justify-content-center">
         <div className="col-md-8">
           <Carousel interval={5000} fade>

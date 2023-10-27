@@ -1,0 +1,66 @@
+.filters-container {
+    min-width: 100%;
+    background-color: #1D3557;
+    color: white;
+    padding: 25px;
+  }
+  
+  .filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    flex-grow: 1;
+    margin: 10px 0; /* Agregado margen vertical */
+  }
+  
+  .order-container,
+  orderby-container {
+    border-radius: 100px;
+    border: 1px solid white;
+    max-width: fit-content;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 5px; /* Agregado margen vertical y horizontal */
+  }
+  
+  .filter-button-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .clean-filters-button {
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    margin-right: 0px;
+    font-size: 1rem;
+  }
+  
+  .clean-filters-button:hover {
+    border-radius: 100px;
+    background-color: #C0C0C0;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+  }
+  
+  /* Estilo para los dropdown */
+  .dropdown-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  /* Ajuste de margen derecho para la barra de búsqueda */
+  .search-bar-container .search-bar-row .form-control {
+    margin-right: 10px;
+  }
+  

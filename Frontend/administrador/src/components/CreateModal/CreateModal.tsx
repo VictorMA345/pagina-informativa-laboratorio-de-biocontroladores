@@ -54,40 +54,40 @@ export const CreateModal: React.FC<CreateModalInterface> = ({ actions, setCreate
         }
       };
     const handleTextChange = ( event : string,keyName : string) =>{
-        setFormData((prevData) =>({
+        setFormData((prevData: any) =>({
             ...prevData,
             [keyName]: event, 
         })
         )
     }
     const handleCheckBox = (keyName: string,checkBoxKeyName:string,value:boolean) =>{
-        setFormData((prevData) =>({
+        setFormData((prevData : any) =>({
             ...prevData,
             [keyName]: { ...formData[keyName],[checkBoxKeyName] : !value }, 
         }))
     }
     const handleDocumentChange = ( event : any ,keyName : string ) =>{
-        setFormData((prevData) =>({
+        setFormData((prevData: any) =>({
             ...prevData,
             [keyName]: event, 
         }))
     }
     const handleDropDownChange = ( event : string,keyName : string,id?: string) =>{
         if (!id){
-            setFormData((prevData) =>({
+            setFormData((prevData : any ) =>({
                 ...prevData,
                 [keyName]: event, 
             }))
-            setShowForm((prevData) =>({
+            setShowForm((prevData :any) =>({
                 ...prevData,
                 [keyName]: event, 
             }))
         }else{
-            setFormData((prevData) =>({
+            setFormData((prevData: any) =>({
                 ...prevData,
                 [keyName]: id, 
             }))
-            setShowForm((prevData) =>({
+            setShowForm((prevData: any) =>({
                 ...prevData,
                 [keyName]: event, 
             }))
@@ -154,7 +154,7 @@ export const CreateModal: React.FC<CreateModalInterface> = ({ actions, setCreate
             [keyName]: (prevData[keyName] as any[]).filter((_, index) => index !== indexToRemove),
           }));
       };
-      const addTags = (event: string, keyName: string, id?: string, ActionEvent?: React.KeyboardEvent<HTMLInputElement>) => {
+      const addTags = (event: string, keyName: string, id?: string, ActionEvent?: any) => {
         if (event !== "" && (!formData[keyName]?.includes(event) && !formData[keyName]?.includes(id))) {
           setFormData((prevData: Record<string, any>) => {
             const newData = { ...prevData };
@@ -201,7 +201,7 @@ export const CreateModal: React.FC<CreateModalInterface> = ({ actions, setCreate
         }
         handleClose();
         setIsLoading(true);
-        const timeoutMilliseconds = 60000; 
+        const timeoutMilliseconds = 120000; 
         const timeoutId = setTimeout(() => {
           setIsLoading(false);
           setToastStateMsg("No se ha podido insertar el documento!")
@@ -224,16 +224,18 @@ export const CreateModal: React.FC<CreateModalInterface> = ({ actions, setCreate
             setToastType("success");
             setToast(true)
             setIsLoading(false);
+            const refreshedData = refreshForm();
+            setFormData(refreshedData);
+            return;
         } else {
             setIsLoading(false);
             setToastStateMsg("No se ha podido insertar el documento!")
             setResultMsg(success.error)
             setToastType("failure");
             setToast(true)
+            return
         }
 
-        const refreshedData = refreshForm();
-        setFormData(refreshedData);
       };
     useEffect(() => {
         setFormData(refreshForm());

@@ -76,7 +76,7 @@ const postEnfermedad = async(req,res) => {
         if (fitopatogeno.length < 5){
             return res.status(400).json({error: "El nombre del fitopatogeno es muy corto. por favor usar un nombre más largo"})
         }
-        if (/[^A-Za-z0-9\s]/.test(fitopatogeno) || /\d/.test(fitopatogeno)){
+        if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(fitopatogeno.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(fitopatogeno)){
             return res.status(400).json({error: "El nombre del fitopatogeno no puede tener números o símbolos"})
         }
 
@@ -94,7 +94,7 @@ const postEnfermedad = async(req,res) => {
             } else if (string.length >=  200) {
                 res.status(400).json({ error: "Algún nombre de cultivo agregado es muy largo. Por favor, usa un nombre de cultivo más corto." });
                 return true;
-            } else if (/[^A-Za-z0-9\s]/.test(string) || /\d/.test(string)){
+            } else if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(string.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(string)){
                 res.status(400).json({ error: "Los nombres de cultivos no pueden tener símbolos o números" });
                 return true;
             }
@@ -118,8 +118,8 @@ const postEnfermedad = async(req,res) => {
             } else if (string.length < 5) {
                 res.status(400).json({ error: "Algún nombre del autor agregado es muy corto. Por favor, usa un nombre del autor más largo." });
                 return true;
-            }else if (/[^A-Za-z0-9\s]/.test(string) || /\d/.test(string)){
-                res.status(400).json({ error: "Los nombres del autor no pueden tener símbolos o números" });
+            } else if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(string.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(string)){
+                res.status(400).json({ error: "Los nombres de autores no pueden tener símbolos o números" });
                 return true;
             }
         }));
@@ -207,7 +207,7 @@ const patchEnfermedad = async(req,res) => {
     if (req.body.enfermedad.length >= 150){
         return res.status(400).json({error: "El nombre es muy largo. por favor usar un nombre más corto"})
     }
-    if (req.body.enfermedad.length < 5){
+    if (req.body.enfermedad.length < 3){
         return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
     }
     
@@ -220,7 +220,7 @@ const patchEnfermedad = async(req,res) => {
     if (req.body.fitopatogeno.length < 5){
         return res.status(400).json({error: "El nombre del fitopatogeno es muy corto. por favor usar un nombre más largo"})
     }
-    if (/[^A-Za-z0-9\s]/.test(req.body.fitopatogeno) || /\d/.test(req.body.fitopatogeno)){
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.fitopatogeno.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.fitopatogeno)){
         return res.status(400).json({error: "El nombre del fitopatogeno no puede tener números o símbolos"})
     }
 
@@ -238,10 +238,10 @@ const patchEnfermedad = async(req,res) => {
         } else if (string.length >=  200) {
             res.status(400).json({ error: "Algún nombre de cultivo agregado es muy largo. Por favor, usa un nombre de cultivo más corto." });
             return true;
-        } else if (string.length < 5) {
+        } else if (string.length < 2) {
             res.status(400).json({ error: "Algún nombre de cultivo agregado es muy corto. Por favor, usa un nombre de cultivo más largo." });
             return true;
-        }else if (/[^A-Za-z0-9\s]/.test(string) || /\d/.test(string)){
+        }else if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(string.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(string)){
             res.status(400).json({ error: "Los nombres de cultivos no pueden tener símbolos o números" });
             return true;
         }
@@ -264,7 +264,7 @@ const patchEnfermedad = async(req,res) => {
         } else if (string.length < 5) {
             res.status(400).json({ error: "Algún nombre del autor agregado es muy corto. Por favor, usa un nombre del autor más largo." });
             return true;
-        }else if (/[^A-Za-z0-9\s]/.test(string) || /\d/.test(string)){
+        }else if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(string.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(string)){
             res.status(400).json({ error: "Los nombres del autor no pueden tener símbolos o números" });
             return true;
         }

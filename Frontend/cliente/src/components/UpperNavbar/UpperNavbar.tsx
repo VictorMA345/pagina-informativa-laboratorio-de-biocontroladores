@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import './UpperNavbar.css'; // Importa el archivo CSS
-
+import { Link } from 'react-router-dom';
 export const UpperNavbar = () => {
   return (
       <Navbar expand="lg" className="navbar-custom" >
@@ -10,14 +10,29 @@ export const UpperNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <Nav.Link href="#home" className="nav-link-custom">
-                Miembros
+              <Nav.Link className="nav-link-custom">
+                <Link
+                  to = "/miembros"
+                  className='upper-navbar-link' 
+                >
+                  Miembros
+                </Link>
               </Nav.Link>
-              <Nav.Link href="#link" className="nav-link-custom">
-                Pasantes
+              <Nav.Link className="nav-link-custom">
+                <Link
+                    to = "/estudiantes"
+                    className='upper-navbar-link' 
+                >
+                  Estudiantes
+                </Link>
               </Nav.Link>
-              <Nav.Link href="#link" className="nav-link-custom">
-                Colaboradores
+              <Nav.Link className="nav-link-custom">
+                <Link
+                    to = "/investigadores"
+                    className='upper-navbar-link'  
+                >
+                  Investigadores
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

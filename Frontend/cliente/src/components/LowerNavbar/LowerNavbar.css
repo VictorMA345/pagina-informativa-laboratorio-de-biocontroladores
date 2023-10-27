@@ -16,6 +16,16 @@
     font-weight: bold;
     font-size: 20px;
 }
+.navbar-link{
+  text-decoration: none;
+  color: #606060;
+  
+}
+.navbar-link:hover{
+  text-decoration: none;
+  color: #909090;
+  
+}
 /* Agrega estos estilos para controlar la apariencia de la Navbar en dispositivos pequeños */
 @media (max-width: 768px) {
     .lower-navbar {

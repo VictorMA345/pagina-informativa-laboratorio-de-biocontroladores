@@ -1,0 +1,14 @@
+.news-container{
+    width: 25%;
+}
+.news-container-header{
+    border-top: 15px solid #1D3557;
+    padding: 20px;
+    font-size: x-large;
+    border-bottom: 1px solid gray;
+    font-weight: bolder;
+    background-color: #C0C0C0;
+}
+.news-container-body{
+    background-color: #C0C0C0;
+}

@@ -1,0 +1,8 @@
+.breadcrumbs-component{
+    margin: 2rem;
+}
+.breadcrumbs-link{
+    color: #34A853;
+    font-weight: bolder;
+    text-decoration: none;
+}

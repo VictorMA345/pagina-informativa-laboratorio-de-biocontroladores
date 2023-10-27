@@ -1,12 +1,13 @@
 /* carousel-styles.css */
-.container {
+.carrousel-container {
     margin: 0 auto; /* Centra el Carousel en la página */
-    max-width: 1500px; /* Define un ancho máximo para el Carousel */
+    width: 100%;
     padding: 0 15px; /* Agrega márgenes a los lados */
   }
   
   .carousel {
     margin-top: 5%;
+    width: 100%;
     background-color: #f8f9fa; /* Cambia el color de fondo del carrusel */
   }
   

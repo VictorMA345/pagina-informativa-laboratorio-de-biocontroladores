@@ -1,0 +1,71 @@
+.enfermedad-card-listgroup{
+    border-radius: 0;
+}
+  
+  .enfermedad-card-component {
+    flex: 0 0 calc(33.33% - 10px);
+    margin-bottom: 1rem;
+    width: 18rem;
+    height: 100vh;
+    @media (max-width: 768px) {
+      flex: 0 0 calc(100% - 10px);
+    }
+  }
+  
+.enfermedad-card-listgroup .list-group-item{
+    display: flex;
+    justify-content: space-between;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0.5rem;
+}
+.enfermedad-card-listgroup .list-group-item label{
+    font-weight: bolder;
+}
+.dropdown-menu {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Estilos para la barra lateral */
+  .dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dropdown-menu::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Estilo cuando el mouse está sobre la barra de desplazamiento */
+  .dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .description {
+    max-width: 100%;
+    overflow: hidden;
+    text-indent: 1.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.enfermedad-card-button{
+    background-color: #1D3557;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid white;
+}
+.enfermedad-card-button-link,
+.enfermedad-card-button-link:hover{
+    text-decoration: none;
+}
+.enfermedad-card-footer{
+    background-color: white;
+}

@@ -1,0 +1,18 @@
+.contact-button{
+    background-color: #1D3557;
+    border: 0px;
+    font-size: larger;
+    font-weight: bolder;
+
+}
+.contact-button:hover{
+    background-color: #3582CE;
+}
+
+.footer-container {
+    bottom: 0;
+    width: 100%;
+    background: #C0C0C0; /* Puedes ajustar el color de fondo según tu preferencia */
+    padding: 10px; /* Añade relleno según tus necesidades */
+    text-align: center;
+  }

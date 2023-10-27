@@ -58,9 +58,3 @@
     white-space: nowrap;
   }
   
-  /* Estilo para mostrar el texto completo al hacer hover sobre él */
-  .control-biologico-card-listgroup:hover p {
-    white-space: initial;
-    overflow: initial;
-    text-overflow: initial;
-  }

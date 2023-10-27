@@ -197,7 +197,9 @@ const patchServicio = async (req, res) => {
   }
 
   let newImages = []
-  if (typeof req.body.fotosServicio === 'string') {
+  if (req.body.fotosServicio && servicioAntiguo.fotosServicio.length === 0){
+      newImages = []
+  } else if (typeof req.body.fotosServicio === 'string') {
       newImages = [ req.body.fotosServicio];
   } else {
       newImages = req.body.fotosServicio ? req.body.fotosServicio: []

@@ -87,6 +87,8 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>
                 <Container className='document-container'>
+                {
+                    enfermedad?.documento !== "" ?
                     <Button
                         onClick={() => openDocument(enfermedad ? enfermedad.documento : "")} 
                         className='document-button' 
@@ -97,6 +99,11 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
                         <i className='bx bx-download'>
                         </i>
                     </Button>
+                    :
+                    <h5 style={{fontWeight:"bolder",color:"#909090"}}>
+                        No hay Documento Disponible
+                    </h5>    
+                    }   
                 </Container>
             </ListGroup.Item>
         </ListGroup>

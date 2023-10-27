@@ -4,7 +4,9 @@ import { UpperNavbar,LowerNavbar,Footer} from './components'
 import { Home,EnfermedadPage, ControlBiologicoPage,NoticiasPage,
          TesisPage,ProyectosPage,ServiciosPage,MiembrosPage,EstudiantesPage,
          InvestigadoresPage } from './pages/'
-import {ServicioContextProvider,EnfermedadContextProvider,ControlBiologicoContextProvider} from './Context'
+import {ServicioContextProvider,EnfermedadContextProvider,ControlBiologicoContextProvider
+        ,TesisContextProvider,ColaboradorContextProvider
+        } from './Context'
 const MainRoutes = () => {
   return (
     <>
@@ -30,8 +32,12 @@ const MainRoutes = () => {
           }>
 
         </Route>
-        <Route path='/tesis'
-          element = {<TesisPage />}>
+        <Route path='/tesis/*'
+          element = {
+            <TesisContextProvider>
+              <TesisPage />
+            </TesisContextProvider>
+          }>
         </Route>  
         <Route path='/servicios/*'
         element = {
@@ -54,13 +60,15 @@ const MainRoutes = () => {
         element = {<MiembrosPage />}>
 
         </Route>
-        <Route path='/investigadores'
-        element = {<InvestigadoresPage />}>
-
+        <Route path='/investigadores/*'
+        element = {
+          <ColaboradorContextProvider>
+            <InvestigadoresPage />
+          </ColaboradorContextProvider>
+          }>
         </Route>
         <Route path='/estudiantes'
         element = {<EstudiantesPage />}>
-
         </Route>
       </Routes>
       <Footer/>

@@ -2,7 +2,7 @@ import "./Table.css"
 import Form from 'react-bootstrap/Form';
 import { ReactNode, useState } from "react"
 import { TableIndexer,CreateModal,Filters,
-        DeleteModal,EditModal,ViewModal,NotificationToast } from ".."
+        DeleteModal,EditModal,ViewModal } from ".."
 import { useAuthContext } from "../../hooks/useAuthHook";
 interface Table {
     seccion:String,

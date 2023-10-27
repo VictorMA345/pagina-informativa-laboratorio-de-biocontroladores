@@ -168,7 +168,9 @@ const patchControlBiologico = async (req, res) => {
     }
 
     let newImages = []
-    if (typeof req.body.imagenes === 'string') {
+    if (!req.body.imagenes && controlBiologicoAntiguo.imagenes.length === 0){
+        newImages = []
+    } else if (typeof req.body.imagenes === 'string') {
         newImages = [ req.body.imagenes];
     } else {
         newImages = req.body.imagenes ? req.body.imagenes: []
@@ -201,11 +203,10 @@ const patchControlBiologico = async (req, res) => {
             }
         }
     }
-
     let documentoDetalladoURL = controlBiologicoAntiguo.documentoDetallado || "";
-    if (req.files && req.files['documentoDetallado'] && req.files['documentoDetallado'][0] && esURLGoogleDriveValida(controlBiologicoAntiguo.documentoDetallado)) {
+    if (req.files && req.files['documentoDetallado'] && req.files['documentoDetallado'][0]) {
         const newDocumentoDetallado = req.files['documentoDetallado'][0];
-        if (controlBiologicoAntiguo.documentoDetallado) {
+        if (controlBiologicoAntiguo.documentoDetallado && esURLGoogleDriveValida(controlBiologicoAntiguo.documentoDetallado)) {
             documentoDetalladoURL = await replaceFileInDrive(authClient, newDocumentoDetallado, controlBiologicoAntiguo.documentoDetallado, "documentos-control-biologico");
             documentoDetalladoURL = `https://drive.google.com/uc?id=${documentoDetalladoURL}`;
         } else {

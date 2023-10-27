@@ -287,7 +287,7 @@ const patchEnfermedad = async(req,res) => {
             newdocumentoURL = `https://drive.google.com/uc?id=${newdocumentoURL}`;
         } else {
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
-            const childFolder = "documentos-enfermedades";
+            const childFolder = "   documentos-enfermedades";
             const file = await uploadFile(authClient, newdocumento, folderName, childFolder);
             newdocumentoURL = `https://drive.google.com/uc?id=${file['data'].id}`;
         }
@@ -299,7 +299,9 @@ const patchEnfermedad = async(req,res) => {
     }
 
     let newImages = []
-    if (typeof req.body.imagenes === 'string') {
+    if (!req.body.imagenes && enfermedadAntigua.length === 0){
+        newImages = []
+    } else if (typeof req.body.imagenes === 'string') {
         newImages = [ req.body.imagenes];
     } else {
         newImages = req.body.imagenes ? req.body.imagenes: []

@@ -1,3 +1,7 @@
 export * from './ServicioService'
 export * from './EnfermedadService'
 export * from './ControlBiologicoService'
+export * from './MiembroService'
+export * from './TesisService'
+export * from './EstudiantesService'
+export * from './ColaboradoresService'

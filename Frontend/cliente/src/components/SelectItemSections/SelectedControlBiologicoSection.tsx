@@ -22,7 +22,8 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
             const encargadoPromises = controlbiologico.encargados.map((encargado) => getMiembro(encargado));
             try {
               const miembros = await Promise.all(encargadoPromises);
-              setMiembrosList(miembros);
+              const nombresCompletos = miembros.map((miembro) => miembro.nombreCompleto);
+              setMiembrosList(nombresCompletos);
             } catch (error) {
               console.error('Error al obtener los miembros:', error);
             }
@@ -39,7 +40,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
                 </h5>
                 <Container className='container-item-list'>
                     {
-                        controlbiologico?.encargados.map((encargado,index) =>(
+                        miembrosList.map((encargado,index) =>(
                             <h6 
                                 className='item-list'
                                 key = {index}
@@ -86,4 +87,29 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
                 }
                 </Carousel>
             </ListGroup.Item>
-            <ListGro
+            <ListGroup.Item className='selected-item-body'>
+                <Container className='document-container'>
+                    {
+                    controlbiologico?.documentoDetallado !== "" ?
+                    <Button
+                        onClick={() => openDocument(controlbiologico ? controlbiologico.documentoDetallado : "")} 
+                        className='document-button' 
+                        variant= "success">
+                        <a>
+                            Descargar Documento
+                        </a>
+                        <i className='bx bx-download'>
+                        </i>
+                    </Button>
+                    :
+                    <h5 style={{fontWeight:"bolder",color:"#909090"}}>
+                        No hay Documento Disponible
+                    </h5>    
+                    }   
+                </Container>
+            </ListGroup.Item>
+        </ListGroup>
+
+    </Container>
+  )
+}

@@ -20,8 +20,12 @@ export * from './NoResultsLabel/NoResultsLabel'
 export * from './CardComponent/ServiceCardComponent'
 export * from './CardComponent/EnfermedadCardComponent'
 export * from './CardComponent/ControlBiologicoCardComponent'
+export * from './CardComponent/ColaboradorCardComponent'
+//Componentes "Table"
+export * from './TableComponent/TesisTableComponent/TesisTableComponent'
 
 // Secciones De Objetos individuales
 export * from './SelectItemSections/SelectedServiceSection'
 export * from './SelectItemSections/SelectedEnfermedadSection'
 export * from './SelectItemSections/SelectedControlBiologicoSection'
+export * from './SelectItemSections/SelectedTesisSection'

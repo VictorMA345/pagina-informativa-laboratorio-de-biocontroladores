@@ -22,13 +22,11 @@ const control_biologicoSchema = new Schema({
     },
     imagenes : {
         type : [String],
-        required : true,
         default: []
     },
     documentoDetallado : {
-        type : [String],
-        required : true,
-        default: []
+        type : String,
+        default: ""
     }
 },{ timestamps : true });
 

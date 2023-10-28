@@ -5,7 +5,8 @@ import { Home,EnfermedadPage, ControlBiologicoPage,NoticiasPage,
          TesisPage,ProyectosPage,ServiciosPage,MiembrosPage,EstudiantesPage,
          InvestigadoresPage } from './pages/'
 import {ServicioContextProvider,EnfermedadContextProvider,ControlBiologicoContextProvider
-        ,TesisContextProvider,ColaboradorContextProvider
+        ,TesisContextProvider,ColaboradorContextProvider,ProyectoContextProvider,
+        NoticiaContextProvider,MiembroContextProvider,EstudianteContextProvider
         } from './Context'
 const MainRoutes = () => {
   return (
@@ -46,18 +47,27 @@ const MainRoutes = () => {
           </ServicioContextProvider>
           }>
         </Route>
-
-
-        <Route path='/proyectos'
-        element = {<ProyectosPage />}>
+        <Route path='/proyectos/*'
+        element = {
+        <ProyectoContextProvider>
+          <ProyectosPage />
+        </ProyectoContextProvider>
+        }>
+        </Route>
+        <Route path='/noticias/*'
+        element = {
+        <NoticiaContextProvider>
+          <NoticiasPage />
+        </NoticiaContextProvider>
+        }>
 
         </Route>
-        <Route path='/noticias'
-        element = {<NoticiasPage />}>
-
-        </Route>
-        <Route path='/miembros'
-        element = {<MiembrosPage />}>
+        <Route path='/miembros/*'
+        element = {
+        <MiembroContextProvider>
+          <MiembrosPage />
+        </MiembroContextProvider>
+        }>
 
         </Route>
         <Route path='/investigadores/*'
@@ -67,8 +77,12 @@ const MainRoutes = () => {
           </ColaboradorContextProvider>
           }>
         </Route>
-        <Route path='/estudiantes'
-        element = {<EstudiantesPage />}>
+        <Route path='/estudiantes/*'
+        element = {
+          <EstudianteContextProvider>
+            <EstudiantesPage />
+          </EstudianteContextProvider>
+        }>
         </Route>
       </Routes>
       <Footer/>

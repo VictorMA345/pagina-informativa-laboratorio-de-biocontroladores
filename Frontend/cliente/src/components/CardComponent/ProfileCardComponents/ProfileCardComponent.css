@@ -1,0 +1,26 @@
+.curriculum-button{
+    font-size: medium;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    background-color: #1D3557;
+    border: 0;
+}
+
+.curriculum-button:hover{
+    font-size: medium;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    background-color: #FF5733; 
+    border: 0;
+}
+.curriculum-button i{
+    font-size: medium;
+}
+.profile-card{
+    margin-bottom: 2rem;
+}

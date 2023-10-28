@@ -89,7 +89,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Estudiantes estudiantes: 
+                        Estudiantes Involucrados: 
                     </h6>
                     <Container className='container-item-list'>
                     {
@@ -139,7 +139,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        estudiantes del comité evaluador: 
+                        Miembros del Comité Evaluador: 
                     </h6>
                     <Container className='container-item-list'>
                     {

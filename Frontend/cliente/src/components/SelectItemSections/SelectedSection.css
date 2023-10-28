@@ -71,6 +71,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: 2rem;
+    background-color: #1D3557;
     font-size: large;
 }
 .document-button i{

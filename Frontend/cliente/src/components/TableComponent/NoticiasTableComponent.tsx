@@ -1,15 +1,18 @@
 import React from 'react'
 import './TableComponent.css'
 import { Table,Button } from 'react-bootstrap'
-import { TesisStructure,Tesis } from '../../../Models'
+import { NoticiaStructure,Noticia } from '../../Models'
 import { Link } from 'react-router-dom';
-interface TesisTableComponentProps {
-    columns: TesisStructure | undefined;
-    data : Tesis[] | undefined;
-    setTesis : React.Dispatch<React.SetStateAction<Tesis | undefined>>;
+interface NoticiaTableComponentProps {
+    columns: NoticiaStructure | undefined;
+    data : Noticia[] | undefined;
+    setNoticia : React.Dispatch<React.SetStateAction<Noticia | undefined>>;
 }
-export const TesisTableComponent: React.FC<TesisTableComponentProps>= ({data,columns,setTesis}) => {
-
+export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data,columns,setNoticia}) => {
+    const formatDate = (date: any) => {
+        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(date).toLocaleDateString('en-US', options);
+    };
   return (
     <>
     <Table responsive>
@@ -31,37 +34,37 @@ export const TesisTableComponent: React.FC<TesisTableComponentProps>= ({data,col
 
         <tbody>
             {
-                data?.map((row : Tesis,index) =>(
+                data?.map((row : Noticia,index) =>(
                     <tr key = {index}>
                         {
                             columns && Object.values(columns).map((column,index) =>(
                                     column.show && 
-                                    column.type === "single-image" &&
+                                    column.type === "multiple-images" &&
                                     <td key={index}>
                                         <img 
-                                            src={row[column.keyName]} 
-                                            alt={row[column.keyName]} 
-                                            style={{ maxWidth: "100px", maxHeight: "100px" }}
+                                            src={row[column.keyName as keyof Noticia][0]} 
+                                            alt={row[column.keyName as keyof Noticia][0]} 
+                                            style={{ maxWidth: "12rem", maxHeight: "14rem",height:"14rem" }}
                                         />
                                     </td>
                                     ||
                                     column.show && 
                                     column.type === "date" &&
                                     <td key = {index}>
-                                        {row[column.keyName]} 
+                                        {row[column.keyName as keyof Noticia] && formatDate(row[column.keyName as keyof Noticia])} 
                                     </td>
                                     ||
                                     column.show && 
                                     <td key = {index}>
-                                        {row[column.keyName]} 
+                                        {row[column.keyName as keyof Noticia]} 
                                     </td>
                             )
                             )
                         }
                         <td>
-                            <Link className='tesis-link' to= {`/tesis/${row['_id']}`}>
+                            <Link className='link' to= {`/noticias/${row['_id']}`}>
                                 <Button 
-                                onClick={() => setTesis(row)}
+                                onClick={() => setNoticia(row)}
                                 className='read-more-button'>
                                     Leer
                                     <i className='bx bx-chevron-right'>
@@ -72,13 +75,8 @@ export const TesisTableComponent: React.FC<TesisTableComponentProps>= ({data,col
                     </tr>
                 ))   
             }
-
-
         </tbody>
-
-
     </Table>
-
     </>
   )
 }

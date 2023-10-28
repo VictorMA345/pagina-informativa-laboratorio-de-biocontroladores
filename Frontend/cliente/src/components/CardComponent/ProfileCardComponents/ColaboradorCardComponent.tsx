@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import { Card, Row, Col, ListGroup } from 'react-bootstrap';
-import { Colaborador, Proyecto } from '../../Models';
-import NoImagePlaceHolder from '../../images/no-image-placeholder.jpg';
-import { getProyecto } from '../../services/ProyectoService';
+import { Colaborador, Proyecto } from '../../../Models';
+import NoImagePlaceHolder from '../../../images/no-image-placeholder.jpg';
+import { getProyecto } from '../../../services/ProyectoService';
+import './ProfileCardComponent.css'
 interface ColaboradorProps {
   colaborador: Colaborador;
 }
@@ -26,7 +27,7 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
         fetchproyectos();
       }, [colaborador]);
   return (
-    <Card>
+    <Card className='profile-card'>
       <Row>
         <Col md={6}>
           <div

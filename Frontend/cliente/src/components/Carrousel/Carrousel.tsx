@@ -1,38 +1,59 @@
+import { useEffect,useState} from 'react'
 import { Carousel,Button } from 'react-bootstrap';
+import { getAllEnfermedad,getAllControlBiologico } from '../../services';
+import { ControlBiologico,Enfermedad } from '../../Models';
+import NoImagePlaceHolder from '../../images/no-image-placeholder.jpg'
 import './Carrousel.css'
 export const Carrousel = () => {
+  const [enfermedades, setenfermedades] = useState<Enfermedad[]>([])
+  const [controlBiologico, setcontrolBiologico] = useState<ControlBiologico[]>([])
+  useEffect(() => {
+    const fetchImages = async() => {
+      const fetchedEnfermedades = await getAllEnfermedad(4,1);
+      const fetchedControl_biologico = await getAllControlBiologico(4,1);
+      setenfermedades(fetchedEnfermedades.data.map((enfermedad) => enfermedad))
+      setcontrolBiologico(fetchedControl_biologico.data.map((control) => control))
+    }
+    fetchImages();
+  }, [])
+  
   return (
-<div className="carrousel-container">
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <Carousel interval={5000} fade>
-            <Carousel.Item>
+    <div className="carrousel-container">
+        <Carousel interval={5000} fade>
+          {enfermedades.map((enfermedad) =>
+            <Carousel.Item key={enfermedad._id}>
               <img
-                className="d-block w-100"
-                src="https://st.depositphotos.com/1016440/2534/i/450/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg"
+                className="d-block w-100" // Añade las clases Bootstrap aquí para ajustar el tamaño de la imagen
+                src={(enfermedad.imagenes[0] && enfermedad.imagenes.length !== 0) ? enfermedad.imagenes[0] : NoImagePlaceHolder}
+                alt={(enfermedad.imagenes[0] && enfermedad.imagenes.length !== 0) ? enfermedad.imagenes[0] : NoImagePlaceHolder}
+              />
+              <Carousel.Caption>
+                <h5>{enfermedad.enfermedad}</h5>
+                <p>
+                  {enfermedad.descripcion}
+                </p>
+                <Button variant="success">Ver más</Button> 
+              </Carousel.Caption>
+            </Carousel.Item>
+          )}
+
+          {controlBiologico.map((controlBiologico) =>
+            <Carousel.Item key={controlBiologico._id}>
+              <img
+                className="d-block w-100" 
+                src={controlBiologico.imagenes && controlBiologico.imagenes.length !== 0 ? controlBiologico.imagenes[0] : NoImagePlaceHolder}
                 alt="Primera imagen"
               />
               <Carousel.Caption>
-                <h3>Título de la primera imagen</h3>
-                <p>Descripción de la primera imagen.</p>
+                <h5>{controlBiologico.nombreInvestigacion}</h5>
+                <p>
+                  {controlBiologico.textoExplicativo}
+                </p>
                 <Button variant="success">Ver más</Button> 
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://media.istockphoto.com/id/636379014/es/foto/manos-la-formación-de-una-forma-de-corazón-con-silueta-al-atardecer.jpg?s=612x612&w=0&k=20&c=R2BE-RgICBnTUjmxB8K9U0wTkNoCKZRi-Jjge8o_OgE="
-                alt="Segunda imagen"
-              />
-              <Carousel.Caption>
-                <h3>Título de la segunda imagen</h3>
-                <p>Descripción de la segunda imagen.</p>
-                <Button variant="success">Ver más</Button> 
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-      </div>
+          )}
+        </Carousel>
     </div>
   );
 };

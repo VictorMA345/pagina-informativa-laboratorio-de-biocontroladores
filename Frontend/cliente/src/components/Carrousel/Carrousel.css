@@ -1,27 +1,29 @@
 /* carousel-styles.css */
 .carrousel-container {
-    margin: 0 auto; /* Centra el Carousel en la página */
     width: 100%;
-    padding: 0 15px; /* Agrega márgenes a los lados */
+    border-top: 1px solid black;
   }
   
-  .carousel {
-    margin-top: 5%;
-    width: 100%;
-    background-color: #f8f9fa; /* Cambia el color de fondo del carrusel */
-  }
-  
+
   .carousel-caption {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el título y la descripción */
     color: #fff; /* Color del texto en la descripción */
     border-radius: 5px; /* Borde redondeado para el título y la descripción */
   }
   
-  .carousel-caption h3 {
-    font-size: 24px; /* Tamaño de fuente del título */
+  .carousel-caption h5 {
+    font-size: 3vw;  /* Tamaño de fuente del título */
   }
   
   .carousel-caption p {
-    font-size: 16px; /* Tamaño de fuente de la descripción */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 2vw; 
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Establece el número máximo de líneas a mostrar */
+    -webkit-box-orient: vertical;
   }
-  
+  .carousel-item img {
+    height: 100vh; /* Ajusta el valor de altura según sea necesario */
+    object-fit: cover; /* Mantiene la relación de aspecto */
+  }

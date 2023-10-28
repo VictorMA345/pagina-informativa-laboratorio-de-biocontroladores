@@ -2,13 +2,13 @@
     display: flex;
     justify-content: space-between;
     min-width: 100%;
-    margin-top: 2rem;
   }
   
 
 .image-container{
   background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg');
   width: 70%;
+  margin-left: 0px;
 }
   .text-overlay {
     top: 0;
@@ -17,7 +17,7 @@
     background-position: center; /* Centra la imagen en el contenedor */
     color: #fff;
     padding: 15px;
-    font-size: 23px;
+    font-size: 1.5vw;
     width: 100%; /* Ajusta el ancho del texto */
     box-sizing: border-box; /* Incluye el padding en el ancho */
   }
@@ -26,8 +26,3 @@
     text-align: center;
     
   }
-
-
-
-  
-  /* background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg'); Reemplaza 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen de fondo¨*/

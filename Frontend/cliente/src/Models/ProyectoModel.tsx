@@ -7,7 +7,7 @@ export interface Proyecto {
   fechaFinalizacion: string;
   referencias: string[];
   imagenes: string[];
-  documentos: string[];
+  documentos: string;
   financiamiento: string;
   resumenProyecto: string;
   anioProyecto: number;
@@ -52,7 +52,7 @@ export const getProyectoStructure = async (): Promise<ProyectoStructure> => {
     },
     investigadores: {
       name: "Investigadores",
-      show: true,
+      show: false,
       type: "selectable-fetched-list-text",
       keyName: "investigadores"
     },

@@ -32,7 +32,7 @@ export const TesisTableComponent: React.FC<TesisTableComponentProps>= ({data,col
         <tbody>
             {
                 data?.map((row : Tesis,index) =>(
-                    <tr key = {index}>
+                    row.estadoTesis !== "En ejecución" && <tr key = {index}>
                         {
                             columns && Object.values(columns).map((column,index) =>(
                                     column.show && 

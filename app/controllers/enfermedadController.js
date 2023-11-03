@@ -130,6 +130,9 @@ const postEnfermedad = async(req,res) => {
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-enfermedades';
             for (const uploadedFile of req.files['imagenes']) {
+                if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                    return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+                }
                 const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
                 if (watermarkedImageBuffer) {
                     const file = await uploadFile(authClient, {
@@ -148,6 +151,9 @@ const postEnfermedad = async(req,res) => {
         let documentoUrl = "";
         if ( req.files && req.files['documento'] &&  req.files['documento'][0]){
             const uploadedFile = req.files['documento'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "documento-enfermedades"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -282,6 +288,9 @@ const patchEnfermedad = async(req,res) => {
     let newdocumentoURL = ""
     if (req.files && req.files['documento'] && req.files['documento'][0]) {
         const newdocumento= req.files['documento'][0];
+        if (newdocumento.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (enfermedadAntigua.documento && esURLGoogleDriveValida(enfermedadAntigua.documento)) {
             newdocumentoURL = await replaceFileInDrive(authClient,newdocumento, enfermedadAntigua.documento ,"documentos-enfermedades");
             newdocumentoURL = `https://drive.google.com/uc?id=${newdocumentoURL}`;
@@ -320,6 +329,9 @@ const patchEnfermedad = async(req,res) => {
         const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
         const childFolder = 'fotos-enfermedades';
         for (const uploadedFile of req.files['imagenes']) {
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
             if (watermarkedImageBuffer) {
                 const file = await uploadFile(authClient, {

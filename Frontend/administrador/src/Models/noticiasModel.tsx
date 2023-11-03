@@ -75,7 +75,7 @@ export const getNoticiaStructure = async (): Promise<NoticiaStructure> => {
     categoria: {
       name: "Categoría",
       show: true,
-      type: "list",
+      type: "text",
       keyName: "categoria",
       editable: true,
     },

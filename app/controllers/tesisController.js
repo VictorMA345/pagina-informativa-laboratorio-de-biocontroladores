@@ -51,6 +51,7 @@ const postTesis = async (req, res) => {
     const {
         tituloTesis,
         resumenTesis,
+        abstract,
         citasReferencias,
         estadoTesis,
         fechaInicio,
@@ -149,6 +150,9 @@ const postTesis = async (req, res) => {
         let documentoTesisURL = "";
         if (req.files && req.files['pathArchivo'] && req.files['pathArchivo'][0]){
             const uploadedFile = req.files['pathArchivo'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "documentos-tesis"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -162,14 +166,20 @@ const postTesis = async (req, res) => {
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-tesis-extras';
             for (const uploadedFile of req.files['imagenesExtras']) {
-            const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
-            const imagenesExtrasUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
-            imagenesExtrasUrls.push(imagenesExtrasUrl);
+                if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                    return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+                }
+                const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
+                const imagenesExtrasUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
+                imagenesExtrasUrls.push(imagenesExtrasUrl);
             }
         }
         let pathFotoTituloUrl = "";
         if (req.files && req.files['pathFotoTitulo'] && req.files['pathFotoTitulo'][0]){
             const uploadedFile = req.files['pathFotoTitulo'][0];
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = "fotos-tesis-titulos"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -179,6 +189,7 @@ const postTesis = async (req, res) => {
         const tesisNueva = await Tesis.create({
         tituloTesis,
         resumenTesis,
+        abstract,
         pathFotoTitulo: pathFotoTituloUrl,
         imagenesExtras: imagenesExtrasUrls,
         pathArchivo: documentoTesisURL,
@@ -324,6 +335,9 @@ const patchTesis = async (req, res) => {
     let newpathFotoTituloURL = ""
     if (req.files && req.files['pathFotoTitulo'] && req.files['pathFotoTitulo'][0]) {
         const newpathFotoTitulo= req.files['pathFotoTitulo'][0];
+        if (!['image/jpeg','image/png','image/jpg'].includes(newpathFotoTitulo.mimetype)){
+            return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+        }
         if (tesisAntigua.pathFotoTitulo && esURLGoogleDriveValida(tesisAntigua.pathFotoTitulo)) {
             newpathFotoTituloURL = await replaceFileInDrive(authClient,newpathFotoTitulo, tesisAntigua.pathFotoTitulo ,"fotos-tesis-titulos");
             newpathFotoTituloURL = `https://drive.google.com/uc?id=${newpathFotoTituloURL}`;
@@ -343,6 +357,9 @@ const patchTesis = async (req, res) => {
     let pathArchivoURL = ""
     if (req.files && req.files['pathArchivo'] && req.files['pathArchivo'][0] ) {
         const newpathArchivo = req.files['pathArchivo'][0];
+        if (newpathArchivo.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (tesisAntigua.pathArchivo && esURLGoogleDriveValida(tesisAntigua.pathArchivo)) {
             pathArchivoURL = await replaceFileInDrive(authClient, newpathArchivo ,tesisAntigua.pathArchivo,"documentos-tesis");
             pathArchivoURL = `https://drive.google.com/uc?id=${pathArchivoURL}`;
@@ -374,6 +391,9 @@ const patchTesis = async (req, res) => {
         const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
         const childFolder = 'fotos-tesis-extras';
         for (const uploadedFile of req.files['imagenesExtras']) {
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
             const imagenesExtrasUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
             imagenesExtrasUrls.push(imagenesExtrasUrl);

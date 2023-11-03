@@ -22,7 +22,8 @@ type ColaboradorActions = {
     pagina: number; 
     cantidad: number; 
     itemCounts: number; 
-    filters?: FilterInterface }
+    filters?: FilterInterface 
+  }
 
 
 export const ColaboradorContext = createContext<{
@@ -64,6 +65,7 @@ export const ColaboradorContextProvider: React.FC<{ children: ReactNode }> = ({ 
 
   const [state, dispatch] = useReducer(ColaboradorReducer, estadoInicial);
 
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -84,7 +86,7 @@ export const ColaboradorContextProvider: React.FC<{ children: ReactNode }> = ({ 
     }
 
     fetchData();
-  }, [state.itemCounts ,state.cantidad, state.pagina, state.filters]);
+  }, [state.cantidad, state.pagina, state.filters]);
   return (
     <ColaboradorContext.Provider value={{ state, dispatch }}>
       {children}

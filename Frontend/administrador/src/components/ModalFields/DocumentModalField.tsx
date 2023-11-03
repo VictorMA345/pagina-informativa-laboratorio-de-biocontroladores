@@ -19,6 +19,7 @@ export const DocumentModalField: React.FC<DocumentModalFieldProps> = ({ label, k
         className="form-document" 
         type="file" 
         onChange={(e) => onChange(e.target.files[0])} 
+        accept=".pdf" 
         />
             {
               formData[keyName] && formData[keyName].name ? 

@@ -51,10 +51,10 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
             <Card.Title>{colaborador.nombreCompleto}</Card.Title>
             <ListGroup>
               <ListGroup.Item>
-                <strong>Nombre:</strong> {colaborador.nombreCompleto}
+                <strong>Nombre Completo:</strong> {colaborador.nombreCompleto}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Estudios:</strong>
+                <strong>Disciplinas de Estudio:</strong>
                 <ul>
                   {colaborador.listaEstudios.map((estudio, index) => (
                     <li key={index}>{estudio}</li>
@@ -62,7 +62,7 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
                 </ul>
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Proyectos Colaborados con el Laboratorio:</strong>
+                <strong> Proyectos de Vinculación con el Laboratorio:</strong>
                 <ul>
                   {proyectosList.map((proyecto, index) => (
                     proyecto && proyecto !== "" && <li key={index}>{proyecto}</li>
@@ -71,7 +71,7 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
               </ListGroup.Item>
             </ListGroup>
             <Card.Text>
-              <strong>Descripción:</strong>
+              <strong>Perfil Académico:</strong>
               <p style={{textIndent:"2rem",padding:"1rem"}}>
                 {colaborador.descripcion}
               </p>

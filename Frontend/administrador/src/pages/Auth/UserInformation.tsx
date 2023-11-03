@@ -194,17 +194,24 @@ export const UserInformation = () => {
                             )}
                               {editing ? (
                                 <>
+
                                 <input
                                     type="file"
                                     onChange={(e) => setNewCurriculum(e.target.files[0])}
                                 />
+                                                                <a
+                                    onClick={openResumeInNewTab}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    Cambiar Curriculum
+                                </a>
                                 <div className="download-resume-container">
 
                                     {!editing && <a
                                     onClick={() => setShowResume(!showResume)}
                                     style={{ cursor: 'pointer' }}
                                     >
-                                    Ver Currículum{' '}
+                                    Ver Currículum
                                     {!editing && showResume ? (
                                         <i className="bx bx-up-arrow"></i>
                                     ) : (

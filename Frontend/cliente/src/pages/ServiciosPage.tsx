@@ -83,7 +83,7 @@ export const ServiciosPage = () => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Servicios Ofrecidos Por El Laboratorio"
+              label=" Servicios Brindados"
             />
             <hr />
             {

@@ -55,6 +55,7 @@ const postControlBiologico = async (req, res) => {
         encargados,
         fechaPublicacion,
         textoExplicativo,
+        abstract
     } = req.body;
 
     try {
@@ -77,6 +78,9 @@ const postControlBiologico = async (req, res) => {
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-control-biologico';
             for (const uploadedFile of req.files['imagenes']) {
+                if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                    return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+                }
                 const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
                 if (watermarkedImageBuffer) {
                     const file = await uploadFile(authClient, {
@@ -94,6 +98,9 @@ const postControlBiologico = async (req, res) => {
         }
         let documentoURL = "";
         if (req.files && req.files['documentoDetallado']  && req.files['documentoDetallado'][0]) {
+            if (req.files['documentoDetallado'][0].mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = "documentos-control-biologico";
             const file = await uploadFile(authClient, req.files['documentoDetallado'][0], folderName, childFolder);
@@ -104,6 +111,7 @@ const postControlBiologico = async (req, res) => {
             encargados,
             fechaPublicacion,
             textoExplicativo,
+            abstract,
             imagenes: imagenesUrls,
             documentoDetallado: documentoURL,
         });
@@ -189,6 +197,9 @@ const patchControlBiologico = async (req, res) => {
         const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
         const childFolder = 'fotos-control-biologico';
         for (const uploadedFile of req.files['imagenes']) {
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
             if (watermarkedImageBuffer) {
                 const file = await uploadFile(authClient, {
@@ -206,6 +217,9 @@ const patchControlBiologico = async (req, res) => {
     let documentoDetalladoURL = controlBiologicoAntiguo.documentoDetallado || "";
     if (req.files && req.files['documentoDetallado'] && req.files['documentoDetallado'][0]) {
         const newDocumentoDetallado = req.files['documentoDetallado'][0];
+        if (newDocumentoDetallado.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (controlBiologicoAntiguo.documentoDetallado && esURLGoogleDriveValida(controlBiologicoAntiguo.documentoDetallado)) {
             documentoDetalladoURL = await replaceFileInDrive(authClient, newDocumentoDetallado, controlBiologicoAntiguo.documentoDetallado, "documentos-control-biologico");
             documentoDetalladoURL = `https://drive.google.com/uc?id=${documentoDetalladoURL}`;

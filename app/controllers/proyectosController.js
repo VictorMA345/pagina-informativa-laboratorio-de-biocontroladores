@@ -117,6 +117,9 @@ const postProyectos = async(req,res) =>{
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-proyectos';
             for (const uploadedFile of req.files['imagenes']) {
+                if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                    return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+                }
                 const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
                 const imagenesUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
                 imagenesURLs.push(imagenesUrl);
@@ -126,6 +129,9 @@ const postProyectos = async(req,res) =>{
         let documentosUrl = "";
         if ( req.files && req.files['documentos'] &&  req.files['documentos'][0]){
             const uploadedFile = req.files['documentos'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "documentos-proyectos"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -229,6 +235,9 @@ const patchProyectos = async(req,res) =>{
     let newdocumentosURL = ""
     if (req.files && req.files['documentos'] && req.files['documentos'][0]) {
         const newdocumentos= req.files['documentos'][0];
+        if (newdocumentos.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (proyectoAntiguo.documentos && esURLGoogleDriveValida(proyectoAntiguo.documentos)) {
             newdocumentosURL = await replaceFileInDrive(authClient,newdocumentos, proyectoAntiguo.documentos ,"documentos-proyectos");
             newdocumentosURL = `https://drive.google.com/uc?id=${newdocumentosURL}`;
@@ -265,6 +274,9 @@ const patchProyectos = async(req,res) =>{
         const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
         const childFolder = 'fotos-proyectos';
         for (const uploadedFile of req.files['imagenes']) {
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
             const imagenesUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
             imagenesUrls.push(imagenesUrl);

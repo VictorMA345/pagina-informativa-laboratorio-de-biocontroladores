@@ -33,7 +33,7 @@ export const MiembrosPage = () => {
             element={
               <>
               <BreadCrumbsComponent 
-                mainSection="miembros"
+                mainSection="asistentes"
                 itemSection=""
                 itemId={""}
               />
@@ -44,7 +44,7 @@ export const MiembrosPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Miembros del laboratorio"
+                label="Asistentes"
               />
               <hr />
               {

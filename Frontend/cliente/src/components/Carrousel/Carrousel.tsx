@@ -4,7 +4,11 @@ import { getAllEnfermedad,getAllControlBiologico } from '../../services';
 import { ControlBiologico,Enfermedad } from '../../Models';
 import NoImagePlaceHolder from '../../images/no-image-placeholder.jpg'
 import './Carrousel.css'
-export const Carrousel = () => {
+import { Link } from 'react-router-dom';
+interface CarouselProps {
+  setItem : React.Dispatch<React.SetStateAction<ControlBiologico | Enfermedad  | undefined>>
+}
+export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
   const [enfermedades, setenfermedades] = useState<Enfermedad[]>([])
   const [controlBiologico, setcontrolBiologico] = useState<ControlBiologico[]>([])
   useEffect(() => {
@@ -32,7 +36,14 @@ export const Carrousel = () => {
                 <p>
                   {enfermedad.descripcion}
                 </p>
-                <Button variant="success">Ver más</Button> 
+                <Link to = {`/enfermedades/${enfermedad._id}`}>
+                  <Button
+                    className='carousel-button' 
+                    onClick={() => setItem(enfermedad)}
+                    >
+                    Ver más
+                  </Button> 
+                </Link>
               </Carousel.Caption>
             </Carousel.Item>
           )}
@@ -49,7 +60,14 @@ export const Carrousel = () => {
                 <p>
                   {controlBiologico.textoExplicativo}
                 </p>
-                <Button variant="success">Ver más</Button> 
+                <Link to = {`/control_biologico/${controlBiologico._id}`}>
+                  <Button
+                    className='carousel-button' 
+                    onClick={() => setItem(controlBiologico)}
+                    >
+                    Ver más
+                  </Button> 
+                </Link>
               </Carousel.Caption>
             </Carousel.Item>
           )}
@@ -57,4 +75,3 @@ export const Carrousel = () => {
     </div>
   );
 };
-

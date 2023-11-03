@@ -33,6 +33,14 @@ export const SeccionNoticias = () => {
 
   return (
     <div className='noticias'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sección se agregan nuevas noticias que desee publicar el laboratorio, con sus respectivas imágenes y fuentes.
+        </p>
+      </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

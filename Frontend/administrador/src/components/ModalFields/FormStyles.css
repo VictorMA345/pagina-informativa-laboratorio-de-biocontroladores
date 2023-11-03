@@ -36,23 +36,20 @@
 .form-date,
 .form-image,
 .form-list {
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%;
 }
 
-/* Estilos para las etiquetas de los campos */
 .form-label {
   font-weight: bold;
 }
 
-/* Estilos para los botones en el pie del modal */  
 .modal-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem; /* Añade espacio superior */
+  margin-top: 1rem; 
 }
 
-/* Estilos para el input de la lista y los tags */
 .tags-input {
   display: flex;
   flex-wrap: wrap;
@@ -66,8 +63,8 @@
 input {
   flex: 1;
   border: none;
-  height: 46px;
-  font-size: 14px;
+  height: 1rem;
+  font-size: 1rem;
   padding: 4px 0 0 0;
   &:focus {
     outline: transparent;
@@ -88,7 +85,7 @@ input {
   align-items: center;
   justify-content: center;
   color: #fff;
-  padding: 0 8px;
+  padding: 1rem;
   font-size: 14px;
   list-style: none;
   border-radius: 6px;
@@ -152,7 +149,7 @@ input {
   top: 5px;
   left: 0px;
   cursor: pointer;
-  color: white; /* Color gris oscuro */
+  color: white;
   font-size: 18px;
 }
 .remove-image-button:hover {

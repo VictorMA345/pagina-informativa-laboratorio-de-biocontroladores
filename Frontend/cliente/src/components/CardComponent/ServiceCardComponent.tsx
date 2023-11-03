@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Carousel } from 'react-bootstrap';
 import { Servicio } from '../../Models';
 import { Link } from 'react-router-dom';
 import './ServiceCardComponent.css';
@@ -14,11 +14,18 @@ export const ServiceCardComponent: React.FC<ServiceCardComponentProps> = ({ serv
   return (
     <Card className="card-component" style={{ width: '18rem', maxHeight: '25rem',minHeight: '25rem' }}>
       {servicio.fotosServicio.length !== 0 ? (
-        <Card.Img
-          variant="top"
-          src={servicio.fotosServicio[0]}
-          style={{ maxWidth: '100%', maxHeight: '60%', minHeight: '60%', objectFit: 'cover' }}
-        />
+          <Carousel 
+            variant="top"
+            style={{ maxWidth: '100%', maxHeight: '35vh', minHeight: '35vh', objectFit: 'cover' }}
+          >
+            {servicio.fotosServicio.map((foto,index) =>(
+              <Carousel.Item key={index} 
+              style={{ maxWidth: '100%', maxHeight: '35vh', objectFit: 'cover' }}
+              >
+                <img src={foto}/>
+              </Carousel.Item>
+            ))}
+          </Carousel>
       ) : (
         <Card.Img 
           variant="top"

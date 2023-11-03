@@ -2,6 +2,7 @@ export interface Tesis {
     _id: string;
     tituloTesis: string;
     resumenTesis: string;
+    abstract: string;
     pathFotoTitulo: string;
     imagenesExtras: string[];
     pathArchivo: string;
@@ -34,6 +35,7 @@ export interface Tesis {
     _id?: FieldProperties;
     tituloTesis: FieldProperties;
     resumenTesis: FieldProperties;
+    abstract: FieldProperties;
     pathFotoTitulo: FieldProperties;
     imagenesExtras: FieldProperties;
     pathArchivo: FieldProperties;
@@ -78,7 +80,12 @@ export interface Tesis {
         type: "large-text",
         keyName: "resumenTesis",
       },
-
+      abstract: {
+        name: "Abstract",
+        show: true,
+        type: "large-text",
+        keyName: "tituloTesis",
+      },
       imagenesExtras: {
         name: "Imágenes Extras",
         show: false,

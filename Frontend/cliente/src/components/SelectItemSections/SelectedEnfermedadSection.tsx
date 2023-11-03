@@ -43,21 +43,6 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
                     {formatDate(enfermedad?.createdAt)}
                 </h6>
             </ListGroup.Item>
-            <ListGroup.Item>
-                <h5> 
-                    Autores de la investigación:
-                </h5>
-                    {
-                        enfermedad?.autor.map((autor,index) =>(
-                            <h6 
-                                className='item-list'
-                                key = {index}
-                            >
-                            { autor }
-                            </h6>
-                        ))
-                    }
-            </ListGroup.Item>
         </ListGroup>
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>

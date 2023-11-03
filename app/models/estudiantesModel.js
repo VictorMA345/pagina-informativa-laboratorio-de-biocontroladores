@@ -22,6 +22,10 @@ const EstudiantesSchema = new Schema({
         type: String,
         required : true
     },
+    investigacion: {
+        type: String,
+        required : true
+    },
     genero : {
         type: String,
         required: true

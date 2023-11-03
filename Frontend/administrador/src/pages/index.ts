@@ -16,6 +16,8 @@ export * from "./Sections/SeccionRoles.tsx"
 export * from "./Sections/SeccionTesis.tsx"
 export * from "./Sections/SeccionServicios.tsx"
 export * from "./Sections/SeccionControlBiologico.tsx"
+export * from "./Sections/SeccionGeneral.tsx"
+
 // Control de Excepciones
 export * from "./NotFoundPage/NotFoundPage.tsx"
 export * from "./BlockPage/BlockPage.tsx"

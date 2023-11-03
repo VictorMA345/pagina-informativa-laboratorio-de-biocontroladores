@@ -1,22 +1,14 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import logo from '../../images/logo.png';
+import { Nav,NavDropdown } from 'react-bootstrap';
+
 import './LowerNavbar.css';
 import { Link } from 'react-router-dom';
 export const LowerNavbar = () => {
-  const logoStyle = {
-    maxWidth: '250px', // Ancho máximo de la imagen
-    maxHeight: '75px', // Altura máxima de la imagen
-  };
-
   return (
     <Navbar className='lower-navbar' expand="md">
       <Container className="lower-navbar-container">
         <Navbar.Brand >
-          <Link to= "/">
-            <img className="logo-image" src={logo} alt="" style={logoStyle} />
-          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -24,9 +16,9 @@ export const LowerNavbar = () => {
             <Nav.Link >
               <Link
                 className='navbar-link' 
-                to= "/enfermedades"
+                to= "/fitopatogenos"
               >
-                Enfermedad
+                Fitopatógenos
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -37,6 +29,17 @@ export const LowerNavbar = () => {
               Control biológico
               </Link>
             </Nav.Link>
+            <NavDropdown title="Colaboradores" className='dropdown-nav-link' id="nav-dropdown">
+            <NavDropdown.Item as={Link} to='/asistentes'>
+              Asistentes
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/estudiantes'>
+              Pasantes y tesiarios
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to='/investigadores'>
+              Investigadores
+            </NavDropdown.Item>
+        </NavDropdown>
             <Nav.Link >
               <Link
                 className='navbar-link' 

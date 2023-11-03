@@ -36,18 +36,11 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Categorías de la Noticias:
+                    Categoría:
                 </h5>
-                    {
-                        noticia?.categoria.map((categoria,index) =>(
-                            <h6 
-                                className='item-list'
-                                key = {index}
-                            >
-                            { categoria }
-                            </h6>
-                        ))
-                    }
+                <h6>
+                    {noticia?.categoria}
+                </h6>
             </ListGroup.Item>
         </ListGroup>
         <ListGroup className= 'selected-item-body-listgroup'>
@@ -99,7 +92,7 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>
                 <h3> 
-                    Bibliografía:
+                    Fuente:
                 </h3>
                 <br>
                 </br>

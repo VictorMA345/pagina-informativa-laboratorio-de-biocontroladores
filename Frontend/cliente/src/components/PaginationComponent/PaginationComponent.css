@@ -4,9 +4,39 @@
     padding: 5rem;    
 }
 
-.pagination{
+.pagination {
     min-width: 100%;
     display: flex;
     padding: 15px;
     justify-content: space-evenly ;
 }
+.page-item .page-link {
+    background-color: #1D3557;
+    color: white;
+    border-radius: 50%;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+.page-item .page-link:hover{
+    background-color: #FF5733 !important;
+    color: white !important;
+    border: 0;
+}
+.active .page-link {
+    background-color: #FF5733 !important;
+    color: white !important;
+    border: 0;
+}
+.disabled .page-link {
+    background-color: #C0C0C0 !important;
+    color: black !important;
+}
+
+
+
+
+
+
+
+

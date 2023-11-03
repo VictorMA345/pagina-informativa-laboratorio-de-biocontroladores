@@ -55,7 +55,6 @@ const postNoticias = async(req,res) =>{
         fechaPublicacion
         } = req.body
     try {
-
         if (titulo === ""){
             return res.status(400).json({error: "No se puede crear una noticia sin un título"})
         }
@@ -66,18 +65,16 @@ const postNoticias = async(req,res) =>{
             return res.status(400).json({error: "El título es muy corto. por favor usar un título más largo"})
         }
 
-        if (categoria.some((string) => {
-            if (string === "") {
-                res.status(400).json({ error: "No pueden ingresarse categorías vacías." });
-                return true;
-            } else if (string.length >= 200) {
-                res.status(400).json({ error: "Alguna categoría agregada es muy larga. Por favor, usa un nombre de categoría más corto." });
-                return true;
-            } else if (string.length < 5) {
-                res.status(400).json({ error: "Alguna categoría agregada es muy corta. Por favor, usa un nombre de categoría más largo." });
-                return true;
-            }
-        }));
+        if (categoria === "") {
+            res.status(400).json({ error: "No pueden ingresarse categorías vacías." });
+            return true;
+        } else if (categoria.length >= 200) {
+            res.status(400).json({ error: "Alguna categoría agregada es muy larga. Por favor, usa un nombre de categoría más corto." });
+            return true;
+        } else if (categoria.length < 3) {
+            res.status(400).json({ error: "Alguna categoría agregada es muy corta. Por favor, usa un nombre de categoría más largo." });
+            return true;
+        }
 
         if (publicador === ""){
             return res.status(400).json({error: "No se puede crear una noticia sin un publicador"})
@@ -88,7 +85,6 @@ const postNoticias = async(req,res) =>{
         if (publicador.length < 10){
             return res.status(400).json({error: "El nombre del publicador es muy corto. por favor usar un nombre del publicador más largo"})
         }
-
         
         if (!citasBibliograficas || citasBibliograficas.length === 0){
             return res.status(400).json({error: "Debe aportar al menos una referencia para crear una noticia"})
@@ -100,15 +96,21 @@ const postNoticias = async(req,res) =>{
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-noticias';
             for (const uploadedFile of req.files['imagenes']) {
-              const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
-              const imagenesUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
-              imagenesURLs.push(imagenesUrl);
+                if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                    return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+                }
+                const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
+                const imagenesUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
+                imagenesURLs.push(imagenesUrl);
             }
         }
   
         let documentosUrl = "";
         if ( req.files && req.files['documentoComplementario'] &&  req.files['documentoComplementario'][0]){
             const uploadedFile = req.files['documentoComplementario'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "documentos-noticias"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -213,6 +215,9 @@ const patchNoticias = async(req,res) =>{
     let newdocumentosURL = ""
     if (req.files && req.files['documentoComplementario'] && req.files['documentoComplementario'][0]) {
         const newdocumentos= req.files['documentoComplementario'][0];
+        if (newdocumentos.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (noticiaAntigua.documentoComplementario && esURLGoogleDriveValida(noticiaAntigua.documentoComplementario)) {
             newdocumentosURL = await replaceFileInDrive(authClient,newdocumentos, noticiaAntigua.documentoComplementario ,"documentos-Noticias");
             newdocumentosURL = `https://drive.google.com/uc?id=${newdocumentosURL}`;
@@ -249,6 +254,9 @@ const patchNoticias = async(req,res) =>{
         const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
         const childFolder = 'fotos-noticias';
         for (const uploadedFile of req.files['imagenes']) {
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
             const imagenesUrl = `https://drive.google.com/uc?id=${file['data'].id}`;
             imagenesUrls.push(imagenesUrl);

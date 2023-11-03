@@ -16,7 +16,10 @@ export const PermissionsField : React.FC<PermissionsFieldFieldProps> = ({label,v
                         type="switch"
                         id="custom-switch"
                         defaultChecked={item}
-                        label={Object.keys(value)[index]}
+                        label={Object.keys(value)[index] === "create" &&  "Crear" ||
+                               Object.keys(value)[index] === "delete" &&  "Eliminar" ||
+                               Object.keys(value)[index] === "update" &&  "Editar" ||
+                               Object.keys(value)[index] }
                         onChange={(e) => onChange(Object.keys(value)[index],item)}
                     />
                     

@@ -2,7 +2,7 @@ import { Routes,Route } from 'react-router-dom'
 import { Home,Login,SeccionEnfermedades,SeccionMiembros,
          NotFoundPage,BlockPage, SeccionControlBiologico, SeccionEstudiantes,
          SeccionColaboradores, SeccionNoticias, SeccionTesis, 
-         SeccionServicios, SeccionRoles, UserInformation } 
+         SeccionServicios, SeccionRoles,SeccionGeneral, UserInformation } 
 from './pages'
 import { EnfermedadContextProvider,MiembroContextProvider,
         ColaboradorContextProvider,EstudiantesContextProvider,
@@ -158,6 +158,13 @@ function MainRoutes() {
                 path='/user'
                 element= {  
                   <UserInformation />
+                }
+              >
+              </Route>
+              <Route
+                path='/general'
+                element= {  
+                  <SeccionGeneral />
                 }
               >
               </Route>

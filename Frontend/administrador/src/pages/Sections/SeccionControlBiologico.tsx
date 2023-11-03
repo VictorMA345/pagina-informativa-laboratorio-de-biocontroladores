@@ -32,6 +32,15 @@ export const SeccionControlBiologico = () => {
 
   return (
     <div className='control-biologico'>
+        <div className='module-description'>
+          <h3 className='module-description'>
+            Descripción del módulo
+          </h3>
+          <p>
+            En esta sección se añaden investigaciones en control biólogico realizadas por el laboratorio. Acá se añaden
+            las investigaciones que se desean mostrar al público.
+          </p>
+        </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

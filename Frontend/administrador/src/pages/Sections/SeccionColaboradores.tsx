@@ -31,7 +31,17 @@ export const SeccionColaboradores = () => {
   }
   return (
     <div>
+
         <div className='colaboradores'>
+            <div className='module-description'>
+              <h3 className='module-description'>
+                Descripción del módulo
+              </h3>
+              <p >
+                  En esta sección se agregan los investigadores del laboratorio, ya sean personas que han
+                  colaborado en algún proyecto con el laboratorio. 
+              </p>
+            </div>
             <Table     
                 seccion={nombreSeccion} 
                 contextData ={state} 

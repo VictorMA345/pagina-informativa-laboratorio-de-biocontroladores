@@ -44,7 +44,7 @@ export const EstudiantesPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Estudiantes"
+                label="Pasantes y Tesiarios"
               />
               <hr />
               {

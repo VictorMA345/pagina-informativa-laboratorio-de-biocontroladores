@@ -97,6 +97,9 @@ const postServicio = async (req, res) => {
       const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
       const childFolder = 'fotos-servicios';
       for (const uploadedFile of req.files['fotosServicio']) {
+        if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+            return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+        }
         const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
         if (watermarkedImageBuffer) {
           const file = await uploadFile(authClient,  {
@@ -218,6 +221,9 @@ const patchServicio = async (req, res) => {
       const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
       const childFolder = 'fotos-servicios';
       for (const uploadedFile of req.files['fotosServicio']) {
+          if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+              return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+          }
           const watermarkedImageBuffer = await addWatermarkToImage(uploadedFile.buffer);
           if (watermarkedImageBuffer) {
               const file = await uploadFile(authClient, {

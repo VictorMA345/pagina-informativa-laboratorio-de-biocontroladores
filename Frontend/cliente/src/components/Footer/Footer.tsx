@@ -1,32 +1,22 @@
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ContactModal } from '..';
-import logo from '../../images/logo.png';
 import './Footer.css'
-export const Footer = () => {
-
+interface FooterProps {
+  generalInfo: any 
+}
+export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
   const [contactModal, setcontactModal] = useState<boolean>(false)
-  const logoStyle = {
-    maxWidth: '300px',
-    maxHeight: '125px', 
-  };
   return (
     <>
-    <MDBFooter bgColor='light' style ={{"background":"#C0C0C0"}}className='text-center text-lg-start text-muted footer-container'>
+    <MDBFooter bgColor='light' style ={{"background":"#C0C0C0"}}className=' text-center text-lg-start text-muted footer-container'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-
       </section>
-
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
-            <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
-              <img className="logo-image" src={logo} alt="" style={logoStyle} />
-            </MDBCol>
-
-           
-            <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
+            <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4 footer-text-container'>
                 <Button 
                   onClick={() => setcontactModal(!contactModal)}
                   className='contact-button'
@@ -41,14 +31,15 @@ export const Footer = () => {
                 </h6>
               <p>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
-                "Dirección del laboratorio"
+                { generalInfo && generalInfo.direccion }
               </p>
               <p>
                 <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                correoElectrónico@gmail.com
+                { generalInfo && generalInfo.correo }
               </p>
               <p>
-                <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+                <MDBIcon color='secondary' icon='phone' className='me-3' />
+                { generalInfo && generalInfo.telefono }
               </p>
             </MDBCol>
           </MDBRow>
@@ -65,7 +56,6 @@ export const Footer = () => {
       show= {contactModal}
       setShowModal={setcontactModal}
     />
-
     </>
   );
 }

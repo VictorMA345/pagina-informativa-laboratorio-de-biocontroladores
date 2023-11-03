@@ -1,28 +1,70 @@
 .middle-main-page-container {
-    display: flex;
-    justify-content: space-between;
-    min-width: 100%;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  min-width: 100%;
+  height: 80vh;
 
-.image-container{
-  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20210706/pngtree-green-cool-wallpaper-background-hd-image_736893.jpg');
-  width: 70%;
-  margin-left: 0px;
+  @media (max-width: 768px) {
+    height:100%;
+    flex-direction: column;
+    margin-bottom: 2rem; 
+  }
 }
-  .text-overlay {
-    top: 0;
-    left: 0;
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen en el contenedor */
-    color: #fff;
-    padding: 15px;
-    font-size: 1.5vw;
-    width: 100%; /* Ajusta el ancho del texto */
-    box-sizing: border-box; /* Incluye el padding en el ancho */
+
+.image-container {
+  position: relative;
+  width: 100%; 
+  margin-left: 0;
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
   }
-  
-  .main-page-image-title {
-    text-align: center;
-    
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
+}
+
+.image-container::after {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; 
+}
+
+.text-overlay {
+  color: #fff;
+  padding: 1.5rem; /* Puedes reducir este valor para reducir el espacio alrededor del texto */
+  font-size: 1.8vw; /* Puedes cambiar esto por un valor en "em" para mayor consistencia */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  @media (max-width: 768px) {
+    margin-top: 50%;
+    padding: 1rem; /* Reducción del espacio alrededor del texto en dispositivos móviles */
+    font-size: 1rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
   }
+}
+
+.text-overlay h4 {
+  font-size: 2.5vw; /* Puedes cambiar esto a un tamaño de fuente más consistente usando "em" */
+  @media (max-width: 768px) {
+    font-size: 1.6rem; /* Reducción del tamaño de fuente en dispositivos móviles */
+  }
+}
+.main-page-image-title {
+  text-align: center;
+}

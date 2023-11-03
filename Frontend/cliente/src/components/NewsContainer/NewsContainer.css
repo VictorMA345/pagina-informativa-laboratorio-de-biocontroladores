@@ -1,5 +1,10 @@
 .news-container{
-    width: 25%;
+    width: 40%;
+    margin-left: 4rem;
+    @media (max-width: 768px) {
+        margin-left: 0;
+        width: 100%;
+      }
 }
 .news-container-header{
     border-top: 15px solid #1D3557;
@@ -11,4 +16,12 @@
 }
 .news-container-body{
     background-color: #C0C0C0;
+    font-weight: lighter;
+    cursor: pointer;
+}
+.news-container-body h6{
+    font-weight: bold;
+}
+.news-container-body:hover{
+    background-color: gray;
 }

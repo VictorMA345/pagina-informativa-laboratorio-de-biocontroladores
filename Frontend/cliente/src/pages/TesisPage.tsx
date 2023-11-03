@@ -88,6 +88,7 @@ export const TesisPage = () => {
             {
             state.rows.length !== 0 ? 
             <Container className= "table-container">
+
               <TesisTableComponent 
                 columns={columnNames}
                 data={state.rows}

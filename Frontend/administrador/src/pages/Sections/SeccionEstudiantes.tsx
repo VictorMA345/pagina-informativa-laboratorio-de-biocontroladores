@@ -30,6 +30,14 @@ export const SeccionEstudiantes = () => {
   }
   return (
     <div className='estudiantes'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sección se agregan estudiantes tesiarios o pasantes involucrados directamente con el laboratorio.
+        </p>
+      </div>
       <Table     
           seccion={nombreSeccion} 
           contextData ={state} 

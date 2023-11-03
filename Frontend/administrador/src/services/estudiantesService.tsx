@@ -69,11 +69,9 @@ export const updateEstudiante = async (id: string, updatedData: Estudiante): Pro
         method: "PATCH",
         body: formData,
       });
-
       if (!response.ok) {
         console.log("Error a la hora de actualizar el estudiante");
       }
-
       const jsonResponse = await response.json();
       return jsonResponse;
     } catch (error) {

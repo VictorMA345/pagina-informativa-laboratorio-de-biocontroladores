@@ -190,7 +190,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                     Abstract:
                 </h3>
                 <p>
-                    {selectedTesis?.resumenTesis}
+                    {selectedTesis?.abstract}
                 </p>
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>

@@ -33,6 +33,14 @@ export const SeccionProyectos = () => {
 
   return (
     <div className='proyectos'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sección se agregan los proyectos que ha realizado el laboratorio que se deseen exponer al público.
+        </p>
+      </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

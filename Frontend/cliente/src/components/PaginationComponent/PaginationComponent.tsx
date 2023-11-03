@@ -75,26 +75,30 @@ export const PaginationComponent: React.FC<PaginationComponentProps> = ({
       rows: [],
       cantidad: itemsPerPage,
       pagina: page,
-      itemCounts: totalItems,
-      filters: filters
+      itemCounts: totalItems
     });
   };
 
   return (
     <Container className="page-index-container">
       <Pagination className="pagination">
-        <Pagination.First onClick={goToFirstPage} disabled={currentPage === 1} />
-        <Pagination.Prev onClick={decreasePage} disabled={currentPage === 1} />
+        <Pagination.First 
+
+          className='pagination-button'
+          onClick={goToFirstPage} disabled={currentPage === 1} />
+        <Pagination.Prev 
+                  className='pagination-button'
+        onClick={decreasePage} disabled={currentPage === 1} />
 
         {pageNumbers.map((page) => (
           <Pagination.Item
             key={page}
             active={page === currentPage}
-            onClick={() => goToPage(page)}
+            onClick={!(page === currentPage) ? (() => goToPage(page)): undefined}
             className={page === currentPage ? 'active-page' : 'pagination-item'}
           >
             {page}
-          </Pagination.Item>
+          </Pagination.Item>  
         ))}
 
         <Pagination.Next

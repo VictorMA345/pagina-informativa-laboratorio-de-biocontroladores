@@ -6,6 +6,7 @@ export interface Estudiante {
   nombreCompleto: string;
   fotoPerfil: string;
   carrera: string;
+  investigacion: string;
   genero: string;
   correoElectronico: string;
   anioIngreso: number;
@@ -33,6 +34,7 @@ export interface EstudianteStructure {
   nombreCompleto: FieldProperties;
   fotoPerfil: FieldProperties;
   carrera: FieldProperties;
+  investigacion: FieldProperties;
   genero: FieldProperties;
   correoElectronico: FieldProperties;
   anioIngreso: FieldProperties;
@@ -86,6 +88,13 @@ export const getEstudianteStructure = async (): Promise<EstudianteStructure> => 
       keyName: "carrera",
       editable: true,
     },
+    investigacion: {
+      name: "Investigación",
+      show: false,
+      type: "text",
+      keyName: "investigacion",
+      editable: true,
+    },
     genero: {
       name: "Género",
       show: true,
@@ -96,14 +105,14 @@ export const getEstudianteStructure = async (): Promise<EstudianteStructure> => 
     },
     correoElectronico: {
       name: "Correo Electrónico",
-      show: true,
+      show: false,
       type: "text",
       keyName: "correoElectronico",
       editable: true,
     },
     anioIngreso: {
       name: "Año de Ingreso",
-      show: true,
+      show: false,
       type: "text",
       keyName: "anioIngreso",
       editable: true,
@@ -117,14 +126,14 @@ export const getEstudianteStructure = async (): Promise<EstudianteStructure> => 
     },
     createdAt: {
       name: "Fecha de Creación",
-      show: true,
+      show: false,
       type: "date",
       keyName: "createdAt",
       editable: false,
     },
     updatedAt: {
       name: "Fecha de Edición",
-      show: true,
+      show: false,
       type: "date",
       keyName: "updatedAt",
       editable: false,

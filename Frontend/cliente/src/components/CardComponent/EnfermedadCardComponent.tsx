@@ -72,7 +72,7 @@ export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setS
 
         </ListGroup>
             <Card.Footer className="enfermedad-card-footer">
-            <Link className = "enfermedad-card-button-link" to = {`/enfermedades/${item?._id}`}>
+            <Link className = "enfermedad-card-button-link" to = {`/fitopatogenos/${item?._id}`}>
                 <Button 
                 onClick={() => setSelectedItem(item)}
                 className="enfermedad-card-button">

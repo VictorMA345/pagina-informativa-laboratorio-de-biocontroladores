@@ -20,6 +20,11 @@ const control_biologicoSchema = new Schema({
         required: true,
         default : "No hay Descripción"
     },
+    abstract : {
+        type: String,
+        required: true,
+        default : "No hay Descripción"
+    },
     imagenes : {
         type : [String],
         default: []

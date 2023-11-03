@@ -1,6 +1,8 @@
 import './MainRoutes.css'
+import { useEffect, useState } from 'react'
 import { Routes,Route } from 'react-router-dom' 
-import { UpperNavbar,LowerNavbar,Footer} from './components'
+import { UpperNavbar,LowerNavbar,Footer} from './components'  
+import { ControlBiologico,Enfermedad,Noticia } from './Models'
 import { Home,EnfermedadPage, ControlBiologicoPage,NoticiasPage,
          TesisPage,ProyectosPage,ServiciosPage,MiembrosPage,EstudiantesPage,
          InvestigadoresPage } from './pages/'
@@ -8,19 +10,38 @@ import {ServicioContextProvider,EnfermedadContextProvider,ControlBiologicoContex
         ,TesisContextProvider,ColaboradorContextProvider,ProyectoContextProvider,
         NoticiaContextProvider,MiembroContextProvider,EstudianteContextProvider
         } from './Context'
+import { getGeneralInfo,increaseView } from './services'
+
 const MainRoutes = () => {
+  const [info,setInfo] = useState(undefined);
+  const [selectedItem, setselectedItem] = useState<Noticia | ControlBiologico | Enfermedad | undefined>(undefined)
+  const [ignore,setIgnore] = useState(false);
+  useEffect(() => {
+    getGeneralInfo().then(
+      res =>{
+        if (!ignore) setInfo(res);
+    })
+    if(!ignore) increaseView();
+    return () => { setIgnore(true) }
+  }, []);
+  
   return (
     <>
       <UpperNavbar />
       <LowerNavbar />
       <Routes>
-        <Route path='/' element= {<Home />}>
+        <Route path='/' element= {<Home 
+          setItem = {setselectedItem}
+          generalInfo = {info && info[0]}
+        />}>
         </Route>
         <Route
-          path='/enfermedades/*'
+          path='/fitopatogenos/*'
           element= {
             <EnfermedadContextProvider>
-              <EnfermedadPage/>
+              <EnfermedadPage
+                defaultItem = {selectedItem as Enfermedad | undefined}
+              />
             </EnfermedadContextProvider>
           }
         >
@@ -28,7 +49,9 @@ const MainRoutes = () => {
         <Route path='/control_biologico/*'
         element = {
           <ControlBiologicoContextProvider>
-            <ControlBiologicoPage />
+            <ControlBiologicoPage 
+              defaultItem = {selectedItem as ControlBiologico | undefined}
+            />
           </ControlBiologicoContextProvider>
           }>
 
@@ -57,18 +80,19 @@ const MainRoutes = () => {
         <Route path='/noticias/*'
         element = {
         <NoticiaContextProvider>
-          <NoticiasPage />
+          <NoticiasPage 
+            defaultItem = {selectedItem as Noticia | undefined}
+          />
         </NoticiaContextProvider>
         }>
 
         </Route>
-        <Route path='/miembros/*'
+        <Route path='/asistentes/*'
         element = {
         <MiembroContextProvider>
           <MiembrosPage />
         </MiembroContextProvider>
         }>
-
         </Route>
         <Route path='/investigadores/*'
         element = {
@@ -85,7 +109,10 @@ const MainRoutes = () => {
         }>
         </Route>
       </Routes>
-      <Footer/>
+      <Footer
+        generalInfo = {info && info[0]}
+      />
+
     </>
   )
 }

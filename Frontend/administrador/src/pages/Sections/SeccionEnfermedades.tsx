@@ -24,6 +24,14 @@ export const SeccionEnfermedades = () => {
     return (
     <>
         <div className='enfermedades'>
+            <div className='module-description'>
+            <h3 >
+                Descripción del módulo
+            </h3>
+            <p>
+                En esta sección se añade información sobre fitopatógenos investigados por el laboratorio que se desea mostrar al público.
+            </p>
+            </div>
             {
                 <Table  
                     seccion={nombreSeccion} 

@@ -167,6 +167,9 @@ const patchMiembro = async(req,res) =>{
     let newFotoDePerfilURL = ""
     if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0] ) {
         const newFotoPerfil = req.files['fotoPerfil'][0];
+        if (!['image/jpeg','image/png','image/jpg'].includes(newFotoPerfil.mimetype)){
+            return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+        }
         if (miembroAntiguo.fotoPerfil && esURLGoogleDriveValida(miembroAntiguo.fotoPerfil) ) {
             newFotoDePerfilURL = await replaceFileInDrive(authClient, newFotoPerfil ,miembroAntiguo.fotoPerfil,"fotos-de-perfil");
             newFotoDePerfilURL = `https://drive.google.com/uc?id=${newFotoDePerfilURL}`;
@@ -185,6 +188,9 @@ const patchMiembro = async(req,res) =>{
     let newCurriculumDocumentoURL = ""
     if (req.files && req.files['curriculumDocumento'] && req.files['curriculumDocumento'][0]) {
         const newCurriculum = req.files['curriculumDocumento'][0];
+        if (newCurriculum.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (miembroAntiguo.curriculumDocumento  && esURLGoogleDriveValida(miembroAntiguo.curriculumDocumento) ) {
             newCurriculumDocumentoURL = await replaceFileInDrive(authClient,newCurriculum, miembroAntiguo.curriculumDocumento ,"curriculums");
             newCurriculumDocumentoURL = `https://drive.google.com/uc?id=${newCurriculumDocumentoURL}`;
@@ -307,6 +313,9 @@ const signUpUser = async(req,res) =>{
         let fotoPerfilUrl = "";
         if ( req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]){
             const uploadedFile = req.files['fotoPerfil'][0];
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = "fotos-de-perfil"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -315,6 +324,9 @@ const signUpUser = async(req,res) =>{
         let curriculumUrl = "";
         if ( req.files && req.files['curriculumDocumento'] &&  req.files['curriculumDocumento'][0]){
             const uploadedFile = req.files['curriculumDocumento'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "curriculums"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);

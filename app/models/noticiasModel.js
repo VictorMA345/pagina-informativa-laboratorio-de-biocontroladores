@@ -16,8 +16,8 @@ const NoticiaSchema = new Schema({
         default: []
     },
     categoria : {
-        type: [String],
-        default: []
+        type: String,
+        default: ""
     },
     citasBibliograficas : {
         type: [String],

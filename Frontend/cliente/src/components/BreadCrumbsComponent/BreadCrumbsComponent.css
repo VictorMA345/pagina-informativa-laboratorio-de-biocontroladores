@@ -1,8 +1,19 @@
 .breadcrumbs-component{
     margin: 2rem;
+    text-decoration: none;
 }
 .breadcrumbs-link{
-    color: #34A853;
+    color: black;
     font-weight: bolder;
     text-decoration: none;
+}
+
+.breadcrumbs-link a{
+    text-decoration: none;
+}
+
+
+.breadcrumbs-link:hover{
+    color: green;
+    font-weight: bolder;
 }

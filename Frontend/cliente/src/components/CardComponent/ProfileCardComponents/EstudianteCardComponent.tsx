@@ -36,21 +36,16 @@ export const EstudianteCardComponent:React.FC<EstudianteCardComponentProps> = ({
                   <strong>Nombre:</strong> {estudiante.nombreCompleto}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Género:</strong> {estudiante.genero}
-                </ListGroup.Item>
-
-                <ListGroup.Item>
                   <strong>Correo Electrónico:</strong> {estudiante.correoElectronico}
                 </ListGroup.Item>
-
                 <ListGroup.Item>
                   <strong>Carrera:</strong> {estudiante.carrera}
                 </ListGroup.Item>
-
-
+                <ListGroup.Item>
+                  <strong>Año de Ingreso:</strong> {estudiante.anioIngreso}
+                </ListGroup.Item>
               </ListGroup>
               {
-
                 estudiante.curriculum && 
                 estudiante.curriculum !== "" &&
                 <Button 

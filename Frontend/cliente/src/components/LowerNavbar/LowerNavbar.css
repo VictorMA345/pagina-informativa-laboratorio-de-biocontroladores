@@ -1,32 +1,45 @@
-.logo-image{
-    margin-left: 2rem;
-}
+
 
 .lower-navbar{
     width: 100%;
-    background-color: #C0C0C0;
+    padding: 2rem;
+    background-color: #1D3557;
 }
+.dropdown-nav-link .dropdown-toggle{
+  color: white !important; 
+  font-weight: 600;
+}
+.dropdown-nav-link .dropdown-toggle:hover{
+  color: #50C878 !important; 
+  font-weight: 600;
+}
+
 .lower-navbar-container{
     display: flex;
     min-width: 100%;
     justify-content: space-between;
 }
 .lower-navbar-links{
-    color: black !important;
+    color: white !important;
     font-weight: bold;
     font-size: 20px;
 }
 .navbar-link{
   text-decoration: none;
-  color: #606060;
-  
+    color: white !important;
 }
 .navbar-link:hover{
-  text-decoration: none;
+  color: #50C878 !important; 
+  font-weight: 600;
+}
+.navbar-link:hover{
+  text-decoration: none ;
   color: #909090;
   
 }
-/* Agrega estos estilos para controlar la apariencia de la Navbar en dispositivos pequeños */
+.dropdown-nav-link nav.dropdown-nav-link{
+  color: #FFF;
+}
 @media (max-width: 768px) {
     .lower-navbar {
       padding: 10px; /* Añade espacio entre el contenido y el borde de la Navbar */

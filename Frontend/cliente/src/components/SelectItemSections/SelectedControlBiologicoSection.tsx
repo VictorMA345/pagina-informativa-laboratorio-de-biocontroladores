@@ -36,7 +36,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Encargados de la investigación:
+                    Investigadores:
                 </h5>
                 <Container className='container-item-list'>
                     {
@@ -64,10 +64,18 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h5> 
-                    Investigación: 
+                    Resumen: 
                 </h5>
                 <p>
                     {controlbiologico?.textoExplicativo}
+                </p>
+            </ListGroup.Item>
+            <ListGroup.Item className='selected-item-body'>
+                <h5> 
+                    Abstract: 
+                </h5>
+                <p>
+                    {controlbiologico?.abstract}
                 </p>
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>

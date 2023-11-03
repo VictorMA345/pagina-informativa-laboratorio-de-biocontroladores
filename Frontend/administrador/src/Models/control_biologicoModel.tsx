@@ -5,6 +5,7 @@ export interface ControlBiologico {
   encargados: string[];
   fechaPublicacion: string;
   textoExplicativo: string;
+  abstract : string;
   imagenes: string[];
   documentoDetallado: string;
 }
@@ -26,6 +27,7 @@ export interface ControlBiologicoStructure {
   encargados: FieldProperties;
   fechaPublicacion: FieldProperties;
   textoExplicativo: FieldProperties;
+  abstract: FieldProperties;
   imagenes: FieldProperties;
   documentoDetallado: FieldProperties;
 }
@@ -70,6 +72,13 @@ export const getControlBiologicoStructure = async (): Promise<ControlBiologicoSt
         keyName: "textoExplicativo",
         editable: true,
         },
+        abstract: {
+          name: "Abstract",
+          show: false,
+          type: "large-text",
+          keyName: "abstract",
+          editable: true,
+          },
         imagenes: {
         name: "Imágenes",
         show: false,

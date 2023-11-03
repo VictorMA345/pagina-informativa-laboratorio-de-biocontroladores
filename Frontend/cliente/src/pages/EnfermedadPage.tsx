@@ -8,10 +8,13 @@ import { useEnfermedadContext } from "../hooks/useEnfermedad"
 import { EnfermedadStructure,getEnfermedadStructure,Enfermedad } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
 import "./page.css"
-export const EnfermedadPage = () => {
+interface EnfermedadPageProps {
+  defaultItem: Enfermedad | undefined;
+}
+export const EnfermedadPage: React.FC<EnfermedadPageProps> = ({defaultItem}) => {
   const { state,dispatch } = useEnfermedadContext();
   const [columnNames, setColumnNames] = useState<EnfermedadStructure | undefined>(undefined);
-  const [selectedItem, setselectedItem] = useState<Enfermedad | undefined>(undefined)
+  const [selectedItem, setselectedItem] = useState<Enfermedad | undefined>(undefined || defaultItem)
 
   const [filters, setfilters] = useState({})
   
@@ -20,12 +23,11 @@ export const EnfermedadPage = () => {
     const fetchData = async() =>{
       setColumnNames(await getEnfermedadStructure())
     }
-    setselectedItem(undefined)
     fetchData();
   }, [])
 
   useEffect(() => {
-    if (location.pathname === "/enfermedades") {
+    if (location.pathname === "/fitopatogenos") {
       setselectedItem(undefined);
     }
   }, [location]); 
@@ -37,7 +39,6 @@ export const EnfermedadPage = () => {
       </div>  
     )
   }
-
   return (
     <>
       <Routes>
@@ -49,7 +50,7 @@ export const EnfermedadPage = () => {
               selectedItem ? 
               <>
                 <BreadCrumbsComponent 
-                  mainSection="enfermedades"
+                  mainSection="fitopatogenos"
                   itemSection={selectedItem ? selectedItem.enfermedad : ""}
                   itemId={selectedItem ? selectedItem._id : ""}
                 />
@@ -74,7 +75,7 @@ export const EnfermedadPage = () => {
           element={
             <>
             <BreadCrumbsComponent 
-              mainSection="enfermedades"
+              mainSection="fitopatogenos"
               itemSection={selectedItem ? selectedItem.enfermedad : ""}
               itemId={""}
             />
@@ -85,7 +86,7 @@ export const EnfermedadPage = () => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Investigaciones de enfermedades"
+              label="Fitopatógenos"
             />
             <hr />
             {

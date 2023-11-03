@@ -112,27 +112,35 @@ async function replaceFileInDrive(authClient, newFile, fileUrl,childFolder) {
 
 const addWatermarkToImage = async (fileBuffer) => {
     try {
-        const imageBuffer = await sharp(fileBuffer)
+      const imageBuffer = await sharp(fileBuffer)
         .toFormat('jpeg')
         .png()
         .toBuffer();
       const image = await Jimp.read(imageBuffer);
-      const watermark = await Jimp.read('./uploads/logo.png'); 
-      const x = image.bitmap.width - watermark.bitmap.width - 10;
-      const y = image.bitmap.height - watermark.bitmap.height - 10; 
+      const watermark = await Jimp.read('./uploads/logo.png');
+  
+      const x = (image.bitmap.width - watermark.bitmap.width) / 3;
+      const y = (image.bitmap.height - watermark.bitmap.height) / 2;    
+  
+      const watermarkScaledWidth = image.bitmap.width * 0.8;
+      watermark.resize(watermarkScaledWidth, Jimp.AUTO);
+  
+      watermark.opacity(0.5);
+  
       image.composite(watermark, x, y, {
         mode: Jimp.BLEND_SOURCE_OVER,
         opacityDest: 1,
-        opacitySource: 0.9,
-      });   
+        opacitySource: 1,
+      });
   
-      const watermarkedImageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG); 
+      const watermarkedImageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG);
       return watermarkedImageBuffer;
     } catch (error) {
       console.error('Error al agregar la marca de agua:', error);
       return null;
     }
   };
+  
   function contieneSoloNumerosOSimbolos(texto) {
     const patron = /^[0-9!@#$%^&*()_+|~\-=\[\]{};:'",.<>/?\\]+$/i;
     return patron.test(texto);

@@ -36,6 +36,7 @@ export const SingleImageUploadModalField: React.FC<SingleImageUploadModalFieldPr
       <Form.Label>{label}</Form.Label>
       <Form.Control
         type="file"
+        accept=".jpg, .jpeg, .png"
         onChange={(event) => {
           onChange(event.target.files[0]);
         }}

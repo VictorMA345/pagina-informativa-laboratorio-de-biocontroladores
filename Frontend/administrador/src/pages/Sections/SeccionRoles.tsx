@@ -33,6 +33,14 @@ export const SeccionRoles = () => {
 
   return (
     <div className='roles'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sección se agregan nuevos roles para los miembros del laboratorio, estos roles definen los permisos que tienen sobre la página los diferentes.
+        </p>
+      </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

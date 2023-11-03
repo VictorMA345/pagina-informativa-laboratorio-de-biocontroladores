@@ -36,14 +36,14 @@
     text-indent: 2rem;
 }
 .carousel img {
-    width: 100%; /* Utiliza el 100% del ancho disponible */
-    max-height: 70vh; /* Utiliza el 70% de la altura de la ventana gráfica (viewport height) como altura máxima */
+    width: 100%; 
+    max-height: 70vh;
     object-fit: cover;
     transition: opacity 0.5s;
 }
 
 .carousel-item {
-    opacity: 0; /* Inicialmente, todas las imágenes están ocultas */
+    opacity: 0; 
 }
 
 .carousel-item.active {
@@ -72,6 +72,14 @@
     justify-content: space-evenly;
     padding: 2rem;
     background-color: #1D3557;
+    font-size: large;
+}
+.document-button:hover{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+    background-color: #FF5733; 
     font-size: large;
 }
 .document-button i{

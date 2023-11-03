@@ -72,6 +72,7 @@ const postEstudiantes = async(req,res) =>{
         genero,
         correoElectronico,
         anioIngreso,
+        investigacion
         } = req.body
     try {
 
@@ -99,6 +100,19 @@ const postEstudiantes = async(req,res) =>{
         }
         if (!contieneSoloNumerosOSimbolos(cedula)){
             return res.status(400).json({error: "La identificación no tiene el formato correcto."})
+        }
+
+        if (investigacion === ""){
+            return res.status(400).json({error: "No se puede crear un estudiante sin un nombre de la investigación"})
+        }
+        if (investigacion.length >= 150){
+            return res.status(400).json({error: "El nombre de la investigación es muy largo. por favor usar un nombre más corto"})
+        }
+        if (investigacion.length < 10){
+            return res.status(400).json({error: "El nombre de la investigación es muy corto. por favor usar un nombre más largo"})
+        }
+        if (/[^A-Za-z0-9\s]/.test(investigacion) || /\d/.test(investigacion)){
+            return res.status(400).json({error: "La investigación no puede contener números o símbolos"})
         }
 
         if (nombreCompleto === ""){
@@ -151,6 +165,9 @@ const postEstudiantes = async(req,res) =>{
         let fotoPerfilUrl = "";
         if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]){
             const uploadedFile = req.files['fotoPerfil'][0];
+            if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+                return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = "fotos-estudiantes"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -159,6 +176,9 @@ const postEstudiantes = async(req,res) =>{
         let curriculumUrl = "";
         if (req.files && req.files['curriculum'] && req.files['curriculum'][0]){
             const uploadedFile = req.files['curriculum'][0];
+            if (uploadedFile.mimetype !== 'application/pdf'){
+                return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+            }
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder =  "curriculums-estudiantes"
             const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -253,6 +273,17 @@ const patchEstudiantes = async (req, res) => {
         return res.status(400).json({error: "La identificación no tiene el formato correcto."})
     }
 
+    if (req.body.investigacion === ""){
+        return res.status(400).json({error: "No se puede editar un estudiante sin un nombre de la investigación"})
+    }
+    if (req.body.investigacion.length >= 150){
+        return res.status(400).json({error: "El nombre de la investigación es muy largo. por favor usar un nombre más corto"})
+    }
+    if (req.body.investigacion.length < 10){
+        return res.status(400).json({error: "El nombre de la investigación es muy corto. por favor usar un nombre más largo"})
+    }
+
+
     if (req.body.nombreCompleto === ""){
         return res.status(400).json({error: "No se puede editar un estudiante sin un nombre"})
     }
@@ -299,6 +330,9 @@ const patchEstudiantes = async (req, res) => {
     let newFotoDePerfilURL = "";
     if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]) {
         const newFotoPerfil = req.files['fotoPerfil'][0];
+        if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+            return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+        }
         if (estudianteAntiguo.fotoPerfil  && esURLGoogleDriveValida(estudianteAntiguo.fotoPerfil)) {
             newFotoDePerfilURL = await replaceFileInDrive(authClient, newFotoPerfil, estudianteAntiguo.fotoPerfil, "fotos-estudiantes");
             newFotoDePerfilURL = `https://drive.google.com/uc?id=${newFotoDePerfilURL}`;
@@ -317,6 +351,9 @@ const patchEstudiantes = async (req, res) => {
     let newCurriculumURL = estudianteAntiguo.curriculum || "";
     if (req.files && req.files['curriculum'] && req.files['curriculum'][0]) {
         const newCurriculum = req.files['curriculum'][0];
+        if (newCurriculum.mimetype !== 'application/pdf'){
+            return res.status(400).json({error: "Solamente se aceptan documentos pdf"})
+        }
         if (estudianteAntiguo.curriculum && esURLGoogleDriveValida(estudianteAntiguo.curriculum) ) {
             newCurriculumURL = await replaceFileInDrive(authClient, newCurriculum, estudianteAntiguo.curriculum, "curriculums-estudiantes");
             newCurriculumURL = `https://drive.google.com/uc?id=${newCurriculumURL}`;

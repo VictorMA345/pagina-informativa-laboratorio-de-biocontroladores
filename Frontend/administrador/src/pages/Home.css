@@ -1,12 +1,16 @@
 .Homepage {
   background-color: #f5f5f5;
-  padding: 20px;
-  margin-top: 12rem;
+  padding: 15px;
+  margin-top: 4rem;
   margin-left: 5rem;
-  height: 66vh;
-  width: 95vw;
+  width: 90vw;
   border-radius: 20px;
   border: #777 1px solid;
+  background-color: #FFF;  
+  @media (max-width: 768px) {
+    margin-top: 11rem;
+    margin-left: 0;  
+  }   
 }
 .header {
   text-align: center;
@@ -21,7 +25,7 @@
   color: #777;
 }
 .intro {
-  background-color: #fff;
+  background: #1D3557;
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
@@ -29,14 +33,15 @@
 }
 .intro h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: white;
+  font-weight: bolder;  
 }
 .intro p {
   font-size: 1.2rem;
-  color: #777;
+  color: white;
 }
 .instructions {
-  background-color: #fff;
+  background: #1D3557;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -45,11 +50,12 @@
 
 .instructions h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: white;
+  font-weight: bolder;  
 }
 
 .instructions p {
   font-size: 1.2rem;
-  color: #777;
+  color: white;
 }
 

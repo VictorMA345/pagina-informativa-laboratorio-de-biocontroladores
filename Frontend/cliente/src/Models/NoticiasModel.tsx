@@ -5,7 +5,7 @@ export interface Noticia {
   titulo: string;
   publicador: string;
   imagenes: string[];
-  categoria: string[];
+  categoria: string;
   citasBibliograficas: string[];
   textoCompleto: string;
   documentoComplementario: string;
@@ -68,7 +68,7 @@ export const getNoticiaStructure = async (): Promise<NoticiaStructure> => {
     categoria: {
       name: "Categoría",
       show: true,
-      type: "list",
+      type: "text",
       keyName: "categoria"
     },
     citasBibliograficas: {

@@ -44,7 +44,7 @@ export const Sidebar = () => {
                 {!Sidebar ? (
                     <i className='bx bx-menu' id="header-toggle" onClick={handleSidebar}></i>
                 ) : (
-                    <i className='bx bx-x' id="header-toggle" style={{"marginLeft":"9vw"}} onClick={handleSidebar}></i>
+                    <i className='bx bx-x' id="header-toggle" style={{"marginLeft":"11vw"}} onClick={handleSidebar}></i>
                 )}
             </div>
             <div className="header_img"> 
@@ -197,6 +197,19 @@ export const Sidebar = () => {
                                 </i> 
                                 <span className="nav_name">
                                     Colaboradores
+                                </span> 
+                            </a> 
+                        </Link>
+
+                        <Link to = "/general" className="link-react">
+                            <a
+                                className={`nav_link ${activeLink === "General" ? "active":""}`}
+                                onClick={() => handleActiveLink("General")}
+                            > 
+                                <i className='bx bx-briefcase nav_icon' >
+                                </i> 
+                                <span className="nav_name">
+                                    General
                                 </span> 
                             </a> 
                         </Link>

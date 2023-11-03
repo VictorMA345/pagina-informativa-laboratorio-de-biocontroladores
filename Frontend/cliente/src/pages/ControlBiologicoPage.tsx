@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap"
-import { useState,useEffect } from "react"
+import React, { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
         SelectedControlBiologicoSection,ControlBiologicoCardComponent
@@ -8,11 +8,13 @@ import { useControlBiologicoContext } from "../hooks/useControlBiologico"
 import { ControlBiologicoStructure,getControlBiologicoStructure,ControlBiologico } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
 import "./page.css"
-export const ControlBiologicoPage = () => {
+interface ControlBiologicoPageProps {
+  defaultItem: ControlBiologico | undefined;
+}
+export const ControlBiologicoPage: React.FC<ControlBiologicoPageProps> = ({defaultItem}) => {
     const { state,dispatch } = useControlBiologicoContext();
     const [columnNames, setColumnNames] = useState<ControlBiologicoStructure | undefined>(undefined);
-    const [selectedItem, setselectedItem] = useState<ControlBiologico | undefined>(undefined)
-  
+    const [selectedItem, setselectedItem] = useState<ControlBiologico | undefined>(undefined || defaultItem)
     const [filters, setfilters] = useState({})
     
     const location = useLocation();
@@ -20,7 +22,6 @@ export const ControlBiologicoPage = () => {
       const fetchData = async() =>{
         setColumnNames(await getControlBiologicoStructure())
       }
-      setselectedItem(undefined)
       fetchData();
     }, [])
   
@@ -85,7 +86,7 @@ export const ControlBiologicoPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Investigaciones de Fitopatología y Control Biológico"
+                label="Investigaciones en Control Biológico"
               />
               <hr />
               {

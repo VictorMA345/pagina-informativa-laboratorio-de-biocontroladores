@@ -79,6 +79,9 @@ const postColaborador = async(req,res) => {
       fotoPerfilUrl = ""
       if ( req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]){
           const uploadedFile = req.files['fotoPerfil'][0];
+          if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+            return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+        }
           const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
           const childFolder = "fotos-de-colaboradores"
           const file = await uploadFile(authClient, uploadedFile, folderName, childFolder);
@@ -142,6 +145,9 @@ const patchColaborador = async(req,res) => {
     let newFotoDePerfilURL = ""
     if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]) {
         const newFotoPerfil = req.files['fotoPerfil'][0];
+        if (!['image/jpeg','image/png','image/jpg'].includes(newFotoPerfil.mimetype)){
+          return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
+      }
         if (colaboradorAntiguo.fotoPerfil && esURLGoogleDriveValida(colaboradorAntiguo.fotoPerfil)) {
             newFotoDePerfilURL = await replaceFileInDrive(authClient, newFotoPerfil ,colaboradorAntiguo.fotoPerfil,"fotos-de-colaboradores");
             newFotoDePerfilURL = `https://drive.google.com/uc?id=${newFotoDePerfilURL}`;

@@ -7,10 +7,6 @@ interface SelectedServiceSectionProps {
     selecteditem : Servicio | undefined;
 }
 export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({selecteditem}) => {
-    const formatDate = (date: string) => {
-        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(date).toLocaleDateString('en-US', options);
-    };
   return (
     <Container className = "selected-item-container">
         <ListGroup className="selected-item-listgroup">
@@ -36,14 +32,6 @@ export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({s
                 </h5>
                 <h6>
                     {selecteditem?.correoElectronico}
-                </h6>
-            </ListGroup.Item>
-            <ListGroup.Item>
-                <h5> 
-                    Fecha de publicación:
-                </h5>
-                <h6>
-                    {selecteditem?.fechaPublicacion ? formatDate(selecteditem.fechaPublicacion) : ""}
                 </h6>
             </ListGroup.Item>
         </ListGroup>

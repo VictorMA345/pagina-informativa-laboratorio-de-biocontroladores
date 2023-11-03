@@ -85,7 +85,7 @@ export const ControlBiologicoContextProvider: React.FC<{ children: ReactNode }> 
     }
 
     fetchData();
-  }, [dispatch, state.itemCounts ,state.cantidad, state.pagina, state.filters]);
+  }, [state.cantidad, state.pagina, state.filters]);
   return (
     <ControlBiologicoContext.Provider value={{ state, dispatch }}>
       {children}

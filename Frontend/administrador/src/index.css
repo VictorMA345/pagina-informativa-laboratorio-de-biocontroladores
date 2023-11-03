@@ -38,6 +38,8 @@ header a {
 
 body, html {
   background-image: url('../src/images/background.png');  
+  background-size: cover; 
+  background-position: center;
   margin: 0;
   padding: 0;
 }

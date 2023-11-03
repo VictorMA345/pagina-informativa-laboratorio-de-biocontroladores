@@ -32,6 +32,14 @@ export const SeccionServicios = () => {
 
   return (
     <div className='servicios'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sección se agregan servicios que brinde el laboratorio, de modo que estos servicios se publiquen en la página.
+        </p>
+      </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

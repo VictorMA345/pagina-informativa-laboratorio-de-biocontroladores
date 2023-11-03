@@ -48,7 +48,7 @@ export const getServicioStructure = async (): Promise<ServicioStructure> => {
         },
         descripcion: {
             name: "Descripción",
-            show: true,
+            show: false,
             type: "large-text",
             keyName: "descripcion",
             editable: true,

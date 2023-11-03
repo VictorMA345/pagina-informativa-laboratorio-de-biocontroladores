@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap"
-import { useState,useEffect } from "react"
+import React, { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
         NoticiaTableComponent,SelectedNoticiaSection
@@ -8,10 +8,13 @@ import { useNoticiaContext } from "../hooks/useNoticia"
 import { NoticiaStructure,getNoticiaStructure,Noticia } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
 import "./page.css"
-export const NoticiasPage = () => {
+interface NoticiasPageProps{
+  defaultItem : Noticia | undefined;
+}
+export const NoticiasPage: React.FC<NoticiasPageProps> = ({defaultItem}) => {
   const { state,dispatch } = useNoticiaContext();
   const [columnNames, setColumnNames] = useState<NoticiaStructure | undefined>(undefined);
-  const [selectedItem, setselectedItem] = useState<Noticia | undefined>(undefined)
+  const [selectedItem, setselectedItem] = useState<Noticia | undefined>(undefined || defaultItem)
 
   const [filters, setfilters] = useState({})
   

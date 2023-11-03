@@ -34,6 +34,21 @@ export const SeccionMiembros: React.FC<SeccionMiembrosProps> = ({currentUser_id}
     return (
         <>
             <div className='miembros' >
+            <div className='module-description'>
+                <h3 >
+                    Descripción del módulo
+                </h3>
+
+                <p>
+                En esta sección se agregan nuevos miembros directos del laboratorio, estos miembros, pueden ingresar a la 
+                página y tener un rol en el laboratorio.
+                </p>
+                <h5 >
+                    Nota: Los miembros que se agreguen pueden tener 
+                    permisos sobre la página, por favor tener cuidado a la 
+                    hora de editar, eliminar o agregar miembros.
+                </h5>
+            </div>
                 <Table     
                     seccion={nombreSeccion} 
                     contextData ={

@@ -30,6 +30,14 @@ export const SeccionTesis = () => {
   }
   return (
     <div className='tesis'>
+      <div className='module-description'>
+        <h3 >
+            Descripción del módulo
+        </h3>
+        <p>
+           En esta sesión se agregan tesis de estudiantes que se deseen mostrar al público.
+        </p>
+      </div>
       <Table
         seccion={nombreSeccion}
         contextData={state}

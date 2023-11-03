@@ -12,7 +12,13 @@
 .footer-container {
     bottom: 0;
     width: 100%;
-    background: #C0C0C0; /* Puedes ajustar el color de fondo según tu preferencia */
-    padding: 10px; /* Añade relleno según tus necesidades */
+    background: #C0C0C0; 
+    padding: 10px; 
     text-align: center;
+
   }
+.footer-text-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

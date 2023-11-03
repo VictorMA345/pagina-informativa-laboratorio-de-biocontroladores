@@ -44,7 +44,7 @@ export const InvestigadoresPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Investigadores Que han Aportado al Laboratorio"
+                label="Investigadores"
               />
               <hr />
               {

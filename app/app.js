@@ -5,8 +5,8 @@ require('dotenv').config();
 
 // Multer Storage
 const { connectToDb,getDbMiddleware  } = require('./db')
-
 const mongoose = require('mongoose');
+
 // Se importan las diferentes Rutas
 const enfermedades = require('./routes/enfermedades');
 const colaboradores = require('./routes/colaboradores');
@@ -18,6 +18,8 @@ const estudiantes = require('./routes/estudiantes')
 const servicios = require('./routes/servicios')
 const miembros = require('./routes/miembros')
 const rol = require('./routes/rol')
+const laboratorio = require('./routes/laboratorio')
+const emailservice = require('./routes/emailRoute')
 
 // init app & middleware
 const app = express();
@@ -38,6 +40,8 @@ connectToDb((error) =>{
         app.use('/api/', servicios)
         app.use('/api/', miembros)
         app.use('/api/', rol)
+        app.use('/api/', laboratorio)
+        app.use('/api/', emailservice)
         mongoose.connect(process.env.MONGO_ATLAS_URI_USER_VICTOR + process.env.CLUSTER_NAME ).then(() =>{
             app.listen(process.env.PORT,() =>{
                 console.log("connected to db and listening on port "+ process.env.PORT);

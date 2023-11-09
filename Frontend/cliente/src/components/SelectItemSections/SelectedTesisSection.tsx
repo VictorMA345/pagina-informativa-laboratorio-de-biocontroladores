@@ -3,12 +3,14 @@ import { Tesis,Estudiante } from '../../Models';
 import { Container,Image,ListGroup,Carousel,Button} from 'react-bootstrap';
 import noImagePlaceHolder from '../../images/no-image-placeholder.jpg'
 import { getEstudiante } from '../../services';
+import { useTranslation } from 'react-i18next' 
 import "./SelectedSection.css"
 interface SelectedTesisSectionProps {
   selectedTesis: Tesis | undefined;
 }
 
 export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ selectedTesis }) => {
+    const { t } = useTranslation();
     const formatDate = (date: any) => {
         const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
         return new Date(date).toLocaleDateString('en-US', options);
@@ -56,7 +58,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Fecha de inicio: 
+                       {t('fechaInicio')}: 
                     </h6>
                     <p>
                         {formatDate(selectedTesis?.fechaInicio)}
@@ -64,7 +66,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Fecha de finalización: 
+                        {t('fechaFinalizacion')}: 
                     </h6>
                     <p>
                         {selectedTesis?.fechaFinalizacion ? formatDate(selectedTesis?.fechaFinalizacion) : "La tesis se encuentra en ejecución"}
@@ -72,7 +74,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Empresas Involucradas: 
+                        {t('empresasParticipantes')}: 
                     </h6>
                     <Container className='container-item-list'>
                     {
@@ -89,7 +91,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Estudiantes Involucrados: 
+                        {t('estudiantesParticipantes')}: 
                     </h6>
                     <Container className='container-item-list'>
                     {
@@ -106,7 +108,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Financiamiento: 
+                        {t('financiamiento')}: 
                     </h6>
                     <p>
                         {selectedTesis?.financiamiento}
@@ -114,7 +116,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Palabras Clave: 
+                        {t('palabrasClave')}: 
                     </h6>
                     <Container className='container-item-list'>
                     {
@@ -131,7 +133,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Comité evaluador de la tesis: 
+                        {t('nombreComite')}: 
                     </h6>
                     <p>
                         {selectedTesis?.nombreComite}
@@ -139,7 +141,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Miembros del Comité Evaluador: 
+                        {t('miembrosComite')}: 
                     </h6>
                     <Container className='container-item-list'>
                     {
@@ -156,7 +158,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                        Grado Obtenido:
+                        {t('gradoObtenido')}: 
                     </h6>
                     <p>
                         {selectedTesis?.gradoObtenido}
@@ -164,7 +166,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h6>
-                       Año:
+                        {t('anioTesis')}: 
                     </h6>
                     <p>
                         {selectedTesis?.anioTesis}
@@ -178,7 +180,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
     <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h3> 
-                    Resumen:
+                {t('resumen')}:
                 </h3>
                 <p>
                     {selectedTesis?.resumenTesis}
@@ -221,7 +223,9 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
                         className='document-button' 
                         variant= "success">
                         <a>
-                            Descargar Tesis
+                            {
+                                t('descargar-tesis')
+                            }
                         </a>
                         <i className='bx bx-download'>
                         </i>
@@ -235,7 +239,7 @@ export const SelectedTesisSection: React.FC<SelectedTesisSectionProps> = ({ sele
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>
                 <h3> 
-                    Bibliografía:
+                    {t('bibliografia')}:
                 </h3>
                 <br>
                 </br>

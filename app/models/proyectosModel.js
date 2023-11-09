@@ -53,6 +53,6 @@ const proyectoSchema = new Schema({
         required: true,
         default : []
     }
-},{ timestamps : true });
+},{ timestamps : true ,versionKey: '__v' });
 
 module.exports = mongoose.model('proyectos',proyectoSchema,'proyectos')

@@ -2,12 +2,14 @@ import React from 'react'
 import { Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./BreadCrumbsComponent.css"
+import { useTranslation } from 'react-i18next'
 interface BreadcrumbsProps {
   mainSection: string;
   itemSection: string;
   itemId: string;
 }
 export const BreadCrumbsComponent:React.FC<BreadcrumbsProps> = ({mainSection,itemSection,itemId}) => {
+  const { t }  = useTranslation();
   return (
     <Breadcrumb className='breadcrumbs-component'>
       <Breadcrumb.Item>
@@ -15,14 +17,14 @@ export const BreadCrumbsComponent:React.FC<BreadcrumbsProps> = ({mainSection,ite
         to = "/"
         className='breadcrumbs-link'
       > 
-        Página Principal 
+        {t('pagina_principal')}
       </Link>
       </Breadcrumb.Item>
       <Breadcrumb.Item>
         <Link
           className='breadcrumbs-link'
           to = {`/${mainSection}`}> 
-          {mainSection.charAt(0).toUpperCase() + mainSection.slice(1)}
+          {t(mainSection)}
         </Link>
       </Breadcrumb.Item>
       <Breadcrumb.Item>

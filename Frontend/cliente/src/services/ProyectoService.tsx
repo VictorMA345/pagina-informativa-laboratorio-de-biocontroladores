@@ -5,7 +5,10 @@ export const getAllProyectos = async (
   selectedPage: number,
   search?: string,
   searchFor?: string,
-  order?: string): Promise<Proyecto[]> => {
+  order?: string,
+  startDate?: string,
+  endDate?: string
+  ): Promise<Proyecto[]> => {
     let apiUrl = `http://localhost:3000/api/proyectos?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
@@ -15,6 +18,12 @@ export const getAllProyectos = async (
     }
     if (order) {
       apiUrl += `&orden=${encodeURIComponent(order)}`;
+    }
+    if (startDate) {
+      apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+    }
+    if (endDate) {
+      apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
     }
     const response = await fetch(apiUrl);
     if (!response.ok) {

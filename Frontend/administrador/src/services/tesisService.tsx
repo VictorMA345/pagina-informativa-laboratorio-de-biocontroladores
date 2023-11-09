@@ -28,7 +28,7 @@ export const postTesis = async (newTesis: Tesis): Promise<Tesis> => {
     const response = await fetch("http://localhost:3000/api/tesis", {
       method: "POST",
       body: formData,
-    });
+    }); 
     const jsonResponse = await response.json();
     return jsonResponse;
   } catch (error) {

@@ -4,15 +4,21 @@ import { Button, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ControlBiologicoCardComponent.css';
 import noImagePlaceholder from '../../images/no-image-placeholder.jpg';
+import { useTranslation } from 'react-i18next'
 interface CardComponentProps {
     item : ControlBiologico | undefined;
     setSelectedItem: React.Dispatch<React.SetStateAction<ControlBiologico | undefined>>;
 }
 export const ControlBiologicoCardComponent: React.FC<CardComponentProps> = ({item,setSelectedItem}) => {
-    const formatDate = (date: any) => {
-        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(date).toLocaleDateString('en-US', options);
+    const formatDate = (date: string) => {
+        const originalDate = new Date(date);
+        originalDate.setUTCHours(0, 0, 0, 0);
+        const year = originalDate.getUTCFullYear();
+        const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${originalDate.getUTCDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
     };
+    const { t } = useTranslation();
   return (
     <Card className="control-biologico-card-component">
         <Card.Header>   
@@ -40,7 +46,7 @@ export const ControlBiologicoCardComponent: React.FC<CardComponentProps> = ({ite
 
             <ListGroup.Item className='description-text'>
                 <h6>
-                    Investigación:
+                    {t('investigacion')}:
                 </h6>
                 <p>
                     {item?.textoExplicativo}
@@ -52,7 +58,7 @@ export const ControlBiologicoCardComponent: React.FC<CardComponentProps> = ({ite
                     <Button 
                     onClick={() => setSelectedItem(item)}
                     className="control-biologico-card-button">
-                        Leer más
+                        {t('leer_mas')}
                     </Button>
                 </Link>
             </Card.Footer>

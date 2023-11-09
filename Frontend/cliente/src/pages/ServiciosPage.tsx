@@ -2,11 +2,12 @@ import { Container } from "react-bootstrap"
 import { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         ServiceCardComponent,LoadingSpinner,PaginationComponent,NoResultsLabel,
-        SelectedServiceSection
+        SelectedServiceSection, NotFoundComponent
        } from "../components"
 import { useServicioContext } from "../hooks/useService"
 import { ServicioStructure,getServicioStructure,Servicio } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import "./page.css"
 export const ServiciosPage = () => {
   const { state,dispatch } = useServicioContext();
@@ -14,7 +15,7 @@ export const ServiciosPage = () => {
   const [selectedItem, setselectedItem] = useState<Servicio | undefined>(undefined)
 
   const [filters, setfilters] = useState({})
-  
+  const { t } = useTranslation();
   const location = useLocation();
   useEffect(() => {
     const fetchData = async() =>{
@@ -59,8 +60,7 @@ export const ServiciosPage = () => {
                 />
               </>
               :
-              <>
-              </>
+              <NotFoundComponent />
             }
           </>
         }
@@ -83,7 +83,7 @@ export const ServiciosPage = () => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label=" Servicios Brindados"
+              label={t('servicios_brindados')}
             />
             <hr />
             {

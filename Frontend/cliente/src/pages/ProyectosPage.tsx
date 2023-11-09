@@ -3,17 +3,18 @@ import { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
         ProyectoTableComponent,SelectedProyectoSection
-        // SelectedTesisSection
+        , NotFoundComponent
        } from "../components"
 import { useProyectoContext } from "../hooks/useProyecto"
 import { ProyectoStructure,getProyectoStructure,Proyecto } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import "./page.css"
 export const ProyectosPage = () => {
   const { state,dispatch } = useProyectoContext();
   const [columnNames, setColumnNames] = useState<ProyectoStructure | undefined>(undefined);
   const [selectedItem, setselectedItem] = useState<Proyecto | undefined>(undefined)
-
+  const { t } = useTranslation();
   const [filters, setfilters] = useState({})
   
   const location = useLocation();
@@ -60,8 +61,7 @@ export const ProyectosPage = () => {
                 />
               </>
               :
-              <>
-              </>
+              <NotFoundComponent />
             }
           </>
         }
@@ -83,7 +83,7 @@ export const ProyectosPage = () => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Proyectos Elaborados Por el Laboratorio"
+              label={t('proyectos_elaborados')}
             />
             <hr />
             {

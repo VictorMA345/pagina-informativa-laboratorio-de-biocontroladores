@@ -9,17 +9,25 @@ export const getAllServicios = async (
     selectedPage: number,
     search?: string,
     searchFor?: string,
-    order?: string): Promise<ServicioServices> => {
+    order?: string,
+    startDate?: string,
+    endDate?: string): Promise<ServicioServices> => {
     try {
         let apiUrl = `http://localhost:3000/api/servicios?pagina=${selectedPage}&cantidad=${pageNumber}`;
         if (search) {
-        apiUrl += `&busqueda=${encodeURIComponent(search)}`;
+            apiUrl += `&busqueda=${encodeURIComponent(search)}`;
         }
         if (searchFor) {
-        apiUrl += `&clave=${encodeURIComponent(searchFor)}`;
+            apiUrl += `&clave=${encodeURIComponent(searchFor)}`;
         }
         if (order) {
-        apiUrl += `&orden=${encodeURIComponent(order)}`;
+            apiUrl += `&orden=${encodeURIComponent(order)}`;
+        }
+        if (startDate) {
+            apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+        }
+        if (endDate) {
+            apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
         }
         const response = await fetch(apiUrl);
         if (!response.ok) {

@@ -7,9 +7,11 @@ import { BreadCrumbsComponent,Filters,SectionLabel,
 import { useMiembroContext } from "../hooks/useMiembro"
 import { MiembroStructure,getMiembroStructure } from "../Models"
 import { Route,Routes  } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import "./page.css"
 export const MiembrosPage = () => {
     const { state,dispatch } = useMiembroContext();
+    const { t } = useTranslation();
     const [columnNames, setColumnNames] = useState<MiembroStructure | undefined>(undefined);
     const [filters, setfilters] = useState({})
     useEffect(() => {
@@ -44,7 +46,7 @@ export const MiembrosPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Asistentes"
+                label={t('asistentes')}
               />
               <hr />
               {

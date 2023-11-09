@@ -6,13 +6,15 @@ import './SelectedSection.css'
 interface SelectedServiceSectionProps {
     selecteditem : Servicio | undefined;
 }
+import { useTranslation } from 'react-i18next'
 export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({selecteditem}) => {
-  return (
+    const { t } = useTranslation();
+    return (
     <Container className = "selected-item-container">
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Tipo de Servicio:
+                    {t('tipo_servicio')}:
                 </h5>
                 <h6>
                     {selecteditem?.tipoServicio}
@@ -20,7 +22,7 @@ export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({s
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Teléfono:
+                    {t('telefono')}:
                 </h5>
                 <h6>
                     {selecteditem?.telefono}
@@ -28,7 +30,7 @@ export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({s
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Correo Eléctronico:
+                    {t('correo')}:
                 </h5>
                 <h6>
                     {selecteditem?.correoElectronico}
@@ -38,7 +40,7 @@ export const SelectedServiceSection: React.FC<SelectedServiceSectionProps> = ({s
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h5> 
-                    Descripción del Servicio: 
+                    {t('descripcion_servicio')}:
                 </h5>
                 <p>
                     {selecteditem?.descripcion}

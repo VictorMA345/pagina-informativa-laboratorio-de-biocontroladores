@@ -1,57 +1,48 @@
 import React,{useState} from "react";
-import { Modal,Button,Form,Toast     } from "react-bootstrap";
+import { Modal,Button,Form     } from "react-bootstrap";
 import './ContactModal.css'
 import { sendMail } from "../../services";
+import { useTranslation } from 'react-i18next'
 interface ContactModal {
     show: boolean;
     setShowModal :React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const ContactModal: React.FC<ContactModal> = ({show,setShowModal}) => {
-
+    const { t } = useTranslation();
+    
     const [nombre, setNombre] = useState("")
     const [correo, setCorreo] = useState("");
     const [asunto, setAsunto] = useState("");
     const [cuerpo, setCuerpo] = useState("");
-    const [toastMessage, setToastMessage] = useState("");
-    const [showToast, setShowToast] = useState(false);
-    
-    const showToastMessage = (message: string) => {
-        setToastMessage(message);
-        setShowToast(true);
-    };
+
     const submit = async () => {
-        const res = await sendMail(nombre, asunto, correo, cuerpo);
-        if (!res.success) {
-            showToastMessage("Error al enviar el correo");
-        } else {
-            showToastMessage("Correo enviado con éxito");
-        }
+        await sendMail(nombre, asunto, correo, cuerpo);
     };
     return (
         <Modal show={show} onHide={() => setShowModal(!show)}>
             <Modal.Header closeButton>
-            <Modal.Title>Contactenos</Modal.Title>
+            <Modal.Title>{t('contactenos')}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Form.Label>
-                        Nombre
+                        {t('nombre')}
                     </Form.Label>
                     <Form.Control value= {nombre} onChange={(e) => setNombre(e.target.value)} type="text">
                     </Form.Control>
                     <Form.Label>
-                        Correo Electrónico
+                        {t('correo')}
                     </Form.Label>
                     <Form.Control type="text" value={correo} onChange={(e) => setCorreo(e.target.value)}>
                     </Form.Control>
                     <Form.Label>
-                        Asunto
+                        {t('asunto')}
                     </Form.Label>
                     <Form.Control type="text" value = {asunto} onChange={(e) => setAsunto(e.target.value)}> 
                     </Form.Control>
                     <Form.Label>
-                        Mensaje
-                    </Form.Label>
+                        {t('mensaje')}
+                    </Form.Label>   
                     <Form.Control as="textarea" rows = {7} value={cuerpo} onChange={(e) => setCuerpo(e.target.value)}>
                     </Form.Control>
                 </Form>
@@ -62,12 +53,7 @@ export const ContactModal: React.FC<ContactModal> = ({show,setShowModal}) => {
                 Enviar
             </Button>
             </Modal.Footer>
-            <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide>
-                <Toast.Header>
-                    <strong className="mr-auto">Mensaje</strong>
-                </Toast.Header>
-                <Toast.Body>{toastMessage}</Toast.Body>
-            </Toast>
+
         </Modal>
     )
 }

@@ -1,7 +1,7 @@
 import './MainRoutes.css'
 import { useEffect, useState } from 'react'
 import { Routes,Route } from 'react-router-dom' 
-import { UpperNavbar,LowerNavbar,Footer} from './components'  
+import { UpperNavbar,LowerNavbar,Footer,NotFoundComponent} from './components'  
 import { ControlBiologico,Enfermedad,Noticia } from './Models'
 import { Home,EnfermedadPage, ControlBiologicoPage,NoticiasPage,
          TesisPage,ProyectosPage,ServiciosPage,MiembrosPage,EstudiantesPage,
@@ -107,6 +107,9 @@ const MainRoutes = () => {
             <EstudiantesPage />
           </EstudianteContextProvider>
         }>
+        </Route>
+          
+        <Route path="*" element = { <NotFoundComponent /> }>
         </Route>
       </Routes>
       <Footer

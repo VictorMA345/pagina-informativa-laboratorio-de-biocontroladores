@@ -2,17 +2,19 @@ import { Container } from "react-bootstrap"
 import React, { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
-        NoticiaTableComponent,SelectedNoticiaSection
+        NoticiaTableComponent,SelectedNoticiaSection,NotFoundComponent
        } from "../components"
 import { useNoticiaContext } from "../hooks/useNoticia"
 import { NoticiaStructure,getNoticiaStructure,Noticia } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
 import "./page.css"
+import { useTranslation } from 'react-i18next'
 interface NoticiasPageProps{
   defaultItem : Noticia | undefined;
 }
 export const NoticiasPage: React.FC<NoticiasPageProps> = ({defaultItem}) => {
   const { state,dispatch } = useNoticiaContext();
+  const { t } = useTranslation();
   const [columnNames, setColumnNames] = useState<NoticiaStructure | undefined>(undefined);
   const [selectedItem, setselectedItem] = useState<Noticia | undefined>(undefined || defaultItem)
 
@@ -62,8 +64,7 @@ export const NoticiasPage: React.FC<NoticiasPageProps> = ({defaultItem}) => {
                 />
               </>
               :
-              <>
-              </>
+              <NotFoundComponent />
             }
           </>
         }
@@ -85,7 +86,7 @@ export const NoticiasPage: React.FC<NoticiasPageProps> = ({defaultItem}) => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Noticias"
+              label={t('noticias')}
             />
             <hr />
             {

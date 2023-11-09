@@ -27,14 +27,21 @@
     padding: 10px;
     text-align: center;
     margin: 10px 5px; /* Agregado margen vertical y horizontal */
+
   }
   
   .filter-button-container {
     display: flex;
     align-items: center;
     margin: 10px 0;
+
   }
-  
+  .date-container
+  ,.dropdown-container{
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
   .clean-filters-button {
     border-radius: 100px;
     background-color: white;

@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState,useEffect } from 'react'
 import { DropdownComponent, SearchBar } from '../'
+import { useTranslation } from 'react-i18next'
 import "./Filters.css"
 interface FiltersProps {
     structure: any,
@@ -18,6 +19,9 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
       setStartDate(start || undefined);
       setEndDate(end || undefined);
     };
+
+    // Hook de traducción
+    const { t } = useTranslation();
 
     // Orden Dropdown
     const [order, setorder] = useState<string>("")
@@ -44,7 +48,6 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
         }   
         getOrderByOptions();
     }, [])
-    //submit Search 
 
     useEffect(() => {
         actions({
@@ -56,13 +59,23 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
           filters: filtersState,
         });
       }, [filtersState]);
-
+      const formatDate = (date : Date | undefined) => {
+        if (!date){
+          return ""
+        }
+        const year = date.getFullYear();
+        const month = `0${date.getMonth() + 1}`.slice(-2);
+        const day = `0${date.getDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
+      };
     const submit = async() =>{
         setFilters(
             {
                 order: order ? order === "Descendente" ? "asc": "desc" : "asc" ,
                 orderBy: orderBy,
-                searchFor: search
+                searchFor: search,  
+                startDate: formatDate(startDate),
+                endDate: formatDate(endDate)
             }
         )
     }
@@ -77,20 +90,19 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
   return (
     <Container className= "filters-container">
          <Row className="filters-header">
-        {/* Columna para el campo de fecha "Desde" */}
         <Col xs={12} sm={6} md={3} lg={2} xl={2} className='date-container'>
-          <label>Desde:</label>
+          <label>{t('desde')}</label>
           <DatePicker
             selected={startDate}
             onChange={(date: Date) => handleDatesChange(date, endDate)}
             selectsStart
             startDate={startDate}
             endDate={endDate}
+            dateFormat="yyyy-MM-dd" 
           />
         </Col>
-        {/* Columna para el campo de fecha "Hasta" */}
         <Col xs={12} sm={6} md={3} lg={2} xl={2} className='date-container'>
-          <label>Hasta:</label>
+          <label>{t('hasta')}</label>
           <DatePicker
             selected={endDate}
             onChange={(date: Date) => handleDatesChange(startDate, date)}
@@ -98,12 +110,12 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
             startDate={startDate}
             endDate={endDate}
             minDate={startDate}
+            dateFormat="yyyy-MM-dd" 
           />
         </Col>
-        {/* Columna para el campo "Orden" */}
         <Col xs={12} sm={6} md={3} lg={2} xl={2} className='dropdown-container'>
           <DropdownComponent
-            label='Orden'
+            label={t('orden')}
             setDropdownState={setorder}
             options={orderOptions}
             boxiconIconName='sort'
@@ -112,7 +124,7 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
         </Col>
         <Col xs={12} sm={6} md={3} lg={2} xl={2}  className='dropdown-container'>
             <DropdownComponent
-            label="Ordenar Por"
+            label={t('buscar_por')}
             setDropdownState={setorderBy}
             options={orderByOptions}
             labelOptions={orderByLabelOptions}
@@ -124,7 +136,7 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
           <Row className='search-bar-container'>
                 <SearchBar searchState={search} setSearchState={setsearch} submit={submit} />
           </Row>
-        </Col>
+        </Col>  
 
       </Row>
         <hr />
@@ -159,10 +171,9 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
         </Col>
       </Row>
       <Row>
-        {/* Columna para el botón "Limpiar Filtros" */}
         <Col xs={12} sm={6} md={3} lg={2} xl={2} className='filter-button-container'>
           <Button onClick={clearFilters} className='clean-filters-button'>
-            Limpiar Filtros
+              {t('limpiar_filtros')}
           </Button>
         </Col>
       </Row>

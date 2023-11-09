@@ -6,8 +6,14 @@ import './Footer.css'
 interface FooterProps {
   generalInfo: any 
 }
+import { useTranslation } from 'react-i18next'
+
 export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
+  const { t } = useTranslation();
   const [contactModal, setcontactModal] = useState<boolean>(false)
+
+  
+
   return (
     <>
     <MDBFooter bgColor='light' style ={{"background":"#C0C0C0"}}className=' text-center text-lg-start text-muted footer-container'>
@@ -21,13 +27,13 @@ export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
                   onClick={() => setcontactModal(!contactModal)}
                   className='contact-button'
                 >
-                    Contactenos  
+                    {t('contactenos')}
                 </Button>
             </MDBCol>
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
                 <h6 className='text-uppercase fw-bold mb-4'>
-                    Información de contacto.
+                    {t('informacion_de_contacto')}
                 </h6>
               <p>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
@@ -48,14 +54,16 @@ export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         <a className='text-reset fw-bold'>
-          Laboratorio de fitopatología y biocontroladores
+          {t('laboratorio')}
         </a>
       </div>
+
     </MDBFooter>
     <ContactModal 
       show= {contactModal}
       setShowModal={setcontactModal}
     />
+
     </>
   );
 }

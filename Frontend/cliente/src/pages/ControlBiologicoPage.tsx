@@ -1,8 +1,10 @@
 import { Container } from "react-bootstrap"
 import React, { useState,useEffect } from "react"
-import { BreadCrumbsComponent,Filters,SectionLabel,
+import { 
+        BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
-        SelectedControlBiologicoSection,ControlBiologicoCardComponent
+        SelectedControlBiologicoSection,ControlBiologicoCardComponent,
+        NotFoundComponent
        } from "../components"
 import { useControlBiologicoContext } from "../hooks/useControlBiologico"
 import { ControlBiologicoStructure,getControlBiologicoStructure,ControlBiologico } from "../Models"
@@ -11,12 +13,14 @@ import "./page.css"
 interface ControlBiologicoPageProps {
   defaultItem: ControlBiologico | undefined;
 }
+import { useTranslation } from 'react-i18next'
 export const ControlBiologicoPage: React.FC<ControlBiologicoPageProps> = ({defaultItem}) => {
     const { state,dispatch } = useControlBiologicoContext();
     const [columnNames, setColumnNames] = useState<ControlBiologicoStructure | undefined>(undefined);
     const [selectedItem, setselectedItem] = useState<ControlBiologico | undefined>(undefined || defaultItem)
     const [filters, setfilters] = useState({})
     
+    const { t } = useTranslation();
     const location = useLocation();
     useEffect(() => {
       const fetchData = async() =>{
@@ -62,14 +66,13 @@ export const ControlBiologicoPage: React.FC<ControlBiologicoPageProps> = ({defau
                   />
                 </>
                 :
-                <>
-                </>
+                <NotFoundComponent />
               }
             </>
           }
           >
           </Route>
-  
+
           <Route 
             path={`/`}
             element={
@@ -86,7 +89,7 @@ export const ControlBiologicoPage: React.FC<ControlBiologicoPageProps> = ({defau
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Investigaciones en Control Biológico"
+                label= {t('investigaciones_en_control_biológico')}
               />
               <hr />
               {

@@ -22,18 +22,33 @@ const getAllEstudiantes = async(req,res) =>{
     const ordenacion = {};
     const busqueda = {};
     if (clavePorBuscar !== '') {
-      if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
-      } else {
-        ordenacion[clavePorBuscar] = -1;
-      }
+        if (orden === 'asc') {
+            ordenacion[clavePorBuscar] = 1;
+        } else {
+            ordenacion[clavePorBuscar] = -1;
+        }
     }
     if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
-      busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
+        busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
     }
-    let pagina = parseInt(req.query.pagina) || 1
-    let cantidad =  parseInt(req.query.cantidad) || 10
-    const skipAmount = (pagina - 1) * cantidad; 
+    let pagina = parseInt(req.query.pagina) || 1;
+    let cantidad = parseInt(req.query.cantidad) || 10;
+    const skipAmount = (pagina - 1) * cantidad;
+  
+    if (req.query.startDate && req.query.endDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+            $lt: new Date(req.query.endDate),
+        };
+    } else if (req.query.startDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+        };
+    } else if (req.query.endDate) {
+        busqueda.createdAt = {
+            $lt: new Date(req.query.endDate),
+        };
+    }
     const estudiantes = await Estudiante.find(busqueda)
     .sort(ordenacion)
     .limit(cantidad)
@@ -82,7 +97,7 @@ const postEstudiantes = async(req,res) =>{
         if (carneEstudiante.length >= 20){
             return res.status(400).json({error: "El carné es muy largo. por favor usar un carné más corto"})
         }
-        if (carneEstudiante.length < 10){
+        if (carneEstudiante.length < 5){
             return res.status(400).json({error: "El carné es muy corto. por favor usar un carné más largo"})
         }
         if (!contieneSoloNumerosOSimbolos(carneEstudiante)){
@@ -111,7 +126,7 @@ const postEstudiantes = async(req,res) =>{
         if (investigacion.length < 10){
             return res.status(400).json({error: "El nombre de la investigación es muy corto. por favor usar un nombre más largo"})
         }
-        if (/[^A-Za-z0-9\s]/.test(investigacion) || /\d/.test(investigacion)){
+        if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(investigacion.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(investigacion)){
             return res.status(400).json({error: "La investigación no puede contener números o símbolos"})
         }
 
@@ -124,20 +139,20 @@ const postEstudiantes = async(req,res) =>{
         if (nombreCompleto.length < 10){
             return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
         }
-        if (/[^A-Za-z0-9\s]/.test(nombreCompleto) || /\d/.test(nombreCompleto)){
-            return res.status(400).json({error: "El nombre no puede contener números o símbolos"})
+        if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(nombreCompleto)){
+            return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
         }
-        
+
         if (carrera === ""){
             return res.status(400).json({error: "No se puede crear un estudiante sin un nombre para la carrera universitaria"})
         }
         if (carrera.length >= 100){
             return res.status(400).json({error: "El nombre de la carrera universitaria es muy largo. por favor usar un nombre de la carrera universitaria más corto"})
         }
-        if (carrera.length < 10){
+        if (carrera.length < 5){
             return res.status(400).json({error: "El nombre de la carrera universitaria es muy corto. por favor usar un nombre de la carrera universitaria más largo"})
         }
-        if (/[^A-Za-z0-9\s]/.test(carrera) || /\d/.test(carrera)){
+        if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(carrera.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(carrera)){
             return res.status(400).json({error: "El nombre de la carrera universitaria no puede contener números o símbolos"})
         }
 
@@ -192,6 +207,7 @@ const postEstudiantes = async(req,res) =>{
             fotoPerfil: fotoPerfilUrl,
             carrera,
             genero,
+            investigacion,
             correoElectronico,
             anioIngreso,
             curriculum: curriculumUrl
@@ -282,6 +298,10 @@ const patchEstudiantes = async (req, res) => {
     if (req.body.investigacion.length < 10){
         return res.status(400).json({error: "El nombre de la investigación es muy corto. por favor usar un nombre más largo"})
     }
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.investigacion.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.investigacion)){
+        return res.status(400).json({error: "La investigación no puede contener números o símbolos"})
+    }
+
 
 
     if (req.body.nombreCompleto === ""){
@@ -293,6 +313,9 @@ const patchEstudiantes = async (req, res) => {
     if (req.body.nombreCompleto.length < 10){
         return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
     }
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.nombreCompleto)){
+        return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
+    }
     
     if (req.body.carrera === ""){
         return res.status(400).json({error: "No se puede editar un estudiante sin un nombre para la carrera universitaria"})
@@ -302,6 +325,9 @@ const patchEstudiantes = async (req, res) => {
     }
     if (req.body.carrera.length < 5){
         return res.status(400).json({error: "El nombre de la carrera universitaria es muy corto. por favor usar un nombre de la carrera universitaria más largo"})
+    }
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.carrera.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.carrera)){
+        return res.status(400).json({error: "El nombre de la carrera no puede contener números o símbolos"})
     }
 
 
@@ -330,7 +356,7 @@ const patchEstudiantes = async (req, res) => {
     let newFotoDePerfilURL = "";
     if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0]) {
         const newFotoPerfil = req.files['fotoPerfil'][0];
-        if (!['image/jpeg','image/png','image/jpg'].includes(uploadedFile.mimetype)){
+        if (!['image/jpeg','image/png','image/jpg'].includes(newFotoPerfil.mimetype)){
             return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
         }
         if (estudianteAntiguo.fotoPerfil  && esURLGoogleDriveValida(estudianteAntiguo.fotoPerfil)) {

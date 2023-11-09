@@ -2,11 +2,12 @@ import { Container } from "react-bootstrap"
 import { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
-        TesisTableComponent,SelectedTesisSection
+        TesisTableComponent,SelectedTesisSection, NotFoundComponent
        } from "../components"
 import { useTesisContext } from "../hooks/useTesis"
 import { TesisStructure,getTesisStructure,Tesis } from "../Models"
 import { Route,Routes,useLocation  } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import "./page.css"
 export const TesisPage = () => {
   const { state,dispatch } = useTesisContext();
@@ -15,6 +16,7 @@ export const TesisPage = () => {
 
   const [filters, setfilters] = useState({})
   
+  const { t } = useTranslation();
   const location = useLocation();
   useEffect(() => {
     const fetchData = async() =>{
@@ -59,8 +61,7 @@ export const TesisPage = () => {
                 />
               </>
               :
-              <>
-              </>
+              <NotFoundComponent />
             }
           </>
         }
@@ -82,7 +83,7 @@ export const TesisPage = () => {
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Tesis de estudiantes"
+              label={t('tesis_estudiantes')}
             />
             <hr />
             {

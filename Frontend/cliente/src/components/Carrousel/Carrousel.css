@@ -1,6 +1,7 @@
 /* carousel-styles.css */
 .carrousel-container {
-    width: 100%;
+    margin-left: 1%;
+    width: 98%;
     border-top: 1px solid black;
     margin-top: 5rem;
   }
@@ -25,8 +26,10 @@
   -webkit-box-orient: vertical;
 }
   .carousel-item img {
-    height: 100vh; /* Ajusta el valor de altura según sea necesario */
-    object-fit: cover; /* Mantiene la relación de aspecto */
+    height: 100vh; 
+    object-fit: cover; 
+    background-size: cover;
+    background-position: center;
   }
 .carousel-button{
   color: white;

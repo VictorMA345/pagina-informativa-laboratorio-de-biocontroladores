@@ -4,7 +4,9 @@ export const getAllTesis = async (
   selectedPage: number,
   search?: string,
   searchFor?: string,
-  order?: string): Promise<Tesis[]> => {
+  order?: string,
+  startDate?: string,
+  endDate?: string): Promise<Tesis[]> => {
     let apiUrl = `http://localhost:3000/api/tesis?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
@@ -14,6 +16,12 @@ export const getAllTesis = async (
     }
     if (order) {
       apiUrl += `&orden=${encodeURIComponent(order)}`;
+    }
+    if (startDate) {
+      apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+    }
+    if (endDate) {
+      apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
     }
     const response = await fetch(apiUrl);
     const data: Tesis[] = await response.json();

@@ -79,6 +79,7 @@
         align-items: center;
         column-gap: 2rem;
         padding: -.1rem 0 .1rem 1.1rem
+
         }
     .nav_logo{
         margin-left: 5%;
@@ -87,7 +88,8 @@
     .nav_logo-icon{
         margin-left: 5%;
         font-size: 1.25rem;
-        color: var(--white-color)
+        color: var(--white-color);
+
         }
     .nav_logo-name{
         color: var(--white-color);
@@ -97,8 +99,11 @@
         position: relative;
         color: var(--first-color-light);
         margin-bottom: 1.5rem;
-        transition: .3s
-        
+        transition: .3s;
+        @media (max-width: 768px) {
+            max-width: 1rem;
+            max-height: 1rem ;
+        }
         }
     .nav_link:hover{
         color: var(--white-color)

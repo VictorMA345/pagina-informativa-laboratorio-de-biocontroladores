@@ -14,7 +14,7 @@ export * from './DropdownComponent/DropdownComponent'
 export * from './LoadingSpinner/LoadingSpinner'
 export * from './PaginationComponent/PaginationComponent'
 export * from './NoResultsLabel/NoResultsLabel'
-
+export * from './NotFoundComponent/NotFoundComponent'
 // Componentes "Cards"
 export * from './CardComponent/ServiceCardComponent'
 export * from './CardComponent/EnfermedadCardComponent'

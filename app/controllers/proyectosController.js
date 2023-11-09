@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Proyecto = require('../models/proyectosModel')
+const Miembro = require('../models/miembrosModel')
 const { authorize, uploadFile,deleteFileFromDrive,replaceFileInDrive,esURLGoogleDriveValida,contieneSoloNumerosOSimbolos } = require('../storageMethods');
 
 // Get Methods
@@ -22,18 +23,32 @@ const getAllProyectos = async(req,res) =>{
     const ordenacion = {};
     const busqueda = {};
     if (clavePorBuscar !== '') {
-      if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
-      } else {
-        ordenacion[clavePorBuscar] = -1;
-      }
+        if (orden === 'asc') {
+            ordenacion[clavePorBuscar] = 1;
+        } else {
+            ordenacion[clavePorBuscar] = -1;
+        }
     }
     if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
-      busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
+        busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
     }
-    let pagina = parseInt(req.query.pagina) || 1
-    let cantidad =  parseInt(req.query.cantidad) || 10
-    const skipAmount = (pagina - 1) * cantidad; 
+    let pagina = parseInt(req.query.pagina) || 1;
+    let cantidad = parseInt(req.query.cantidad) || 10;
+    const skipAmount = (pagina - 1) * cantidad;
+    if (req.query.startDate && req.query.endDate) {
+        busqueda.fechaInicio = {
+            $gte: new Date(req.query.startDate),
+            $lt: new Date(req.query.endDate),
+        };
+    } else if (req.query.startDate) {
+        busqueda.fechaInicio = {
+            $gte: new Date(req.query.startDate),
+        };
+    } else if (req.query.endDate) {
+        busqueda.fechaInicio = {
+            $lt: new Date(req.query.endDate),
+        };  
+    }
     const proyectos = await Proyecto.find(busqueda)
     .sort(ordenacion)
     .limit(cantidad)
@@ -112,7 +127,7 @@ const postProyectos = async(req,res) =>{
         }
 
         const authClient = await authorize();
-        let imagenesURLs = []
+        let imagenesURLs = []   
         if (req.files && req.files['imagenes'] && req.files['imagenes'].length > 0) {
             const folderName = process.env.GOOGLE_DRIVE_FOLDER_NAME;
             const childFolder = 'fotos-proyectos';
@@ -152,6 +167,17 @@ const postProyectos = async(req,res) =>{
             areasInvestigacion,
             palabrasClave
             })
+        let investigadoresList = investigadores;
+        if (typeof investigadores === 'string'){
+            investigadoresList = [investigadores]
+        }
+        const miembros = await Miembro.find({ _id: { $in: investigadoresList.filter(investigador => investigador !== "") } });
+    
+        for (const miembro of miembros) {
+            miembro.proyectosParticipacion.push(proyectoNuevo._id);
+            await miembro.save();
+        }
+
         res.status(200).json(proyectoNuevo);
         } catch (error){
             res.status(400).json({error: error.message})
@@ -160,38 +186,44 @@ const postProyectos = async(req,res) =>{
 
 // Delete Methods
 const deleteProyectos = async(req,res) =>{
-    const { id } = req.params
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({error: 'No existe ese proyecto'})
-    }
-    const authClient = await authorize();
-    const proyectoAntiguo = await Proyecto.findById(id);
-    if (!proyectoAntiguo) {
-        return res.status(400).json({ error: 'No existe ese proyecto.' });
-    }
-    if (proyectoAntiguo.imagenes && proyectoAntiguo.imagenes.length > 0) {
-        for (const fotoUrl of proyectoAntiguo.imagenes) {
-            await deleteFileFromDrive(authClient, fotoUrl);
+    try{
+        const { id } = req.params
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({error: 'No existe ese proyecto'})
         }
-    }
-    if(proyectoAntiguo.documentos !== ""){
-        const pathArchivoUrl = proyectoAntiguo.documentos;
-        await deleteFileFromDrive(authClient,pathArchivoUrl);
-    }
-    const proyecto = await Proyecto.findOneAndDelete({_id: id})
+        const authClient = await authorize();
+        const proyectoAntiguo = await Proyecto.findById(id);
+        if (!proyectoAntiguo) {
+            return res.status(400).json({ error: 'No existe ese proyecto.' });
+        }
+        if (proyectoAntiguo.imagenes && proyectoAntiguo.imagenes.length > 0) {
+            for (const fotoUrl of proyectoAntiguo.imagenes) {
+                await deleteFileFromDrive(authClient, fotoUrl);
+            }
+        }
+        if(proyectoAntiguo.documentos !== ""){
+            const pathArchivoUrl = proyectoAntiguo.documentos;
+            await deleteFileFromDrive(authClient,pathArchivoUrl);
+        }
+        const proyecto = await Proyecto.findOneAndDelete({_id: id})
 
-
-    if(!proyecto) {  
-      return res.status(400).json({error: 'No existe ese proyecto'})
+        const investigadoresIds = proyecto.investigadores;
+        await Miembro.updateMany(
+        { _id: { $in: investigadoresIds } },
+        { $pull: { proyectosParticipacion: id } }
+        );
+        if(!proyecto) {  
+        return res.status(400).json({error: 'No existe ese proyecto'})
+        }
+        res.status(200).json(proyecto)
+    } catch (error){
+        res.status(400).json({error: error.message})
     }
-    res.status(200).json(proyecto)
 }
 
 // Patch Methods
 const patchProyectos = async(req,res) =>{
     const { id } = req.params
-
-
     if (req.body.tituloProyecto === ""){
         return res.status(400).json({error: "No se puede crear un proyecto sin un nombre"})
     }
@@ -222,7 +254,7 @@ const patchProyectos = async(req,res) =>{
     if (!contieneSoloNumerosOSimbolos(req.body.anioProyecto)){
         return res.status(400).json({error: "Ingrese un año válido."})
     }
-
+    try {
     const authClient = await authorize();
     const proyectoAntiguo = await Proyecto.findById(id);
     if (!proyectoAntiguo) {
@@ -288,10 +320,34 @@ const patchProyectos = async(req,res) =>{
         documentos: req.files && req.files['documentos'] && req.files['documentos'][0] ? newdocumentosURL : req.body.documentos,
         imagenes: imagenesUrls
     })
+
+    const miembrosPrevios = proyectoAntiguo.investigadores;
+    const miembrosNuevos = proyecto.investigadores;
+    const miembrosRemovidos = miembrosPrevios.filter((miembro) => !miembrosNuevos.includes(miembro));
+
+    await Miembro.updateMany(
+      { _id: { $in: miembrosRemovidos } },
+      { $pull: { proyectosParticipacion: id } }
+    );
+
+
+    let investigadoresList = req.body.investigadores;
+    if (typeof req.body.investigadores === 'string'){
+        investigadoresList = [req.body.investigadores]
+    }
+    const miembros = await Miembro.find({ _id: { $in: investigadoresList.filter(investigador => investigador !== "")}});
+    for (const miembro of miembros) {
+        miembro.proyectosParticipacion.push(id);
+        miembro['__v'] = 0;
+        await miembro.save();
+    }
     if (!proyecto) {
-        return res.status(400).json({error: 'No existe esa noticia.'})
+        return res.status(400).json({error: 'No existe ese proyecto.'})
     }
     res.status(200).json(proyecto)   
+    } catch (error){
+        res.status(400).json({error: error.message})
+    }
 }
 
 const patchAllProyectos = async(req,res) =>{

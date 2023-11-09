@@ -1,4 +1,3 @@
-import { getAllEstudiantesNames } from "../services";
 export interface Tesis {
     _id: string;
     tituloTesis: string;
@@ -55,7 +54,6 @@ export interface Tesis {
   }
   
   export const getTesisStructure = async (): Promise<TesisStructure> => {
-    const estudiantesNombres = await getAllEstudiantesNames();
     return {
       _id: {
         name: "ID",
@@ -152,11 +150,9 @@ export interface Tesis {
       estudiantesParticipantes: {
         name: "Estudiantes Participantes",
         show: false,
-        type: "selectable-fetched-list-text",
+        type: "list",
         keyName: "estudiantesParticipantes",
         editable: true,
-        choices: await estudiantesNombres.map((estudiante) => estudiante.nombre),
-        choices_id: await estudiantesNombres.map((estudiante) => estudiante.id) 
       },
       anioTesis: {
         name: "Año de Tesis",

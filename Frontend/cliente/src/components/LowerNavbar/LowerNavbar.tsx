@@ -4,7 +4,13 @@ import { Nav,NavDropdown } from 'react-bootstrap';
 
 import './LowerNavbar.css';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 export const LowerNavbar = () => {
+  const { t,i18n} = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <Navbar className='lower-navbar' expand="md">
       <Container className="lower-navbar-container">
@@ -18,7 +24,7 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/fitopatogenos"
               >
-                Fitopatógenos
+                {t('fitopatogenos')}
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -26,18 +32,18 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/control_biologico"
               >
-              Control biológico
+              {t('control_biologico')}
               </Link>
             </Nav.Link>
-            <NavDropdown title="Colaboradores" className='dropdown-nav-link' id="nav-dropdown">
+            <NavDropdown title={t('colaboradores')} className='dropdown-nav-link' id="nav-dropdown">
             <NavDropdown.Item as={Link} to='/asistentes'>
-              Asistentes
+              {t('asistentes')}
             </NavDropdown.Item>
             <NavDropdown.Item as={Link} to='/estudiantes'>
-              Pasantes y tesiarios
+              {t('estudiantes')}
             </NavDropdown.Item>
             <NavDropdown.Item as={Link} to='/investigadores'>
-              Investigadores
+              {t('investigadores')}
             </NavDropdown.Item>
         </NavDropdown>
             <Nav.Link >
@@ -45,7 +51,7 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/tesis"
               >
-                Tesis
+                {t('tesis')}
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -53,7 +59,7 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/servicios"
               >
-                Servicios
+                {t('servicios')}
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -61,7 +67,7 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/proyectos"
               >
-                Proyectos de Investigación
+                {t('proyectos')}
               </Link>
             </Nav.Link>
             <Nav.Link>
@@ -69,8 +75,25 @@ export const LowerNavbar = () => {
                 className='navbar-link' 
                 to= "/noticias"
               >
-                Noticias
+                {t('noticias')}
               </Link>
+              </Nav.Link>
+
+              <Nav.Link>
+              <div className="nav-wrapper">
+                <div className="sl-nav">
+                  {t('idioma')}:
+                  <ul>
+                    <li><b></b> <i className="fa fa-angle-down" aria-hidden="true"></i>
+                      <div className="triangle"></div>
+                      <ul>
+                        <li onClick={() => changeLanguage("es")}><i className="sl-flag flag-es"><div id="germany"></div></i> Español</li>
+                        <li onClick={() => changeLanguage("en")}><i className="sl-flag flag-usa"><div id="germany"></div></i> English</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               </Nav.Link>
           </Nav>
         </Navbar.Collapse>

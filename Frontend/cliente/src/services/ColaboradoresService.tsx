@@ -9,7 +9,9 @@ export const getAllColaboradores = async (
   selectedpage: number,
   search?: string,
   searchFor?: string,
-  order?: string
+  order?: string,
+  startDate?: string,
+  endDate?: string
 ): Promise<ColaboradorServices> => {
   try {
   let apiUrl = `http://localhost:3000/api/colaboradores?pagina=${selectedpage}&cantidad=${pageNumber}`;
@@ -21,6 +23,12 @@ export const getAllColaboradores = async (
   }
   if (order) {
     apiUrl += `&orden=${encodeURIComponent(order)}`;
+  }
+  if (startDate) {
+    apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+  }
+  if (endDate) {
+    apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
   }
   const response = await fetch(apiUrl);
 

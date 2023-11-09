@@ -22,18 +22,32 @@ const getAllTesis = async (req, res) => {
     const ordenacion = {};
     const busqueda = {};
     if (clavePorBuscar !== '') {
-      if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
-      } else {
-        ordenacion[clavePorBuscar] = -1;
-      }
+        if (orden === 'asc') {
+            ordenacion[clavePorBuscar] = 1;
+        } else {
+            ordenacion[clavePorBuscar] = -1;
+        }
     }
     if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
-      busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
+        busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
     }
     let pagina = parseInt(req.query.pagina) || 1;
     let cantidad = parseInt(req.query.cantidad) || 10;
     const skipAmount = (pagina - 1) * cantidad;
+    if (req.query.startDate && req.query.endDate) {
+        busqueda.fechaInicio = {
+            $gte: new Date(req.query.startDate),
+            $lt: new Date(req.query.endDate),
+        };
+    } else if (req.query.startDate) {
+        busqueda.fechaInicio = {
+            $gte: new Date(req.query.startDate),
+        };
+    } else if (req.query.endDate) {
+        busqueda.fechaInicio = {
+            $lt: new Date(req.query.endDate),
+        };  
+    }
     const tesis = await Tesis.find(busqueda)
         .sort(ordenacion)
         .limit(cantidad)
@@ -129,10 +143,15 @@ const postTesis = async (req, res) => {
             return res.status(400).json({error: "El nombre de comité es muy corto. por favor usar un nombre de comité más largo"})
         }  
         
-        if (!miembrosComite){
-            res.status(400).json({ error: "Debe agregarse mínimo un miembro del comité evaluador." });
+
+        let miembrosComiteList = miembrosComite;
+        if (typeof miembrosComite === 'string'){
+            miembrosComiteList = [miembrosComite]
         }
-        if ([miembrosComite].some((string) => {
+        if (!miembrosComite || miembrosComite.length === 0){
+            return res.status(400).json({error: "Debe agregar mínimo un miembro del comité"})
+        }
+        if (miembrosComiteList.some((string) => {
             if (string === "") {
                 res.status(400).json({ error: "No pueden ingresarse miembros del comité vacías." });
                 return true;
@@ -144,7 +163,25 @@ const postTesis = async (req, res) => {
                 return true;
             }
         }));
-
+        let estudiantesParticipantesList = estudiantesParticipantes;
+        if (typeof estudiantesParticipantes === 'string'){
+            estudiantesParticipantesList = [estudiantesParticipantes]
+        }
+        if (!estudiantesParticipantes || estudiantesParticipantes.length === 0){
+            return res.status(400).json({error: "Debe agregar mínimo un estudiante participante"})
+        }
+        if (estudiantesParticipantesList.some((string) => {
+            if (string === "") {
+                res.status(400).json({ error: "No pueden ingresarse nombres de estudiantes vacíos." });
+                return true;
+            } else if (string.length >= 200) {
+                res.status(400).json({ error: "Algún estudiante del comité agregado es muy larga. Por favor, usa un nombre del estudiante más corto." });
+                return true;
+            } else if (string.length < 5) {
+                res.status(400).json({ error: "Algún estudiante del comité agregado es muy corta. Por favor, usa un nombre del estudiante más largo." });
+                return true;
+            }
+        }));
         const authClient = await authorize();
 
         let documentoTesisURL = "";
@@ -311,7 +348,14 @@ const patchTesis = async (req, res) => {
     if (!req.body.miembrosComite){
         res.status(400).json({ error: "Debe agregarse mínimo un miembro del comité evaluador." });
     }
-    if (req.body.miembrosComite.some((string) => {
+    let miembrosComiteList = req.body.miembrosComite;
+    if (typeof req.body.miembrosComite === 'string'){
+        estudiantesParticipantesList = [req.body.miembrosComite]
+    }
+    if (!req.body.miembrosComite || req.body.miembrosComite.length === 0){
+        return res.status(400).json({error: "Debe agregar mínimo un miembro de cómite"})
+    }
+    if (miembrosComiteList.some((string) => {
         if (string === "") {
             res.status(400).json({ error: "No pueden ingresarse miembros del comité vacías." });
             return true;
@@ -323,7 +367,25 @@ const patchTesis = async (req, res) => {
             return true;
         }
     }));
-
+    let estudiantesParticipantesList = req.body.estudiantesParticipantes;
+    if (typeof req.body.estudiantesParticipantes === 'string'){
+        estudiantesParticipantesList = [req.body.estudiantesParticipantes]
+    }
+    if (!req.body.estudiantesParticipantes || req.body.estudiantesParticipantes.length === 0){
+        return res.status(400).json({error: "Debe agregar mínimo un estudiante participante"})
+    }
+    if (estudiantesParticipantesList.some((string) => {
+        if (string === "") {
+            res.status(400).json({ error: "No pueden ingresarse nombres de estudiantes vacíos." });
+            return true;
+        } else if (string.length >= 200) {
+            res.status(400).json({ error: "Algún estudiante agregado es muy larga. Por favor, usa un estudiante más corto." });
+            return true;
+        } else if (string.length < 5) {
+            res.status(400).json({ error: "Algún estudiante agregado es muy corta. Por favor, usa un estudiante más largo." });
+            return true;
+        }
+    }));
     const authClient = await authorize();
     const tesisAntigua = await Tesis.findById(id);
     if (!tesisAntigua) {
@@ -346,7 +408,7 @@ const patchTesis = async (req, res) => {
             const childFolder = "fotos-tesis-titulos";
             const file = await uploadFile(authClient, newpathFotoTitulo, folderName, childFolder);
             newpathFotoTituloURL = `https://drive.google.com/uc?id=${file['data'].id}`;
-        }
+        }   
     } else {
         if (tesisAntigua.pathFotoTitulo && req.body.pathFotoTitulo !== tesisAntigua.pathFotoTitulo  && esURLGoogleDriveValida(tesisAntigua.pathFotoTitulo) ) 
         {

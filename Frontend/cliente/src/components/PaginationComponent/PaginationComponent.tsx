@@ -70,13 +70,16 @@ export const PaginationComponent: React.FC<PaginationComponentProps> = ({
   };
 
   const goToPage = (page: number) => {
-    actions({
-      type: "SET_ITEM",
-      rows: [],
-      cantidad: itemsPerPage,
-      pagina: page,
-      itemCounts: totalItems
-    });
+    if (page !== currentPage) {
+      actions({
+        type: "SET_ITEM",
+        rows: [],
+        cantidad: itemsPerPage,
+        pagina: page,
+        itemCounts: totalItems,
+        filters: filters
+      });
+    }
   };
 
   return (

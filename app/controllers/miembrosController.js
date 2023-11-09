@@ -28,18 +28,33 @@ const getAllMiembro = async(req,res) =>{
     const ordenacion = {};
     const busqueda = {};
     if (clavePorBuscar !== '') {
-      if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
-      } else {
-        ordenacion[clavePorBuscar] = -1;
-      }
+        if (orden === 'asc') {
+            ordenacion[clavePorBuscar] = 1;
+        } else {
+            ordenacion[clavePorBuscar] = -1;
+        }
     }
     if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
-      busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
+        busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
     }
-    let pagina = parseInt(req.query.pagina) || 1
-    let cantidad =  parseInt(req.query.cantidad) || 10
-    const skipAmount = (pagina - 1) * cantidad; 
+    let pagina = parseInt(req.query.pagina) || 1;
+    let cantidad = parseInt(req.query.cantidad) || 10;
+    const skipAmount = (pagina - 1) * cantidad;
+  
+    if (req.query.startDate && req.query.endDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+            $lt: new Date(req.query.endDate),
+        };
+    } else if (req.query.startDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+        };
+    } else if (req.query.endDate) {
+        busqueda.createdAt = {
+            $lt: new Date(req.query.endDate),
+        };
+    }
     const miembros = await Miembro.find(busqueda)
     .sort(ordenacion)
     .limit(cantidad)
@@ -135,8 +150,8 @@ const patchMiembro = async(req,res) =>{
     if (req.body.nombreCompleto.length < 10){
         return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
     }
-    if (/[^A-Za-z0-9\s]/.test(req.body.nombreCompleto) || /\d/.test(req.body.nombreCompleto)){
-        return res.status(400).json({error: "El nombre no puede contener números o símbolos"})
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.nombreCompleto)){
+        return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
     }
     
     if (req.body.correo === ""){
@@ -149,9 +164,6 @@ const patchMiembro = async(req,res) =>{
         return res.status(400).json({error: "El correo electrónico no tiene el formato correcto"})
     }
 
-    if (req.body.telefono === ""){
-        return res.status(400).json({error: "No se puede crear un miembro sin un número de teléfono válido."})
-    }
     if (req.body.telefono.length >= 20){
         return res.status(400).json({error: "El número de teléfono es muy largo. por favor usar un número de teléfono más corto"})
     }
@@ -268,8 +280,8 @@ const signUpUser = async(req,res) =>{
         if (nombreCompleto.length < 10){
             return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
         }
-        if (/[^A-Za-z0-9\s]/.test(nombreCompleto) || /\d/.test(nombreCompleto)){
-            return res.status(400).json({error: "El nombre no puede contener números o símbolos"})
+        if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(nombreCompleto)){
+            return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
         }
         
         if (correo === ""){
@@ -295,8 +307,15 @@ const signUpUser = async(req,res) =>{
         if(!fechaNacimiento){
             return res.status(400).json({error: "Ingrese una fecha de nacimiento válida."})
         }
-            
-        if (areaEspecializacion.some((string) => {
+        
+        let areaEspecializacionList = req.body.areaEspecializacion;
+        if (typeof req.body.areaEspecializacion === 'string'){
+            areaEspecializacionList = [req.body.areaEspecializacion]
+        }
+        if (!req.body.areaEspecializacion || req.body.areaEspecializacion.length === 0){
+            return res.status(400).json({error: "Debe agregar mínimo un area de especialización."})
+        }
+        if (areaEspecializacionList.some((string) => {
             if (string === "") {
                 res.status(400).json({ error: "No pueden ingresarse areas de especialización vacías." });
                 return true;

@@ -6,6 +6,8 @@ interface SelectedEnfermedadSectionProps{
     enfermedad : Enfermedad | undefined;
 }
 import './SelectedSection.css'
+
+import { useTranslation } from 'react-i18next';
 export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps> = ({enfermedad}) => {
     const formatDate = (date: any) => {
         const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -14,12 +16,13 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
     const openDocument = (link: string) =>{
         window.open(link, '_blank');
     }
+    const { t } = useTranslation();
   return (
     <Container className = "selected-item-container">
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Cultivos Afectados:
+                    {t('cultivos_afectados')}
                 </h5>
                 <Container className='container-item-list'>
                     {
@@ -37,7 +40,7 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Publicado el:
+                    {t('publicado_el')}
                 </h5>
                 <h6>
                     {formatDate(enfermedad?.createdAt)}
@@ -47,7 +50,7 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h5> 
-                    Síntomas y Signos de la enfermedad: 
+                    {t('sintomas')}
                 </h5>
                 <p>
                     {enfermedad?.descripcion}
@@ -79,7 +82,7 @@ export const SelectedEnfermedadSection: React.FC<SelectedEnfermedadSectionProps>
                         className='document-button' 
                         variant= "success">
                         <a>
-                            Descargar Documento
+                            {t('descargar_documento')}
                         </a>
                         <i className='bx bx-download'>
                         </i>

@@ -7,11 +7,13 @@ import { BreadCrumbsComponent,Filters,SectionLabel,
 import { useEstudianteContext } from "../hooks/useEstudiante"
 import { EstudianteStructure,getEstudianteStructure } from "../Models"
 import { Route,Routes  } from "react-router-dom"
+import { useTranslation } from 'react-i18next' 
 import "./page.css"
 export const EstudiantesPage = () => {
     const { state,dispatch } = useEstudianteContext();
     const [columnNames, setColumnNames] = useState<EstudianteStructure | undefined>(undefined);
     const [filters, setfilters] = useState({})
+    const { t } = useTranslation();
     useEffect(() => {
       const fetchData = async() =>{
         setColumnNames(await getEstudianteStructure())
@@ -44,7 +46,7 @@ export const EstudiantesPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Pasantes y Tesiarios"
+                label={t('estudiantes')}
               />
               <hr />
               {

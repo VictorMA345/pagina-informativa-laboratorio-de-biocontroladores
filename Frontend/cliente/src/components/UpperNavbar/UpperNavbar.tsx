@@ -4,12 +4,11 @@ import './UpperNavbar.css'; // Importa el archivo CSS
 import logo from '../../images/logo.png';
 import logoTec from '../../images/logo-tec.png'
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export const UpperNavbar = () => {
   const logoStyle = {
-    maxWidth: '250px', 
-    maxHeight: '75px',
+    maxWidth: '300px', 
+    maxHeight: '100px',
   };
 
   

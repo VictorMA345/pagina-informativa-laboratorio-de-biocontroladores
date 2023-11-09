@@ -1,7 +1,7 @@
+import { useState,useEffect } from "react";
 import "./EditModal.css";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useState,useEffect } from "react";
 import { LoadingModal,NotificationToast } from "..";
 import { 
   TextModalField,

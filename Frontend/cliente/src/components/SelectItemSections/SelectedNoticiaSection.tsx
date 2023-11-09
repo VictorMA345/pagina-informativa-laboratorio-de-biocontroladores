@@ -5,6 +5,7 @@ import noImagePlaceHolder from '../../images/no-image-placeholder.jpg'
 interface SelectedNoticiaSectionProps{
     noticia : Noticia | undefined;
 }
+import { useTranslation } from 'react-i18next'
 import './SelectedSection.css'
 export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({noticia}) => {
     const formatDate = (date: any) => {
@@ -14,13 +15,13 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
     const openDocument = (link: string) =>{
         window.open(link, '_blank');
     }
-
+    const { t } = useTranslation();
   return (
     <Container className = "selected-item-container">
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Publicador:
+                    {t('publicador')}:
                 </h5>
                 <Container className='container-item-list'>
                     {noticia?.publicador}
@@ -28,7 +29,7 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Fecha de Publicación:
+                    {t('fechaPublicacion')}:
                 </h5>
                 <h6>
                     {formatDate(noticia?.fechaPublicacion)}
@@ -36,7 +37,7 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Categoría:
+                    {t('categoria')}:
                 </h5>
                 <h6>
                     {noticia?.categoria}
@@ -78,21 +79,21 @@ export const SelectedNoticiaSection: React.FC<SelectedNoticiaSectionProps> = ({n
                         className='document-button' 
                         variant= "success">
                         <a>
-                            Descargar Documento
+                            {t('descargar_documento')}
                         </a>
                         <i className='bx bx-download'>
                         </i>
                     </Button>
                     :
                     <h5 style={{fontWeight:"bolder",color:"#909090"}}>
-                        No hay Documento Disponible
+                        {t('no_hay_documento')}
                     </h5>    
                     }   
                 </Container>
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>
                 <h3> 
-                    Fuente:
+                    {t('fuente')}:
                 </h3>
                 <br>
                 </br>

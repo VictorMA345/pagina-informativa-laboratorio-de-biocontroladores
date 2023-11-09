@@ -2,7 +2,8 @@ import { Container } from "react-bootstrap"
 import { useState,useEffect } from "react"
 import { BreadCrumbsComponent,Filters,SectionLabel,
         LoadingSpinner,PaginationComponent,NoResultsLabel,
-        SelectedEnfermedadSection,EnfermedadCardComponent
+        SelectedEnfermedadSection,EnfermedadCardComponent,
+        NotFoundComponent
        } from "../components"
 import { useEnfermedadContext } from "../hooks/useEnfermedad"
 import { EnfermedadStructure,getEnfermedadStructure,Enfermedad } from "../Models"
@@ -11,8 +12,10 @@ import "./page.css"
 interface EnfermedadPageProps {
   defaultItem: Enfermedad | undefined;
 }
+import { useTranslation } from 'react-i18next'
 export const EnfermedadPage: React.FC<EnfermedadPageProps> = ({defaultItem}) => {
   const { state,dispatch } = useEnfermedadContext();
+  const { t } = useTranslation();
   const [columnNames, setColumnNames] = useState<EnfermedadStructure | undefined>(undefined);
   const [selectedItem, setselectedItem] = useState<Enfermedad | undefined>(undefined || defaultItem)
 
@@ -62,8 +65,7 @@ export const EnfermedadPage: React.FC<EnfermedadPageProps> = ({defaultItem}) => 
                 />
               </>
               :
-              <>
-              </>
+              <NotFoundComponent />
             }
           </>
         }
@@ -86,7 +88,7 @@ export const EnfermedadPage: React.FC<EnfermedadPageProps> = ({defaultItem}) => 
               setFilters={setfilters}
              />
             <SectionLabel 
-              label="Fitopatógenos"
+              label={t('fitopatogenos')}
             />
             <hr />
             {

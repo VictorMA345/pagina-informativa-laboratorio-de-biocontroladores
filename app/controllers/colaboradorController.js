@@ -16,39 +16,54 @@ const getColaborador = async(req,res) => {
     res.status(200).json(colaborador)
 }
 const getAllColaboradores = async (req, res) => {
-    const orden = req.query.orden || 'desc';
-    const resultadoBusqueda = req.query.busqueda || '';
-    const clavePorBuscar = req.query.clave || '';
-    const ordenacion = {};
-    const busqueda = {};
-    if (clavePorBuscar !== '') {
+  const orden = req.query.orden || 'desc';
+  const resultadoBusqueda = req.query.busqueda || '';
+  const clavePorBuscar = req.query.clave || '';
+  const ordenacion = {};
+  const busqueda = {};
+  if (clavePorBuscar !== '') {
       if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
+          ordenacion[clavePorBuscar] = 1;
       } else {
-        ordenacion[clavePorBuscar] = -1;
+          ordenacion[clavePorBuscar] = -1;
       }
-    }
-    if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
+  }
+  if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
       busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
-    }
-    let pagina = parseInt(req.query.pagina) || 1;
-    let cantidad = parseInt(req.query.cantidad) || 10;
-    const skipAmount = (pagina - 1) * cantidad;
-    try {
+  }
+  let pagina = parseInt(req.query.pagina) || 1;
+  let cantidad = parseInt(req.query.cantidad) || 10;
+  const skipAmount = (pagina - 1) * cantidad;
+
+  if (req.query.startDate && req.query.endDate) {
+      busqueda.createdAt = {
+          $gte: new Date(req.query.startDate),
+          $lt: new Date(req.query.endDate),
+      };
+  } else if (req.query.startDate) {
+      busqueda.createdAt = {
+          $gte: new Date(req.query.startDate),
+      };
+  } else if (req.query.endDate) {
+      busqueda.createdAt = {
+          $lt: new Date(req.query.endDate),
+      };
+  }
+  try {
       const colaboradores = await Colaborador.find(busqueda)
-        .sort(ordenacion)
-        .limit(cantidad)
-        .skip(skipAmount);
-      const colaboradoresCount = await Colaborador.count();
+          .sort(ordenacion)
+          .limit(cantidad)
+          .skip(skipAmount);
+      const colaboradoresCount = await Colaborador.countDocuments(busqueda);
       const data = {
-        data: colaboradores,
-        itemCounts: colaboradoresCount,
+          data: colaboradores,
+          itemCounts: colaboradoresCount,
       };
       res.status(200).json(data);
-    } catch (error) {
+  } catch (error) {
       res.status(500).json({ error: 'Error interno del servidor' });
-    }
-  };
+  }
+};
   
 // Post Methods
 const postColaborador = async(req,res) => {
@@ -69,10 +84,8 @@ const postColaborador = async(req,res) => {
       if (nombreCompleto.length < 10){
         return res.status(400).json({error: "El nombre es muy corto. por favor usar un nombre más largo"})
       }
-      const contieneNumeros = /\d/.test(nombreCompleto);
-      const contieneSimbolos = /[^A-Za-z0-9\s]/.test(nombreCompleto);
-      if (contieneNumeros || contieneSimbolos){
-        return res.status(400).json({error: "El nombre no puede contener símbolos o número."})
+      if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(nombreCompleto)){
+        return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
       }
 
       const authClient = await authorize();
@@ -126,6 +139,7 @@ const deleteColaborador = async(req,res) => {
 // Patch Methods
 const patchColaborador = async(req,res) => {
     const { id } = req.params
+
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({error: 'No existe ese colaborador.'})
     }
@@ -135,11 +149,13 @@ const patchColaborador = async(req,res) => {
     if (req.body.nombreCompleto.length >= 150){
       return res.status(400).json({error: "El nombre es muy largo. por favor usar un nombre más corto"})
     }
-    const contieneNumeros = /\d/.test(req.body.nombreCompleto);
-    const contieneSimbolos = /[^A-Za-z0-9\s]/.test(req.body.nombreCompleto);
-    if (contieneNumeros || contieneSimbolos){
-      return res.status(400).json({error: "El nombre no puede contener símbolos o número."})
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.nombreCompleto)){
+      return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
     }
+    if (/[^A-Za-z0-9\sáéíóúÁÉÍÓÚ]/.test(req.body.nombreCompleto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) || /\d/.test(req.body.nombreCompleto)){
+      return res.status(400).json({error: "El nombre completo no puede contener números o símbolos"})
+    }
+
     const colaboradorAntiguo = await Colaborador.findById(id);
     const authClient = await authorize();
     let newFotoDePerfilURL = ""

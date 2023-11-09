@@ -3,16 +3,24 @@ import './TableComponent.css'
 import { Table,Button } from 'react-bootstrap'
 import { NoticiaStructure,Noticia } from '../../Models'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import noImagePlaceHolder from '../../images/no-image-placeholder.jpg'
+
 interface NoticiaTableComponentProps {
     columns: NoticiaStructure | undefined;
     data : Noticia[] | undefined;
     setNoticia : React.Dispatch<React.SetStateAction<Noticia | undefined>>;
 }
 export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data,columns,setNoticia}) => {
-    const formatDate = (date: any) => {
-        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(date).toLocaleDateString('en-US', options);
+    const formatDate = (date: string) => {
+        const originalDate = new Date(date);
+        originalDate.setUTCHours(0, 0, 0, 0);
+        const year = originalDate.getUTCFullYear();
+        const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${originalDate.getUTCDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
     };
+    const { t } = useTranslation();
   return (
     <>
     <Table responsive>
@@ -22,12 +30,12 @@ export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data
                 columns && Object.values(columns).map((column) =>
                 (
                     column.show && <th className='table-head-cell'>
-                        {column.name}
+                        {t(column.keyName)}
                     </th>      
                 )   
             )}
             <th>
-                Leer más
+                {t('leer_mas')}
             </th>
         </tr>
         </thead>        
@@ -41,11 +49,19 @@ export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data
                                     column.show && 
                                     column.type === "multiple-images" &&
                                     <td key={index}>
+                                        {
+                                        row[column.keyName as keyof Noticia].length !== 0 ?   
                                         <img 
                                             src={row[column.keyName as keyof Noticia][0]} 
                                             alt={row[column.keyName as keyof Noticia][0]} 
                                             style={{ maxWidth: "12rem", maxHeight: "14rem",height:"14rem" }}
+                                        /> :
+                                        <img 
+                                            src={noImagePlaceHolder} 
+                                            alt={"No Image"} 
+                                            style={{ maxWidth: "12rem", maxHeight: "14rem",height:"14rem" }}
                                         />
+                                        }  
                                     </td>
                                     ||
                                     column.show && 
@@ -66,7 +82,7 @@ export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data
                                 <Button 
                                 onClick={() => setNoticia(row)}
                                 className='read-more-button'>
-                                    Leer
+                                    {t('leer')}
                                     <i className='bx bx-chevron-right'>
                                     </i>
                                 </Button>

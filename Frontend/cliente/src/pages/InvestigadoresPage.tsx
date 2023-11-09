@@ -7,8 +7,10 @@ import { BreadCrumbsComponent,Filters,SectionLabel,
 import { useColaboradorContext } from "../hooks/useColaborador"
 import { ColaboradorStructure,getColaboradorStructure } from "../Models"
 import { Route,Routes  } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import "./page.css"
 export const InvestigadoresPage = () => {
+    const { t } = useTranslation();
     const { state,dispatch } = useColaboradorContext();
     const [columnNames, setColumnNames] = useState<ColaboradorStructure | undefined>(undefined);
     const [filters, setfilters] = useState({})
@@ -16,6 +18,7 @@ export const InvestigadoresPage = () => {
       const fetchData = async() =>{
         setColumnNames(await getColaboradorStructure())
       }
+
       fetchData();
     }, [])
     if(!state.rows || !columnNames){
@@ -44,7 +47,7 @@ export const InvestigadoresPage = () => {
                 setFilters={setfilters}
                />
               <SectionLabel 
-                label="Investigadores"
+                label={t('investigadores')}
               />
               <hr />
               {
@@ -67,6 +70,7 @@ export const InvestigadoresPage = () => {
                 currentPage={state.pagina}
                 actions = {dispatch}
                 filters={filters}
+                context={state}
               />
               </>
           }

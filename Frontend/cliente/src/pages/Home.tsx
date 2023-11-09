@@ -5,7 +5,9 @@ interface HomeProps {
   setItem : React.Dispatch<React.SetStateAction<ControlBiologico | Enfermedad | Noticia | undefined>>;
   generalInfo : any;
 }
+import { useTranslation } from 'react-i18next'
 export const Home: React.FC<HomeProps> = ({setItem,generalInfo}) => {
+  const { t } = useTranslation();
   return (
     <>
     <MainPageMiddleContainer 
@@ -17,7 +19,7 @@ export const Home: React.FC<HomeProps> = ({setItem,generalInfo}) => {
       setItem={setItem as React.Dispatch<React.SetStateAction<ControlBiologico | Enfermedad | undefined>>}
     />
     <SectionLabel 
-      label = "Ubicación"
+      label = {t('ubication')}
     />
     <hr/>
     <MapComponent />

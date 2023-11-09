@@ -8,11 +8,17 @@ interface CardComponentProps {
     item : Enfermedad | undefined;
     setSelectedItem: React.Dispatch<React.SetStateAction<Enfermedad | undefined>>;
 }
+import { useTranslation } from 'react-i18next'
 export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setSelectedItem}) => {
-    const formatDate = (date: any) => {
-        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(date).toLocaleDateString('en-US', options);
+    const formatDate = (date: string) => {
+        const originalDate = new Date(date);
+        originalDate.setUTCHours(0, 0, 0, 0);
+        const year = originalDate.getUTCFullYear();
+        const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${originalDate.getUTCDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
     };
+    const { t } = useTranslation(); 
   return (
     <Card className="enfermedad-card-component">
         <Card.Header>   
@@ -39,7 +45,7 @@ export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setS
         <ListGroup className='enfermedad-card-listgroup'>
             <ListGroup.Item>
                 <label>
-                    Agente Causal:
+                    {t('agente_causal')}:
                 </label>
                 <p>
                     {item?.fitopatogeno}
@@ -47,12 +53,12 @@ export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setS
             </ListGroup.Item>
             <ListGroup.Item>
                 <label>
-                    Cultivos Afectados:
+                    {t('cultivos_afectados')}:
                 </label>
 
                 <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                        Ver cultivos
+                        {t('ver_cultivos')}
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ maxHeight: '60vh', overflowY: 'auto' }}>
                         {item?.cultivo.map((cultivo,index) => (
@@ -76,7 +82,7 @@ export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setS
                 <Button 
                 onClick={() => setSelectedItem(item)}
                 className="enfermedad-card-button">
-                    Leer más
+                    {t('leer_mas')}
                 </Button>
             </Link>
         </Card.Footer>

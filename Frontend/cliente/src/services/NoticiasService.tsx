@@ -5,7 +5,9 @@ export const getAllNoticias = async (
   selectedPage?:Number,
   search?: string,
   searchFor?: string,
-  order?: string): Promise<Noticia[]> => {
+  order?: string,
+  startDate?: string,
+  endDate?: string): Promise<Noticia[]> => {
     let apiUrl = `http://localhost:3000/api/noticias?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
@@ -15,6 +17,12 @@ export const getAllNoticias = async (
     }
     if (order) {
       apiUrl += `&orden=${encodeURIComponent(order)}`;
+    }
+    if (startDate) {
+      apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+    }
+    if (endDate) {
+      apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
     }
     const response = await fetch(apiUrl);
 

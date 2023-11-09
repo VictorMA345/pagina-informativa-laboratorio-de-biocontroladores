@@ -7,9 +7,9 @@ import './ProfileCardComponent.css'
 interface ColaboradorProps {
   colaborador: Colaborador;
 }
-
+import { useTranslation } from 'react-i18next'
 export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborador }) => {
-
+    const { t } = useTranslation();
     const [proyectosList,setproyectosList] = useState<(string | undefined)[]>([]);
     useEffect(() => {
         const fetchproyectos = async () => {
@@ -41,7 +41,6 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
           >
             <Card.Img
               src={colaborador.fotoPerfil ? colaborador.fotoPerfil : NoImagePlaceHolder}
-              alt="Profile Image"
               style={{ objectFit: 'cover', maxHeight: '100%', maxWidth: '100%' }}
             />
           </div>
@@ -51,10 +50,10 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
             <Card.Title>{colaborador.nombreCompleto}</Card.Title>
             <ListGroup>
               <ListGroup.Item>
-                <strong>Nombre Completo:</strong> {colaborador.nombreCompleto}
+                <strong> {t('nombre')}:</strong> {colaborador.nombreCompleto}
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>Disciplinas de Estudio:</strong>
+                <strong>{t('disciplinas_de_estudio')}:</strong>
                 <ul>
                   {colaborador.listaEstudios.map((estudio, index) => (
                     <li key={index}>{estudio}</li>
@@ -62,7 +61,7 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
                 </ul>
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong> Proyectos de Vinculación con el Laboratorio:</strong>
+                <strong> {t('proyectos_vinculacion')}:</strong>
                 <ul>
                   {proyectosList.map((proyecto, index) => (
                     proyecto && proyecto !== "" && <li key={index}>{proyecto}</li>
@@ -71,7 +70,7 @@ export const ColaboradorCardComponent: React.FC<ColaboradorProps> = ({ colaborad
               </ListGroup.Item>
             </ListGroup>
             <Card.Text>
-              <strong>Perfil Académico:</strong>
+              <strong>{t('perfil_academico')}</strong>
               <p style={{textIndent:"2rem",padding:"1rem"}}>
                 {colaborador.descripcion}
               </p>

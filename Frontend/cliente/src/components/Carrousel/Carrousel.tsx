@@ -5,10 +5,12 @@ import { ControlBiologico,Enfermedad } from '../../Models';
 import NoImagePlaceHolder from '../../images/no-image-placeholder.jpg'
 import './Carrousel.css'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 interface CarouselProps {
   setItem : React.Dispatch<React.SetStateAction<ControlBiologico | Enfermedad  | undefined>>
 }
 export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
+  const { t } = useTranslation();
   const [enfermedades, setenfermedades] = useState<Enfermedad[]>([])
   const [controlBiologico, setcontrolBiologico] = useState<ControlBiologico[]>([])
   useEffect(() => {
@@ -41,7 +43,7 @@ export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
                     className='carousel-button' 
                     onClick={() => setItem(enfermedad)}
                     >
-                    Ver más
+                    {t('ver_mas')}
                   </Button> 
                 </Link>
               </Carousel.Caption>
@@ -53,7 +55,6 @@ export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
               <img
                 className="d-block w-100" 
                 src={controlBiologico.imagenes && controlBiologico.imagenes.length !== 0 ? controlBiologico.imagenes[0] : NoImagePlaceHolder}
-                alt="Primera imagen"
               />
               <Carousel.Caption>
                 <h5>{controlBiologico.nombreInvestigacion}</h5>

@@ -8,11 +8,13 @@ interface SelectedProyectoSectionProps{
     proyecto : Proyecto | undefined;
 }
 import './SelectedSection.css'
+import { useTranslation } from 'react-i18next'
 export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = ({proyecto}) => {
     const formatDate = (date: any) => {
         const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
         return new Date(date).toLocaleDateString('en-US', options);
     };
+    const { t } = useTranslation();
     const [miembrosList,setMiembrosList] = useState<string[]>([]);
     const openDocument = (link: string) =>{
         window.open(link, '_blank');
@@ -37,7 +39,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Investigadores del Proyecto:
+                    {t('investigadores')}:
                 </h5>
                 <Container className='container-item-list'>
                     {
@@ -56,7 +58,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Fecha de Inicio:
+                {t('fechaInicio')}:
                 </h5>
                 <h6>
                     {formatDate(proyecto?.fechaInicio)}
@@ -64,7 +66,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Fecha de Finalización:
+                {t('fechaFinalizacion')}:
                 </h5>
                 <h6>
                     {proyecto?.fechaInicio && formatDate(proyecto.fechaInicio)}
@@ -72,7 +74,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Areas de la investigación:
+                    {t('AreasInvestigacion')}:
                 </h5>
                     {
                         proyecto?.areasInvestigacion.map((area,index) =>(
@@ -87,7 +89,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Palabras Clave:
+                    {t('palabrasClave')}:
                 </h5>
                     {
                         proyecto?.palabrasClave.map((palabra,index) =>(
@@ -102,7 +104,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Financiamiento del Proyecto:
+                    {t('financiamiento')}:
                 </h5>
                     {
                         proyecto?.financiamiento
@@ -110,7 +112,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Año del Proyecto:
+                    {t('anioProyecto')}
                 </h5>
                     {
                         proyecto?.anioProyecto
@@ -120,7 +122,7 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h4> 
-                    Resumen del Proyecto: 
+                    {t('resumen')}
                 </h4>
                 <p>
                     {proyecto?.resumenProyecto}
@@ -152,21 +154,21 @@ export const SelectedProyectoSection: React.FC<SelectedProyectoSectionProps> = (
                         className='document-button' 
                         variant= "success">
                         <a>
-                            Descargar Documento
+                            {t('descargar_documento')}
                         </a>
                         <i className='bx bx-download'>
                         </i>
                     </Button>
                     :
                     <h5 style={{fontWeight:"bolder",color:"#909090"}}>
-                        No hay Documento Disponible
+                        {t('no_hay_documento')}
                     </h5>    
                     }   
                 </Container>
             </ListGroup.Item>
             <ListGroup.Item className='selected-item-body'>
                 <h3> 
-                    Bibliografía:
+                    {t('citas')}:
                 </h3>
                 <br>
                 </br>

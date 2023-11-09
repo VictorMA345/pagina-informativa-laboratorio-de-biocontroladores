@@ -3,10 +3,12 @@ import { Card, ListGroup,Row,Col, Button } from 'react-bootstrap';
 import NoImagePlaceHolder from '../../../images/no-image-placeholder.jpg'
 import { Estudiante } from '../../../Models';
 import './ProfileCardComponent.css'
+import { useTranslation } from 'react-i18next'
 interface EstudianteCardComponentProps {
     estudiante: Estudiante
 }
 export const EstudianteCardComponent:React.FC<EstudianteCardComponentProps> = ({estudiante}) => {
+    const { t } = useTranslation();
     const openDocument = (link: string) =>{
         window.open(link, '_blank');
     }
@@ -33,16 +35,16 @@ export const EstudianteCardComponent:React.FC<EstudianteCardComponentProps> = ({
               <Card.Title>{estudiante.nombreCompleto}</Card.Title>
               <ListGroup>
                 <ListGroup.Item>
-                  <strong>Nombre:</strong> {estudiante.nombreCompleto}
+                  <strong>{t('nombre')}:</strong> {estudiante.nombreCompleto}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Correo Electrónico:</strong> {estudiante.correoElectronico}
+                  <strong>{t('correo')}:</strong> {estudiante.correoElectronico}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Carrera:</strong> {estudiante.carrera}
+                  <strong>{t('carrera')}:</strong> {estudiante.carrera}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Año de Ingreso:</strong> {estudiante.anioIngreso}
+                  <strong>{t('anioIngreso')}:</strong> {estudiante.anioIngreso}
                 </ListGroup.Item>
               </ListGroup>
               {
@@ -52,7 +54,7 @@ export const EstudianteCardComponent:React.FC<EstudianteCardComponentProps> = ({
                     className='curriculum-button'
                     style={{marginTop: "2rem"}}
                     onClick={() => openDocument(estudiante.curriculum)}>
-                    Ver Curriculum
+                    {t('ver_curriculum')}
                     <i className='bx bxs-file-pdf'></i>
                 </Button>
               }

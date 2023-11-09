@@ -4,11 +4,13 @@ import NoImagePlaceHolder from '../../../images/no-image-placeholder.jpg'
 import './ProfileCardComponent.css'
 import { Miembro } from '../../../Models';
 import { getProyecto } from '../../../services';
+import { useTranslation } from 'react-i18next'
 interface MiembroCardComponentProps {
     miembro: Miembro
 }
 export const MiembroCardComponent:React.FC<MiembroCardComponentProps> = ({miembro}) => {
     const [proyectos,setProyectos] = useState<(string|undefined)[]>([]);
+    const { t } = useTranslation();
     useEffect(() => {
       const fetchProyectos = async() =>{
         if (miembro) {
@@ -54,14 +56,14 @@ export const MiembroCardComponent:React.FC<MiembroCardComponentProps> = ({miembr
               <Card.Title>{miembro.nombreCompleto}</Card.Title>
               <ListGroup>
                 <ListGroup.Item>
-                  <strong>Nombre:</strong> {miembro.nombreCompleto}
+                  <strong>{t('nombre')}:</strong> {miembro.nombreCompleto}
                 </ListGroup.Item>
 
                 <ListGroup.Item>
-                  <strong>Correo Electrónico:</strong> {miembro.correo}
+                  <strong>{t('correo')}:</strong> {miembro.correo}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>Áreas de especialización:</strong>
+                  <strong>{t('areas_especializacion')}:</strong>
                   <ul>
                     {miembro.areaEspecializacion.map((estudio, index) => (
                       <li key={index}>{estudio}</li>
@@ -70,7 +72,7 @@ export const MiembroCardComponent:React.FC<MiembroCardComponentProps> = ({miembr
                 </ListGroup.Item>
 
                 <ListGroup.Item>
-                  <strong>Proyectos Participados:</strong>
+                  <strong>{t('proyectos_participados')}:</strong>
                   <ul>
                     {proyectos && proyectos.map((proyecto : string | undefined, index : number) => (
                       <li key={index}>
@@ -82,7 +84,7 @@ export const MiembroCardComponent:React.FC<MiembroCardComponentProps> = ({miembr
 
               </ListGroup>
               <Card.Text>
-                <strong>Perfil Académico:</strong>
+                <strong>{t('perfil_academico')}:</strong>
                 <p style={{textIndent:"2rem",padding:"1rem"}}>
                   {miembro.resumen}
                 </p>
@@ -94,7 +96,7 @@ export const MiembroCardComponent:React.FC<MiembroCardComponentProps> = ({miembr
                 <Button 
                     className='curriculum-button'
                     onClick={() => openDocument(miembro.curriculumDocumento)}>
-                    Ver Curriculum
+                    {t('ver_curriculum')}
                     <i className='bx bxs-file-pdf'></i>
                 </Button>
               }

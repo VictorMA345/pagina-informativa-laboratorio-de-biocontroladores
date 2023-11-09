@@ -3,16 +3,22 @@ import './TableComponent.css'
 import { Table,Button } from 'react-bootstrap'
 import { ProyectoStructure,Proyecto } from '../../Models'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 interface ProyectoTableComponentProps {
     columns: ProyectoStructure | undefined;
     data : Proyecto[] | undefined;
     setProyecto : React.Dispatch<React.SetStateAction<Proyecto | undefined>>;
 }
 export const ProyectoTableComponent: React.FC<ProyectoTableComponentProps>= ({data,columns,setProyecto}) => {
-    const formatDate = (date: any) => {
-        const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        return new Date(date).toLocaleDateString('en-US', options);
+    const formatDate = (date: string) => {
+        const originalDate = new Date(date);
+        originalDate.setUTCHours(0, 0, 0, 0);
+        const year = originalDate.getUTCFullYear();
+        const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+        const day = `0${originalDate.getUTCDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
     };
+    const { t } = useTranslation();
   return (
     <>
     <Table responsive>
@@ -22,12 +28,12 @@ export const ProyectoTableComponent: React.FC<ProyectoTableComponentProps>= ({da
                 columns && Object.values(columns).map((column) =>
                 (
                     column.show && <th className='table-head-cell'>
-                        {column.name}
+                        {t(column.keyName)}
                     </th>      
                 )   
             )}
             <th>
-                Leer más
+                {t('leer_mas')}
             </th>
         </tr>
         </thead>        
@@ -66,7 +72,7 @@ export const ProyectoTableComponent: React.FC<ProyectoTableComponentProps>= ({da
                                 <Button 
                                 onClick={() => setProyecto(row)}
                                 className='read-more-button'>
-                                    Leer
+                                    {t('leer')}
                                     <i className='bx bx-chevron-right'>
                                     </i>
                                 </Button>

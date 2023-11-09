@@ -34,7 +34,7 @@ export const Login = () => {
         <div className="login">
             <Container className="login-container">
                 <img className="logo-image" src={logo} alt="Logo" />
-                <label>
+                <label className="login-text">
                     Acceda a nuestra plataforma de investigación
                     en biocontroladores para descubrir soluciones
                     innovadoras y sostenibles. Ingrese con su cuenta
@@ -83,9 +83,6 @@ export const Login = () => {
                         >
                             Ingresar
                         </button>
-                    {/* <label className="password-restoration-label">
-                        ¿Olvidaste Tu Contraseña?
-                    </label> */}
                     {
                         error &&
                         <div style = {{"color":"red"}}>

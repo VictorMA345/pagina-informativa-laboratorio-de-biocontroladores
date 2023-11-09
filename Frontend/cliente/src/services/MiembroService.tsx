@@ -8,7 +8,9 @@ export const getAllMiembros = async (
   selectedPage?:Number,
   search?: string,
   searchFor?: string,
-  order?: string): Promise<MiembroServices> => {
+  order?: string,
+  startDate?: string,
+  endDate?: string): Promise<MiembroServices> => {
     let apiUrl = `http://localhost:3000/api/miembros?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
@@ -18,6 +20,12 @@ export const getAllMiembros = async (
     }
     if (order) {
       apiUrl += `&orden=${encodeURIComponent(order)}`;
+    }
+    if (startDate) {
+      apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+    }
+    if (endDate) {
+      apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
     }
     const response = await fetch(apiUrl);
     if (!response.ok) {

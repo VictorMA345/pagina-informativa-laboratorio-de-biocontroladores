@@ -10,7 +10,9 @@ export const getAllEstudiantes = async (
   selectedPage: Number,
   search?: string,
   searchFor?: string,
-  order?: string): Promise<EstudianteServices> => {
+  order?: string,
+  startDate?: string,
+  endDate?: string): Promise<EstudianteServices> => {
   let apiUrl = `http://localhost:3000/api/estudiantes?pagina=${selectedPage}&cantidad=${pageNumber}`;
   if (search) {
     apiUrl += `&busqueda=${encodeURIComponent(search)}`;
@@ -20,6 +22,12 @@ export const getAllEstudiantes = async (
   }
   if (order) {
     apiUrl += `&orden=${encodeURIComponent(order)}`;
+  }
+  if (startDate) {
+    apiUrl += `&startDate=${encodeURIComponent(startDate)}`;
+  }
+  if (endDate) {
+    apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
   }
   const response = await fetch(apiUrl);
   if (!response.ok) {

@@ -1,8 +1,16 @@
 import { useState,useEffect } from 'react'
 import { Form,Button } from 'react-bootstrap';
 import { getGeneralInfo,updateGeneralInfo } from '../../services';
+import { NotificationToast } from '../../components';
 export const SeccionGeneral = () => {
   const [generalInfo,setGeneralInfo] = useState<any>(undefined);
+
+  const [toast,setToast] = useState<boolean>(false)
+  const [toastType,setToastType] = useState<string>("");
+  const [toastStateMsg,setToastStateMsg] = useState<string>("")
+  const [resultMsg,setResultMsg] = useState("");
+
+
   useEffect(() => {
     const fetchInfo = async() =>{
       const info = await getGeneralInfo();
@@ -12,6 +20,7 @@ export const SeccionGeneral = () => {
   }, [])
   
   const submit = async() =>{
+
     const newData = {
       correo: generalInfo.correo,
       direccion: generalInfo.direccion,
@@ -21,7 +30,22 @@ export const SeccionGeneral = () => {
       descripcion: generalInfo.descripcion,
       imagenPrincipal: generalInfo.imagenPrincipal
     }
-    await updateGeneralInfo(newData);
+    setToast(true);
+    setToastType("success");
+    setToastStateMsg("Actualización Existosa");
+    setResultMsg("Datos generales de la página actualizados.");
+    const updatedData =await updateGeneralInfo(newData);
+    if (!updatedData.error){
+      setToast(true);
+      setToastType("success");
+      setToastStateMsg("Actualización Existosa");
+      setResultMsg("Datos generales de la página actualizados.");
+    } else{
+      setToast(true);
+      setToastType("failure");
+      setToastStateMsg("Error a la hora de actualizar información");
+      setResultMsg(updatedData.error);
+    }
   }
   const handleChange = (keyName: string, target: string) => {
     setGeneralInfo({ ...generalInfo, [keyName]: target });
@@ -110,6 +134,14 @@ export const SeccionGeneral = () => {
         Actualizar Información
       </Button>
     </Form>
+    
+  <NotificationToast 
+    open = {toast}
+    setOpen = {setToast}
+    headerLabel={toastStateMsg}
+    label={resultMsg}
+    type={toastType}
+  />
     </>
 
   )

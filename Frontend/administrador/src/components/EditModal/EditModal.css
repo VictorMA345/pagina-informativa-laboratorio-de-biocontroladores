@@ -17,10 +17,10 @@
 }
 /* Form Styles */
 .create-form {
-  width: 90%; /* Utiliza un porcentaje para que se ajuste al tamaño de la ventana */
-  max-width: 600px; /* Establece un ancho máximo para evitar que se vuelva demasiado ancho */
+  width: 90%;
+  max-width: 600px; 
   background: whitesmoke;
-  margin: 2rem auto; /* Centra el formulario verticalmente */
+  margin: 2rem auto;
   padding: 1rem;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
@@ -28,6 +28,7 @@
 
 .form-field {
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .form-text,
@@ -116,4 +117,5 @@
       width: calc(100vw - 32px);
     }
   }
+
   

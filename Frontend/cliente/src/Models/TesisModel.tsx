@@ -82,7 +82,7 @@ export interface Tesis {
       },
       abstract: {
         name: "Abstract",
-        show: true,
+        show: false,
         type: "large-text",
         keyName: "tituloTesis",
       },

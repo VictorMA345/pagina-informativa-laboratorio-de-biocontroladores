@@ -41,7 +41,7 @@ export interface NoticiaStructure {
 export const getNoticiaStructure = async (): Promise<NoticiaStructure> => {
   return {
     imagenes: {
-        name: "Imágenes",
+        name: "Imagen",
         show: true,
         type: "multiple-images",
         keyName: "imagenes"

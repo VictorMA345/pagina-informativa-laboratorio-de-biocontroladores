@@ -3,6 +3,7 @@ import { ControlBiologico } from '../../Models'
 import { Container,ListGroup,Carousel,Button  } from 'react-bootstrap';
 import { getMiembro } from '../../services';
 import noImagePlaceHolder from '../../images/no-image-placeholder.jpg'
+import { useTranslation } from 'react-i18next'
 interface SelectedControlBiologicoSectionProps{
     controlbiologico : ControlBiologico | undefined;
 }
@@ -13,6 +14,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
         const options : Object = { year: 'numeric', month: '2-digit', day: '2-digit' };
         return new Date(date).toLocaleDateString('en-US', options);
     };
+    const { t } = useTranslation();
     const openDocument = (link: string) =>{
         window.open(link, '_blank');
     }
@@ -36,7 +38,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
         <ListGroup className="selected-item-listgroup">
             <ListGroup.Item>
                 <h5> 
-                    Investigadores:
+                    {t('investigadores')}:
                 </h5>
                 <Container className='container-item-list'>
                     {
@@ -54,7 +56,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
             </ListGroup.Item>
             <ListGroup.Item>
                 <h5> 
-                    Publicado el:
+                    {t('publicado_el')}:
                 </h5>
                 <h6>
                     {formatDate(controlbiologico?.fechaPublicacion)}
@@ -64,7 +66,7 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
         <ListGroup className= 'selected-item-body-listgroup'>
             <ListGroup.Item className='selected-item-body'>
                 <h5> 
-                    Resumen: 
+                    {t('resumen')}: 
                 </h5>
                 <p>
                     {controlbiologico?.textoExplicativo}
@@ -104,14 +106,14 @@ export const SelectedControlBiologicoSection: React.FC<SelectedControlBiologicoS
                         className='document-button' 
                         variant= "success">
                         <a>
-                            Descargar Documento
+                            {t('descargar_documento')}
                         </a>
                         <i className='bx bx-download'>
                         </i>
                     </Button>
                     :
                     <h5 style={{fontWeight:"bolder",color:"#909090"}}>
-                        No hay Documento Disponible
+                        {t('no_hay_documento')}
                     </h5>    
                     }   
                 </Container>

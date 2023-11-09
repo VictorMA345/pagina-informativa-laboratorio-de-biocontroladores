@@ -21,18 +21,32 @@ const getAllEnfermedades = async(req,res) => {
     const ordenacion = {};
     const busqueda = {};
     if (clavePorBuscar !== '') {
-      if (orden === 'asc') {
-        ordenacion[clavePorBuscar] = 1;
-      } else {
-        ordenacion[clavePorBuscar] = -1;
-      }
+        if (orden === 'asc') {
+            ordenacion[clavePorBuscar] = 1;
+        } else {
+            ordenacion[clavePorBuscar] = -1;
+        }
     }
     if (resultadoBusqueda !== '' && clavePorBuscar !== '') {
-      busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
+        busqueda[clavePorBuscar] = { $regex: new RegExp(resultadoBusqueda, 'i') };
     }
-    let pagina = parseInt(req.query.pagina) || 1
-    let cantidad =  parseInt(req.query.cantidad) || 10
-    const skipAmount = (pagina - 1) * cantidad; 
+    let pagina = parseInt(req.query.pagina) || 1;
+    let cantidad = parseInt(req.query.cantidad) || 10;
+    const skipAmount = (pagina - 1) * cantidad;
+    if (req.query.startDate && req.query.endDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+            $lt: new Date(req.query.endDate),
+        };
+    } else if (req.query.startDate) {
+        busqueda.createdAt = {
+            $gte: new Date(req.query.startDate),
+        };
+    } else if (req.query.endDate) {
+        busqueda.createdAt = {
+            $lt: new Date(req.query.endDate),
+        };
+    }
     const enfermedades = await Enfermedad.find(busqueda)
     .sort(ordenacion)
     .limit(cantidad)

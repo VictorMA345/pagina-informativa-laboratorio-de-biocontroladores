@@ -11,7 +11,7 @@ export const sendMail = async (
         asunto: asunto,
         cuerpo: cuerpo
       };
-      const response = await fetch("http://localhost:3000/api/email-service", {
+      const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/email-service", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

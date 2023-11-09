@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import './FormStyles.css'
+import './FormStyles.css';
+
 interface SingleImageUploadModalFieldProps {
   label: string;
   keyName: string;
   formData: any;
-  onChange: (value: string) => void;
+  onChange: (value: string | Blob) => void; 
 }
 
 export const SingleImageUploadModalField: React.FC<SingleImageUploadModalFieldProps> = ({
@@ -29,7 +30,13 @@ export const SingleImageUploadModalField: React.FC<SingleImageUploadModalFieldPr
   const handleRemoveImage = () => {
     onChange("");
     setImageURL(null);
-  };  
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      onChange(event.target.files[0]);
+    }
+  };
 
   return (
     <div className="form-image">
@@ -37,9 +44,7 @@ export const SingleImageUploadModalField: React.FC<SingleImageUploadModalFieldPr
       <Form.Control
         type="file"
         accept=".jpg, .jpeg, .png"
-        onChange={(event) => {
-          onChange(event.target.files[0]);
-        }}
+        onChange={handleImageChange}
       />
       {imageURL ? (
         <div className="image-preview" style={{ position: 'relative' }}>
@@ -69,8 +74,7 @@ export const SingleImageUploadModalField: React.FC<SingleImageUploadModalFieldPr
               onClick={handleRemoveImage}
               className="remove-image-button"
             >
-              <i className="bx bx-no-entry " >
-              </i>
+              <i className="bx bx-no-entry"></i>
             </Button>
           </div>
         ) : (

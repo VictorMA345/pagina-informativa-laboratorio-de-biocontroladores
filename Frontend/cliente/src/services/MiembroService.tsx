@@ -11,7 +11,7 @@ export const getAllMiembros = async (
   order?: string,
   startDate?: string,
   endDate?: string): Promise<MiembroServices> => {
-    let apiUrl = `http://localhost:3000/api/miembros?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/miembros?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -37,7 +37,7 @@ export const getAllMiembros = async (
 
 export const getMiembro = async(id:string) =>{
     if( id !== ""){
-        const response = await fetch("http://localhost:3000/api/miembros/"+id)
+        const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/miembros/"+id)
         const data = await response.json(); 
         return data;
     }

@@ -70,7 +70,6 @@ export const InvestigadoresPage = () => {
                 currentPage={state.pagina}
                 actions = {dispatch}
                 filters={filters}
-                context={state}
               />
               </>
           }

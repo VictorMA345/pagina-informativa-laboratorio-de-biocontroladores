@@ -10,7 +10,7 @@ export const useSignUp = () => {
     setIsLoading(true);
     setError(null);
     const { dispatch } = authContext;
-    const response = await fetch("http://localhost:3000/api/miembros/signup", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.comapi/miembros/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo: correo, contrasena: contrasena }),

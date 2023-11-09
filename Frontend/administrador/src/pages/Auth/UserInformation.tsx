@@ -21,13 +21,13 @@ export const UserInformation = () => {
     const [currentProjects,setCurrentProjects] = useState<Proyecto[] | undefined>(undefined);
     const [showResume, setShowResume] = useState(false);
     const [editing, setEditing] = useState(false);
-    const [newAreaEspecializacion, setNewAreaEspecializacion] = useState<string>(''); // Nueva área de especialización
-    const [newPassword, setNewPassword] = useState(''); // Nueva contraseña
-    const [confirmPassword, setConfirmPassword] = useState(''); // Confirmación de contraseña
-    const [passwordMatchError, setPasswordMatchError] = useState(false); // Error de coincidencia de contraseñas
+    const [newAreaEspecializacion, setNewAreaEspecializacion] = useState<string>(''); 
+    const [newPassword, setNewPassword] = useState(''); 
+    const [confirmPassword, setConfirmPassword] = useState(''); 
+    const [passwordMatchError, setPasswordMatchError] = useState(false); 
     const [originalUser, setOriginalUser] = useState<Miembro | undefined>(undefined);
-    const [newProfilePicture, setNewProfilePicture] = useState<string>(''); // Nueva foto de perfil
-    const [newCurriculum, setNewCurriculum] = useState<string>(''); // Nuevo currículum
+    const [newProfilePicture, setNewProfilePicture] = useState<Blob | MediaSource | string>(''); 
+    const [newCurriculum, setNewCurriculum] = useState<Blob | MediaSource | string>(''); 
 
     const [isLoadingModal,setisLoadingModal] = useState<boolean>(false)
     const { state } = useAuthContext();
@@ -60,14 +60,14 @@ export const UserInformation = () => {
       };
     const handleAddAreaEspecializacion = () => {
         if (newAreaEspecializacion) {
-        setCurrentUser((prevUser) => ({
+        setCurrentUser((prevUser : any) => ({
             ...prevUser,
             areaEspecializacion: [...prevUser.areaEspecializacion, newAreaEspecializacion],
         }));
         setNewAreaEspecializacion(''); 
         }
     };
-    const handleChange = (e) => {
+    const handleChange = (e : any) => {
         const { name, value } = e.target;
         setCurrentUser({ ...currentUser, [name]: value });
       };
@@ -75,7 +75,7 @@ export const UserInformation = () => {
     return newPassword === confirmPassword;
     };
     const handleRemoveAreaEspecializacion = (index: number) => {
-        setCurrentUser((prevUser) => {
+        setCurrentUser((prevUser : any) => {
           const updatedAreas = [...prevUser.areaEspecializacion];
           updatedAreas.splice(index, 1);
           return { ...prevUser, areaEspecializacion: updatedAreas };
@@ -100,18 +100,18 @@ export const UserInformation = () => {
             if (newCurriculum) {
                 updatedUser.curriculumDocumento = newCurriculum;
             }
-            const updatedUserData = await updateMiembro(updatedUser._id,updatedUser) || {}
-            if (!updatedUserData.error) {
-                setCurrentUser(updatedUserData);
-                setToastStateMsg("Usuario editado con éxito!")
-                setResultMsg("Se han actualizado los datos de usuario")
-                setToastType("success");
-                setToast(true)
-            } else {
-                setToastStateMsg("No se ha podido editar el usuario!")
-                setResultMsg(updatedUserData.error)
+            const updatedUserData = await updateMiembro(updatedUser._id, updatedUser) || {};
+            if ('error' in updatedUserData) {
+                setResultMsg("Ha ocurrido un error inesperado al actualizar el usuario");
+                setToastStateMsg("Error inesperado");
                 setToastType("failure");
-                setToast(true)
+                setToast(true);
+            } else {
+                setCurrentUser(updatedUserData);
+                setToastStateMsg("Usuario editado con éxito!");
+                setResultMsg("Se han actualizado los datos de usuario");
+                setToastType("success");
+                setToast(true);
             }
             setOriginalUser(currentUser);
             
@@ -126,7 +126,7 @@ export const UserInformation = () => {
             const user = await getMiembro(state.user.user_data.user_id);
             const role = await getRol(state.user.user_data.role_name)
             if (user) {
-                const projectPromises = user.proyectosParticipacion.map(async (projectId) => {
+                const projectPromises = user.proyectosParticipacion.map(async (projectId : any) => {
                   const project = await getProyecto(projectId);
                   return project;
                 });
@@ -169,10 +169,17 @@ export const UserInformation = () => {
                                 </label>
                                 <input
                                     type="file"
-                                    onChange={(e) => setNewProfilePicture(e.target.files[0])}
+                                    onChange=
+                                    {
+                                        (e) => {
+                                            const file = e.target.files ? e.target.files[0] : null;
+                                            if (file) {
+                                                setNewProfilePicture(file);
+                                            }}
+                                    }
                                 />
                                 <MDBCardImage
-                                    src={newProfilePicture ? URL.createObjectURL(newProfilePicture) : currentUser.fotoPerfil}
+                                    src={newProfilePicture && typeof newProfilePicture !== "string" ? URL.createObjectURL(newProfilePicture) : currentUser.fotoPerfil}
                                     alt="avatar"
                                     className="rounded-circle"
                                     style={{ width: '150px', cursor: 'pointer' }}
@@ -197,7 +204,14 @@ export const UserInformation = () => {
 
                                 <input
                                     type="file"
-                                    onChange={(e) => setNewCurriculum(e.target.files[0])}
+                                    onChange=
+                                    {
+                                        (e) => {
+                                            const file = e.target.files ? e.target.files[0] : null;
+                                            if (file) {
+                                                setNewCurriculum(file);
+                                            }}
+                                    }
                                 />
                                                                 <a
                                     onClick={openResumeInNewTab}
@@ -360,7 +374,7 @@ export const UserInformation = () => {
                                 <strong>Área de especialización:</strong>{' '}
                                 {editing ? (
                                     <div>
-                                    {currentUser.areaEspecializacion.map((area, index) => (
+                                    {currentUser.areaEspecializacion.map((area : any, index : number) => (
                                         <div key={index} className="text-muted">
                                         {area}
                                         <button className='area-button' onClick={() => handleRemoveAreaEspecializacion(index)}>x</button>
@@ -376,7 +390,7 @@ export const UserInformation = () => {
                                     <button onClick={handleAddAreaEspecializacion}>Agregar</button>
                                     </div>
                                 ) : (
-                                    currentUser.areaEspecializacion.map((area, index) => (
+                                    currentUser.areaEspecializacion.map((area : any, index : number) => (
                                     <div key={index} className="text-muted">
                                         {area}
                                     </div>

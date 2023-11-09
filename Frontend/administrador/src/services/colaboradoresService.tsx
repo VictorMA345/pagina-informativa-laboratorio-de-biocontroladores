@@ -13,7 +13,7 @@ export const getAllColaboradores = async (
   order?: string
 ): Promise<ColaboradorServices> => {
   try {
-  let apiUrl = `http://localhost:3000/api/colaboradores?pagina=${selectedpage}&cantidad=${pageNumber}`;
+  let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/colaboradores?pagina=${selectedpage}&cantidad=${pageNumber}`;
   if (search) {
     apiUrl += `&busqueda=${encodeURIComponent(search)}`;
   }
@@ -36,7 +36,7 @@ export const getAllColaboradores = async (
   export const postColaborador = async (newColaborador: Colaborador): Promise<Colaborador> => {
     try {
       const formData = jsonToFormData(newColaborador);
-      const response = await fetch("http://localhost:3000/api/colaboradores", {
+      const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/colaboradores", {
         method: "POST",
         body: formData,
       });
@@ -51,7 +51,7 @@ export const getAllColaboradores = async (
   
   export const deleteColaborador = async (id: string): Promise<Colaborador> => {
     try {
-      const response = await fetch(`http://localhost:3000/api/colaboradores/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/colaboradores/${id}`, {
         method: 'DELETE',
       });
       const json = await response.json();
@@ -66,7 +66,7 @@ export const getAllColaboradores = async (
     if (id !== "") {
       try {
         const formData = jsonToFormData(updatedData);
-        const response = await fetch(`http://localhost:3000/api/colaboradores/${id}`, {
+        const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/colaboradores/${id}`, {
           method: "PATCH",
           body: formData,
         });
@@ -85,7 +85,7 @@ export const getAllColaboradores = async (
   
   export const getColaborador = async (id: string) => {
     if (id !== "") {
-      const response = await fetch(`http://localhost:3000/api/colaboradores/${id}`);
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/colaboradores/${id}`);
 
       const data = await response.json();
       return data;

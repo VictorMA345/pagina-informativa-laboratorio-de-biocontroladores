@@ -9,7 +9,7 @@ export const useLogin = () => {
     setIsLoading(true); 
     setError(null);
     const { dispatch } = authContext;
-    const response = await fetch("http://localhost:3000/api/miembros/login", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/miembros/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo: correo, contrasena: contrasena }),
@@ -19,7 +19,7 @@ export const useLogin = () => {
       setIsLoading(false);
       setError(json.error);
     } else {
-      const roleResponse = await fetch("http://localhost:3000/api/roles/" + json.role_name);
+      const roleResponse = await fetch("https://laboratorio-biocontroladores.onrender.com/api/roles/" + json.role_name);
       const roleJson = await roleResponse.json();
       if (!roleResponse.ok) {
         setIsLoading(false);

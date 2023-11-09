@@ -57,7 +57,14 @@ export const ProyectoTableComponent: React.FC<ProyectoTableComponentProps>= ({da
                                     column.show && 
                                     column.type === "date" &&
                                     <td key = {index}>
-                                        {row[column.keyName as keyof Proyecto] && formatDate(row[column.keyName as keyof Proyecto])} 
+                                        {
+                                            column.type === "date" && typeof row[column.keyName as keyof Proyecto] === "string" ?
+                                            formatDate(row[column.keyName as keyof Proyecto] as string)
+                                            :
+                                            row.hasOwnProperty(column.keyName) && typeof row[column.keyName as keyof Proyecto] === "string" ?
+                                            row[column.keyName as keyof Proyecto]
+                                            : null
+                                        } 
                                     </td>
                                     ||
                                     column.show && 

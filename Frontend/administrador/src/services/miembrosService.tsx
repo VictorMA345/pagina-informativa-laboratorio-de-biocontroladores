@@ -12,7 +12,7 @@ export const getAllMiembros = async (
   search?: string,
   searchFor?: string,
   order?: string): Promise<MiembroServices> => {
-    let apiUrl = `http://localhost:3000/api/miembros?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/miembros?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -33,7 +33,7 @@ export const getAllMiembros = async (
 export const postMiembro = async (newMiembro: Miembro): Promise<Miembro> => {
   try {
     const formData = jsonToFormData(newMiembro)
-    const response = await fetch("http://localhost:3000/api/miembros/signup", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/miembros/signup", {
       method: "POST",
       body: formData,
     });
@@ -47,7 +47,7 @@ export const postMiembro = async (newMiembro: Miembro): Promise<Miembro> => {
 };
 export const deleteMiembro = async(id : string) : Promise<Miembro> =>{
     try{
-        const response =await fetch("http://localhost:3000/api/miembros/" + id,{
+        const response =await fetch("https://laboratorio-biocontroladores.onrender.com/api/miembros/" + id,{
         method: 'DELETE'
         });
         if (!response.ok){
@@ -64,7 +64,7 @@ export const updateMiembro = async (id: string, updatedData: Miembro): Promise<M
   if (id !== "") {
     try {
       const formData = jsonToFormData(updatedData);
-      const response = await fetch(`http://localhost:3000/api/miembros/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/miembros/${id}`, {
         method: "PATCH",
         body: formData,
       });
@@ -81,7 +81,7 @@ export const updateMiembro = async (id: string, updatedData: Miembro): Promise<M
 
 export const getMiembro = async(id:string) =>{
     if( id !== ""){
-        const response = await fetch("http://localhost:3000/api/miembros/"+id)
+        const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/miembros/"+id)
         const data = await response.json(); 
         return data;
     }
@@ -93,7 +93,7 @@ interface MiembroName {
 }
 
 export const getAllMiembrosNames = async (): Promise<MiembroName[]> => {
-  const apiUrl = "http://localhost:3000/api/names/miembros"; // Reemplaza con la URL de tu API
+  const apiUrl = "https://laboratorio-biocontroladores.onrender.com/api/names/miembros"; // Reemplaza con la URL de tu API
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {

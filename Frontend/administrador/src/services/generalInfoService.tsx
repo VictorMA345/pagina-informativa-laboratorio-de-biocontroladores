@@ -1,6 +1,6 @@
 import { jsonToFormData } from ".";
 export const getGeneralInfo = async () => {
-    let apiUrl = `http://localhost:3000/api/informacion`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/informacion`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
@@ -8,11 +8,11 @@ export const getGeneralInfo = async () => {
     const data = await response.json();
     return data;
 };
-
+    
 export const updateGeneralInfo = async (newData : Object) => {
     try {
         const formData = jsonToFormData(newData);
-        const response = await fetch(`http://localhost:3000/api/informacion`, {
+        const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/informacion`, {
             method: "PATCH",
             body: formData,
         });

@@ -1,5 +1,10 @@
 import { Noticia } from "../Models";
 
+interface DataType {
+  data: Noticia[];
+  itemCounts: number;
+}
+
 export const getAllNoticias = async (  
   pageNumber?:Number,
   selectedPage?:Number,
@@ -7,8 +12,8 @@ export const getAllNoticias = async (
   searchFor?: string,
   order?: string,
   startDate?: string,
-  endDate?: string): Promise<Noticia[]> => {
-    let apiUrl = `http://localhost:3000/api/noticias?pagina=${selectedPage}&cantidad=${pageNumber}`;
+  endDate?: string) => {
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/noticias?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -26,13 +31,13 @@ export const getAllNoticias = async (
     }
     const response = await fetch(apiUrl);
 
-    const data: Noticia[] = await response.json();
+    const data: DataType = await response.json();
     return data;
   };
 
-export const getNoticia = async (id: string): Promise<Noticia | undefined> => {
+export const getNoticia = async (id: string) => {
   if (id !== "") {
-    const response = await fetch(`http://localhost:3000/api/noticias/${id}`);
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/noticias/${id}`);
 
     const data = await response.json();
     return data;

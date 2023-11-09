@@ -8,7 +8,7 @@
   type AuthAction =
     | { type: 'LOGIN', payload: any } 
     | { type: 'LOGOUT' }
-    | { type: 'SIGNUP' };
+    | { type: 'SIGNUP' }; 
 
   type AuthContextType = {
     state: AuthState;

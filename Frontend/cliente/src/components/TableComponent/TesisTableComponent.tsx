@@ -57,7 +57,14 @@ export const TesisTableComponent: React.FC<TesisTableComponentProps>= ({data,col
                                     column.show && 
                                     column.type === "date" &&
                                     <td key = {index}>
-                                        {formatDate(row[column.keyName as keyof Tesis])} 
+                                        {
+                                            column.type === "date" && typeof row[column.keyName as keyof Tesis] === "string" ?
+                                            formatDate(row[column.keyName as keyof Tesis] as string)
+                                            :
+                                            row.hasOwnProperty(column.keyName) && typeof row[column.keyName as keyof Tesis] === "string" ?
+                                            row[column.keyName as keyof Tesis]
+                                            : null
+                                        } 
                                     </td>
                                     ||
                                     column.show && 

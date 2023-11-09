@@ -14,7 +14,7 @@ export const getAllControlBiologico = async (
   order?: string
 ): Promise<ControlBiologicoServices> => {
   try {
-    let apiUrl = `http://localhost:3000/api/control_biologico?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/control_biologico?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -39,7 +39,7 @@ export const postControlBiologico = async (
 ): Promise<ControlBiologico> => {
   try {
     const formData = jsonToFormData(newControlBiologico);
-    const response = await fetch("http://localhost:3000/api/control_biologico", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/control_biologico", {
       method: "POST",
       body: formData,
     });
@@ -53,7 +53,7 @@ export const postControlBiologico = async (
 
 export const deleteControlBiologico = async (id: string): Promise<ControlBiologico> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/control_biologico/${id}`, {
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/control_biologico/${id}`, {
       method: "DELETE",
     });
     const json = await response.json();
@@ -71,7 +71,7 @@ export const updateControlBiologico = async (
   if (id !== "") {
     try {
       const formData = jsonToFormData(updatedData);
-      const response = await fetch(`http://localhost:3000/api/control_biologico/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/control_biologico/${id}`, {
         method: "PATCH",
         body: formData,
       });
@@ -88,7 +88,7 @@ export const updateControlBiologico = async (
 
 export const getControlBiologico = async (id: string) => {
   if (id !== "") {
-    const response = await fetch(`http://localhost:3000/api/control_biologico/${id}`);
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/control_biologico/${id}`);
     const data = await response.json();
     return data;
   }

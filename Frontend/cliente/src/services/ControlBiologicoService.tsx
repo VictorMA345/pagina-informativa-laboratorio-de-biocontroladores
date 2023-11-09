@@ -14,7 +14,7 @@ export const getAllControlBiologico = async (
     endDate?: string
   ): Promise<ControlBiologicoServices> => {
     try {
-      let apiUrl = `http://localhost:3000/api/control_biologico?pagina=${selectedPage}&cantidad=${pageNumber}`;
+      let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/control_biologico?pagina=${selectedPage}&cantidad=${pageNumber}`;
       if (search) {
         apiUrl += `&busqueda=${encodeURIComponent(search)}`;
       }
@@ -41,7 +41,7 @@ export const getAllControlBiologico = async (
   };
   export const getControlBiologico = async (id: string) => {
     if (id !== "") {
-      const response = await fetch(`http://localhost:3000/api/control_biologico/${id}`);
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/control_biologico/${id}`);
       const data = await response.json();
       return data;
     }

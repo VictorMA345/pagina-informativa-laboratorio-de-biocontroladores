@@ -1,5 +1,10 @@
 import { Proyecto } from "../Models";
 
+interface DataType {
+  data: Proyecto[];
+  itemCounts: number;
+}
+
 export const getAllProyectos = async (
   pageNumber: number, 
   selectedPage: number,
@@ -8,8 +13,8 @@ export const getAllProyectos = async (
   order?: string,
   startDate?: string,
   endDate?: string
-  ): Promise<Proyecto[]> => {
-    let apiUrl = `http://localhost:3000/api/proyectos?pagina=${selectedPage}&cantidad=${pageNumber}`;
+  ) => {
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/proyectos?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -29,13 +34,13 @@ export const getAllProyectos = async (
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
     }
-    const data: Proyecto[] = await response.json();
+    const data: DataType = await response.json();
     return data;
 };
 
-export const getProyecto = async (id: string): Promise<Proyecto | undefined> => {
+export const getProyecto = async (id: string) => {
   if (id !== "") {
-    const response = await fetch(`http://localhost:3000/api/proyectos/${id}`);
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/proyectos/${id}`);
     const data = await response.json();
     return data;
   } else {

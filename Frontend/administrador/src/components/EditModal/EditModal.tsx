@@ -115,7 +115,7 @@ export const EditModal : React.FC<EditModalInterface> = ({actions,openEditModal,
             }
             return newData;
           });
-          if (ActionEvent) {
+          if (ActionEvent && ActionEvent.target && 'value' in ActionEvent.target) {
             ActionEvent.target.value = "";
           }
         }
@@ -134,8 +134,8 @@ export const EditModal : React.FC<EditModalInterface> = ({actions,openEditModal,
             setOriginalItem(data);
             Object.values(dataStructure).map((value) =>{
               if (value.choices_id && value.choices && Array.isArray(data[value.keyName])){
-                value.choices_id.map((item,index) =>{
-                  data[value.keyName].map((itemData) =>{
+                value.choices_id.map((item : any,index: any) =>{
+                  data[value.keyName].map((itemData: any) =>{
                       if(itemData === item ){
                         setShowForm((prevData: Record<string, any>) => {
                           const newData = { ...prevData };
@@ -152,9 +152,9 @@ export const EditModal : React.FC<EditModalInterface> = ({actions,openEditModal,
                           [value.keyName] : data[value.keyName]
                 })
               } else if (value.choices && value.choices_id && !Array.isArray(data[value.keyName])) {
-                value.choices_id.forEach((item, index) => {
+                value.choices_id.forEach((item:any, index:any) => {
                   if (data[value.keyName] === item) {
-                    setShowForm((prevData) => ({
+                    setShowForm((prevData : any) => ({
                       ...prevData,
                       [value.keyName]: value.choices[index],
                     }));

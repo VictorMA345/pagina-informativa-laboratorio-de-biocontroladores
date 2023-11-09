@@ -1,5 +1,5 @@
 export const getGeneralInfo = async () => {
-    let apiUrl = `http://localhost:3000/api/informacion`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/informacion`;
     const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
@@ -9,7 +9,7 @@ export const getGeneralInfo = async () => {
 };
 let ignore = false
 export const increaseView = async() =>{
-  let apiUrl = `http://localhost:3000/api/informacion/increase-view`;
+  let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/informacion/increase-view`;
   if(!ignore) {
     ignore = true
     await fetch(apiUrl);

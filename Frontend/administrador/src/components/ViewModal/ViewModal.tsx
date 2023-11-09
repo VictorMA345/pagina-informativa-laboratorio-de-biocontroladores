@@ -6,6 +6,21 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Accordion from 'react-bootstrap/Accordion';
 import React, { useState,useEffect } from "react";
 import { Form } from "react-bootstrap";
+interface FieldProperties {
+    name: string;
+    show: boolean;
+    type: string;
+    keyName: string;
+    editable?: boolean;
+    defaultValue?: string;
+    choices?: string[];   
+    choices_id?: string[];   
+    [key: string]: any; 
+}
+type Models = {
+    [key: string]: any;
+} | undefined;
+
 interface ViewModalInterface {
     setViewModal: React.Dispatch<React.SetStateAction<boolean>>,
     openViewModal: boolean,
@@ -14,7 +29,7 @@ interface ViewModalInterface {
     dataStructure : Object
 }
 export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewModal,id,getMethod,dataStructure}) => {
-    const [selectedItem, setSelectedItem] = useState<Object | undefined>(undefined)
+    const [selectedItem, setSelectedItem] = useState<Models>(undefined)
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -41,7 +56,7 @@ export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewM
                 </Modal.Header>
                 <Modal.Body className='view-modal-body'>
                     {
-                        Object.values(dataStructure).map((key) => (
+                        Object.values(dataStructure).map((key:FieldProperties) => (
                             <div>
                             {
                                 key.type === "document" &&
@@ -62,7 +77,7 @@ export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewM
                                 <div className="view-field">
                                     <h4 className='mb-2'>{key.name}</h4>
                                     {selectedItem &&
-                                    selectedItem[key.keyName].map((item, index) => (
+                                    selectedItem[key.keyName].map((item : any, index : any) => (
                                         <img
                                             key={index} 
                                             src={item} 
@@ -84,11 +99,11 @@ export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewM
                                 <div className="view-field">
                                     <h4 className='mb-2'>{key.name}</h4>
                                     {
-                                        key.choices_id.map((item,index) =>{
+                                        key.choices_id && key.choices_id.map((item,index) =>{
                                             if (selectedItem && (selectedItem[key.keyName] === item)){
                                                 return(
                                                     <h6 className='mb-3'>
-                                                        { key.choices[index] }
+                                                        { key.choices && key.choices[index] }
                                                     </h6>
                                                 )
                                             }
@@ -121,13 +136,13 @@ export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewM
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu className="scrollable-dropdown-menu">
                                         {
-                                            key.choices_id.map((choice_id,index) =>{
+                                             key.choices_id && key.choices_id.map((choice_id,index) =>{
                                                 return(
-                                                selectedItem && selectedItem[key.keyName].map((item)=>{
+                                                selectedItem && selectedItem[key.keyName].map((item : any)=>{
                                                     if(item === choice_id){
                                                         return (
                                                             <Dropdown.Item>
-                                                                {key.choices[index]}
+                                                                {key.choices && key.choices[index]}
                                                             </Dropdown.Item>
                                                         )
                                                     }
@@ -149,7 +164,7 @@ export const ViewModal : React.FC<ViewModalInterface> = ({openViewModal,setViewM
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="scrollable-dropdown-menu">
                                                     {
-                                                    selectedItem && selectedItem[key.keyName].map((item) =>
+                                                    selectedItem && selectedItem[key.keyName].map((item : any) =>
                                                             (  
                                                                 <Dropdown.Item>
                                                                     { item as ReactNode }

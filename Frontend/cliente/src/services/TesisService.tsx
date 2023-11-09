@@ -1,4 +1,10 @@
 import { Tesis } from "../Models"; 
+
+interface DataType {
+  data: Tesis[];
+  itemCounts: number;
+}
+
 export const getAllTesis = async (
   pageNumber: number, 
   selectedPage: number,
@@ -6,8 +12,8 @@ export const getAllTesis = async (
   searchFor?: string,
   order?: string,
   startDate?: string,
-  endDate?: string): Promise<Tesis[]> => {
-    let apiUrl = `http://localhost:3000/api/tesis?pagina=${selectedPage}&cantidad=${pageNumber}`;
+  endDate?: string) => {
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/tesis?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -24,12 +30,12 @@ export const getAllTesis = async (
       apiUrl += `&endDate=${encodeURIComponent(endDate)}`;
     }
     const response = await fetch(apiUrl);
-    const data: Tesis[] = await response.json();
+    const data: DataType = await response.json();
     return data;
 };
-export const getTesis = async (id: string): Promise<Tesis | undefined> => {
+export const getTesis = async (id: string) => {
     if (id !== "") {
-      const response = await fetch(`http://localhost:3000/api/tesis/${id}`);
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/tesis/${id}`);
       const data = await response.json();
       return data;
     } else {

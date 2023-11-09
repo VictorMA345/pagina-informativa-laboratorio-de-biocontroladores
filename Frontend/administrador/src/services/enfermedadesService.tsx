@@ -11,7 +11,7 @@ export const getAllEnfermedad = async (
   searchFor?: string,
   order?: string): Promise<EnfermedadServices> => 
   {
-    let apiUrl = `http://localhost:3000/api/enfermedades?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/enfermedades?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -31,7 +31,7 @@ export const getAllEnfermedad = async (
 export const postEnfermedad = async (newEnfermedad: Enfermedad) : Promise<Enfermedad>=> {
   try {
     const formData = jsonToFormData(newEnfermedad);
-    const response = await fetch("http://localhost:3000/api/enfermedades", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/enfermedades", {
       method: "POST",
       body: formData,
     });
@@ -47,7 +47,7 @@ export const postEnfermedad = async (newEnfermedad: Enfermedad) : Promise<Enferm
 };
 export const deleteEnfermedad = async(id : string) : Promise<Enfermedad> =>{
   try{
-    const response =await fetch("http://localhost:3000/api/enfermedades/" + id,{
+    const response =await fetch("https://laboratorio-biocontroladores.onrender.com/api/enfermedades/" + id,{
       method: 'DELETE'
     });
     const json = await response.json();
@@ -63,7 +63,7 @@ export const updateEnfermedad = async(id:string,body : Enfermedad) : Promise<Enf
   if (id !== ""){
     try {
       const formData = jsonToFormData(body);
-      const response = await fetch(`http://localhost:3000/api/enfermedades/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/enfermedades/${id}`, {
         method: "PATCH",
         body: formData,
       });
@@ -83,7 +83,7 @@ export const updateEnfermedad = async(id:string,body : Enfermedad) : Promise<Enf
 
 export const getEnfermedad = async(id:string) =>{
     if( id !== ""){
-      const response = await fetch("http://localhost:3000/api/enfermedades/"+id)
+      const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/enfermedades/"+id)
 
       const data = await response.json(); 
       return data;

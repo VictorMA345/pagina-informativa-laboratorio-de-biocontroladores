@@ -11,7 +11,7 @@ interface RolName {
 }
 
 export const getAllRolNames = async (): Promise<RolName[]> => {
-    const apiUrl = "http://localhost:3000/api/names/roles"; 
+    const apiUrl = "https://laboratorio-biocontroladores.onrender.com/api/names/roles"; 
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -34,7 +34,7 @@ export const getAllRoles = async (
   order?: string
 ): Promise<RolServices> => {
   try {
-    let apiUrl = `http://localhost:3000/api/roles?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/roles?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -55,7 +55,7 @@ export const getAllRoles = async (
 
 export const postRol = async (newRol: Rol): Promise<Rol> => {
     try {
-        const response = await fetch("http://localhost:3000/api/roles", {
+        const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/roles", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export const postRol = async (newRol: Rol): Promise<Rol> => {
 
 export const deleteRol = async (id: string): Promise<Rol> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/roles/${id}`, {
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/roles/${id}`, {
       method: 'DELETE',
     });
     const json = await response.json();
@@ -86,7 +86,7 @@ export const deleteRol = async (id: string): Promise<Rol> => {
 export const updateRol = async (id: string, updatedData: Rol): Promise<Rol | undefined> => {
   if (id !== "") {
     try {
-      const response = await fetch(`http://localhost:3000/api/roles/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/roles/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export const updateRol = async (id: string, updatedData: Rol): Promise<Rol | und
 export const getRol = async (id: string) => {
   if (id !== "") {
     try {
-      const response = await fetch(`http://localhost:3000/api/roles/${id}`);
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/roles/${id}`);
 
       const data = await response.json();
       return data;

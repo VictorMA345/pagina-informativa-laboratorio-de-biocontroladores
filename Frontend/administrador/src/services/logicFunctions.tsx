@@ -7,7 +7,7 @@
             formData.append(key, value);
           } else if (Array.isArray(value)) {
             if (value.length === 0) {
-              formData.append(key, []);
+              formData.append(key, '');
             } else {
               value.forEach((item) => {
                   if (item instanceof File) {

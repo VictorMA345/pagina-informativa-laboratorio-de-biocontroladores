@@ -11,9 +11,9 @@ export const getAllServicios = async (
     searchFor?: string,
     order?: string,
     startDate?: string,
-    endDate?: string): Promise<ServicioServices> => {
+    endDate?: string) => {
     try {
-        let apiUrl = `http://localhost:3000/api/servicios?pagina=${selectedPage}&cantidad=${pageNumber}`;
+        let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/servicios?pagina=${selectedPage}&cantidad=${pageNumber}`;
         if (search) {
             apiUrl += `&busqueda=${encodeURIComponent(search)}`;
         }
@@ -40,9 +40,9 @@ export const getAllServicios = async (
         throw error;
     }
 };
-export const getServicio = async (id: string): Promise<Servicio | undefined> => {
+export const getServicio = async (id: string) => {
 if (id !== "") {
-    const response = await fetch(`http://localhost:3000/api/servicio/${id}`);
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/servicio/${id}`);
     const data = await response.json();
     return data;
 } else {

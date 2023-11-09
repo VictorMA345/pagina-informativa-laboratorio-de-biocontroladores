@@ -67,7 +67,14 @@ export const NoticiaTableComponent: React.FC<NoticiaTableComponentProps>= ({data
                                     column.show && 
                                     column.type === "date" &&
                                     <td key = {index}>
-                                        {row[column.keyName as keyof Noticia] && formatDate(row[column.keyName as keyof Noticia])} 
+                                        {
+                                            column.type === "date" && typeof row[column.keyName as keyof Noticia] === "string" ?
+                                            formatDate(row[column.keyName as keyof Noticia] as string)
+                                            :
+                                            row.hasOwnProperty(column.keyName) && typeof row[column.keyName as keyof Noticia] === "string" ?
+                                            row[column.keyName as keyof Noticia]
+                                            : null
+                                        } 
                                     </td>
                                     ||
                                     column.show && 

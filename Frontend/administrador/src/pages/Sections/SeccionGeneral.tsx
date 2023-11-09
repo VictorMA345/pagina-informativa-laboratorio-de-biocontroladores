@@ -50,10 +50,13 @@ export const SeccionGeneral = () => {
   const handleChange = (keyName: string, target: string) => {
     setGeneralInfo({ ...generalInfo, [keyName]: target });
   };
-  const handleDocumentChange = (keyName: string, target: Object) =>{
-    setGeneralInfo({ ...generalInfo, [keyName]: target });
-    console.log(generalInfo)
-  }
+  const handleDocumentChange = (keyName: string, target: EventTarget & { files: FileList }) => {
+    const fileList = (target as HTMLInputElement).files; 
+    if (fileList) {
+      const selectedFile = fileList[0];
+      setGeneralInfo({ ...generalInfo, [keyName]: selectedFile });
+    }
+  };
   return (
     <>
 
@@ -111,7 +114,7 @@ export const SeccionGeneral = () => {
         <Form.Label >Imagen Principal del Laboratorio </Form.Label>
         <Form.Control 
           type="file" 
-          onChange={(e) => handleDocumentChange("imagenPrincipal",e.target.files[0])}
+          onChange={(e) => handleDocumentChange("imagenPrincipal", e.target as EventTarget & { files: FileList })}
         />
         {generalInfo && generalInfo.imagenPrincipal && typeof generalInfo.imagenPrincipal !== 'string' && (
           <img

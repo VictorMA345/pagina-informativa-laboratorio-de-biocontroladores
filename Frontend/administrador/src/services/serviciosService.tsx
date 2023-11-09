@@ -13,7 +13,7 @@ export const getAllServicios = async (
   searchFor?: string,
   order?: string): Promise<ServicioServices> => {
   try {
-    let apiUrl = `http://localhost:3000/api/servicios?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/servicios?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }
@@ -39,7 +39,7 @@ export const postServicio = async (newServicio: Servicio): Promise<Servicio> => 
   try {
     const formData = jsonToFormData(newServicio);
 
-    const response = await fetch("http://localhost:3000/api/servicios", {
+    const response = await fetch("https://laboratorio-biocontroladores.onrender.com/api/servicios", {
       method: "POST",
       body: formData,
     });
@@ -54,7 +54,7 @@ export const postServicio = async (newServicio: Servicio): Promise<Servicio> => 
 
 export const deleteServicio = async (id: string): Promise<Servicio> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/servicios/${id}`, {
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/servicios/${id}`, {
       method: 'DELETE',
     });
     const json = await response.json();
@@ -70,7 +70,7 @@ export const updateServicio = async (id: string, updatedData: Servicio): Promise
     try {
       const formData = jsonToFormData(updatedData);
 
-      const response = await fetch(`http://localhost:3000/api/servicios/${id}`, {
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/servicios/${id}`, {
         method: "PATCH",
         body: formData,
       });
@@ -89,7 +89,7 @@ export const updateServicio = async (id: string, updatedData: Servicio): Promise
 export const getServicio = async (id: string) => {
   if (id !== "") {
     try {
-      const response = await fetch(`http://localhost:3000/api/servicios/${id}`);
+      const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/servicios/${id}`);
 
       const data = await response.json();
       return data;

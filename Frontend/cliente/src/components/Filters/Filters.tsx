@@ -11,6 +11,15 @@ interface FiltersProps {
     filtersState: Object,
     setFilters: React.Dispatch<React.SetStateAction<Object>>,
 } 
+interface FieldProperties {
+  name?: string;
+  show?: boolean;
+  type?: string;
+  keyName?: string;
+  editable?: boolean;
+  defaultValue?: string;
+}
+
 export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,setFilters}) => {
     // Date Dropdown
     const [startDate, setStartDate] = useState<Date | undefined>(undefined);
@@ -38,12 +47,12 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
     useEffect(() => {
         const getOrderByOptions = () =>{
             const options = structure
-            .filter((field : Object) => field.type === "text")
-            .map((field :Object) => field.keyName);
+            .filter((field : FieldProperties) => field.type === "text")
+            .map((field :FieldProperties) => field.keyName);
             setorderByOptions(options);
             const labelOptions = structure
-            .filter((field : Object) => field.type === "text")
-            .map((field :Object) => field.name);
+            .filter((field : FieldProperties) => field.type === "text")
+            .map((field :FieldProperties) => field.name);
             setOrderByLabelOptions(labelOptions);
         }   
         getOrderByOptions();

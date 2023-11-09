@@ -5,12 +5,12 @@ const getLaboratorio = async(req,res) => {
     res.status(200).json(lab)
 }
 const patchLaboratorio = async(req,res) => {
-    console.log(req.files)
     const authClient = await authorize();
     const labAntiguo = await Laboratorio.findById("653f04433d9776c009a06f6c");
     let newimagenPrincipalURL = "";
     if (req.files && req.files['imagenPrincipal'] && req.files['imagenPrincipal'][0]) {
         const newimagenPrincipal = req.files['imagenPrincipal'][0];
+        console.log("Entra")
         if (!['image/jpeg','image/png','image/jpg'].includes(newimagenPrincipal.mimetype)){
             return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
         }

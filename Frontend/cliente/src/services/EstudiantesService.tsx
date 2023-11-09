@@ -13,7 +13,7 @@ export const getAllEstudiantes = async (
   order?: string,
   startDate?: string,
   endDate?: string): Promise<EstudianteServices> => {
-  let apiUrl = `http://localhost:3000/api/estudiantes?pagina=${selectedPage}&cantidad=${pageNumber}`;
+  let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/estudiantes?pagina=${selectedPage}&cantidad=${pageNumber}`;
   if (search) {
     apiUrl += `&busqueda=${encodeURIComponent(search)}`;
   }
@@ -39,7 +39,7 @@ export const getAllEstudiantes = async (
 
 export const getEstudiante = async (id: string) => {
   if (id !== "") {
-    const response = await fetch(`http://localhost:3000/api/estudiantes/${id}`);
+    const response = await fetch(`https://laboratorio-biocontroladores.onrender.com/api/estudiantes/${id}`);
     const data = await response.json();
     return data;
   }

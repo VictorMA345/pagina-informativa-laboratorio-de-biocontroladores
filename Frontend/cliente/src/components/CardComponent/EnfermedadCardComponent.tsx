@@ -10,13 +10,22 @@ interface CardComponentProps {
 }
 import { useTranslation } from 'react-i18next'
 export const EnfermedadCardComponent: React.FC<CardComponentProps> = ({item,setSelectedItem}) => {
-    const formatDate = (date: string) => {
-        const originalDate = new Date(date);
-        originalDate.setUTCHours(0, 0, 0, 0);
-        const year = originalDate.getUTCFullYear();
-        const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
-        const day = `0${originalDate.getUTCDate()}`.slice(-2);
-        return `${year}-${month}-${day}`;
+    const formatDate = (date: string | { $date: string }) => {
+        if (typeof date === 'string') {
+            const originalDate = new Date(date);
+            originalDate.setUTCHours(0, 0, 0, 0);
+            const year = originalDate.getUTCFullYear();
+            const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+            const day = `0${originalDate.getUTCDate()}`.slice(-2);
+            return `${year}-${month}-${day}`;
+        }  else if (typeof date === 'object' && '$date' in date){
+            const originalDate = new Date(date.$date);
+            originalDate.setUTCHours(0, 0, 0, 0);
+            const year = originalDate.getUTCFullYear();
+            const month = `0${originalDate.getUTCMonth() + 1}`.slice(-2);
+            const day = `0${originalDate.getUTCDate()}`.slice(-2);
+            return `${year}-${month}-${day}`;
+        }
     };
     const { t } = useTranslation(); 
   return (

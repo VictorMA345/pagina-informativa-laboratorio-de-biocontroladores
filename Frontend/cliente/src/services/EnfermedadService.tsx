@@ -13,7 +13,7 @@ export const getAllEnfermedad = async (
   endDate?: string
   ): Promise<EnfermedadServices> => 
   {
-    let apiUrl = `http://localhost:3000/api/enfermedades?pagina=${selectedPage}&cantidad=${pageNumber}`;
+    let apiUrl = `https://laboratorio-biocontroladores.onrender.com/api/enfermedades?pagina=${selectedPage}&cantidad=${pageNumber}`;
     if (search) {
       apiUrl += `&busqueda=${encodeURIComponent(search)}`;
     }

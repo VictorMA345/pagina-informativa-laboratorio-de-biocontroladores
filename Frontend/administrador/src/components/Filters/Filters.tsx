@@ -12,7 +12,7 @@ export const Filters : React.FC<FiltersProps> = ({dataStructure,actions}) => {
   const [search,setSearch] = useState<string | undefined>("")
   const [searchkeyLabel,setSearchkeyLabel] = useState<string>("No especificado");
   const [error,setError] = useState<string | undefined>(undefined);
-  const submitSearch = (e) =>{
+  const submitSearch = (e: React.FormEvent<HTMLFormElement | HTMLButtonElement>) =>{
     e.preventDefault();
     if (searchkeyLabel !== "No especificado"){
       setError(undefined)

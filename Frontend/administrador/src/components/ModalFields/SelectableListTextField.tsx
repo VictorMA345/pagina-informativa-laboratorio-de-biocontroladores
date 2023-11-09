@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown'; 
 import Form from 'react-bootstrap/Form';
 import './FormStyles.css';
@@ -12,7 +12,7 @@ interface SelectableListTextFieldProps {
   onRemove: (index: number, keyName: string) => void;
   showForm: Record<string, any>;
 }
-export const SelectableListTextField: React.FC<SelectableListTextFieldProps> = ({ label,keyName, choices, selectedValue, onSelect, onRemove, showForm }) => {
+export const SelectableListTextField: React.FC<SelectableListTextFieldProps> = ({ label,keyName, choices, onSelect, onRemove, showForm }) => {
 
 
   return (
@@ -36,7 +36,7 @@ export const SelectableListTextField: React.FC<SelectableListTextFieldProps> = (
       </Dropdown>
       <ul id="tags">
         {Array.isArray(showForm[keyName]) &&
-          showForm[keyName].map((tag, index) => (
+          showForm[keyName].map((tag : any, index : any) => (
             <li key={index} className="tag">
               <span className="tag-title">{tag}</span>
               <span

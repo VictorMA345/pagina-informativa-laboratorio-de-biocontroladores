@@ -4,6 +4,27 @@ import { ReactNode, useState } from "react"
 import { TableIndexer,CreateModal,Filters,
         DeleteModal,EditModal,ViewModal } from ".."
 import { useAuthContext } from "../../hooks/useAuthHook";
+import { 
+         MiembroStructure,EstudianteStructure,RolStructure,
+         EnfermedadStructure,ControlBiologicoStructure,TesisStructure,
+         NoticiaStructure,ProyectoStructure,ColaboradorStructure,ServicioStructure
+        } 
+from "../../Models";
+
+interface FieldProperties {
+    name: string;
+    show: boolean;
+    type: string;
+    keyName: string;
+    editable?: boolean;
+    defaultValue?: string;
+    choices?: string[];   
+    choices_id?: string[];   
+    [key: string]: any; 
+}
+
+// Adjust the ColumnTypes interface to allow string indexing
+type ColumnTypes = (MiembroStructure | EstudianteStructure | RolStructure | EnfermedadStructure | ControlBiologicoStructure | TesisStructure | NoticiaStructure | ProyectoStructure | ColaboradorStructure | ServicioStructure | FieldProperties) & { [key: string]: any };
 interface Table {
     seccion:String,
     contextData: {
@@ -13,7 +34,7 @@ interface Table {
         itemCounts: number
     },
     contextActions: any
-    columns: Object,
+    columns: ColumnTypes,
     methods: {
         GET : ( id : string ) => any,
         POST : ( newData : Object ) => any,
@@ -22,6 +43,7 @@ interface Table {
     }
 
 }
+
 export const Table : React.FC<Table>= ({ seccion, contextData, columns,contextActions,methods}) => {
     const [selectedItemId,setSelectedItemId] = useState<string>("");
     const [openCreateModal,setCreateModal] = useState<boolean>(false);
@@ -76,7 +98,7 @@ export const Table : React.FC<Table>= ({ seccion, contextData, columns,contextAc
                     <table className="table table-striped table-hover">
                         <thead>
                             {
-                                Object.values(columns).map((label, index) => {
+                                Object.values(columns).map((label : FieldProperties, index :number) => {
                                     if (label.show){
                                         return(
                                         <th key={index}>
@@ -94,7 +116,7 @@ export const Table : React.FC<Table>= ({ seccion, contextData, columns,contextAc
                         {contextData.rows.map((row) => {
                             return (
                                 <tr key={row._id}>
-                                {Object.values(columns).map((column, index) => {
+                                {Object.values(columns).map((column: FieldProperties, index : number) => {
                                     const value = row[column.keyName];
                                     if (column.show) {
                                     if (column.type === "list" && Array.isArray(value)) {
@@ -111,7 +133,7 @@ export const Table : React.FC<Table>= ({ seccion, contextData, columns,contextAc
                                         return (
                                         <td key={index}>
                                             <Form.Select>
-                                            {columns[column.keyName].choices_id.map((item, itemIndex) => {
+                                            {columns[column.keyName].choices_id.map((item : any, itemIndex : any) => {
                                                 if (value.includes(item)) {
                                                 return (
                                                     <option key={itemIndex}>{columns[column.keyName].choices[itemIndex]}</option>

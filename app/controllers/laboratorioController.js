@@ -15,7 +15,7 @@ const patchLaboratorio = async(req,res) => {
             if (!['image/jpeg','image/png','image/jpg'].includes(newimagenPrincipal.mimetype)){
                 return res.status(400).json({error: "Solamente se aceptan imagenes en formato .jpeg, .jpg o .png"})
             }
-            if (labAntiguo.imagenPrincipal  && esURLGoogleDriveValida(labAntiguo.imagenPrincipal && labAntiguo.imagenPrincipal !== "")) {
+            if (labAntiguo.imagenPrincipal  && esURLGoogleDriveValida(labAntiguo.imagenPrincipal) && labAntiguo.imagenPrincipal !== "") {
                 newimagenPrincipalURL = await replaceFileInDrive(authClient, newimagenPrincipal, labAntiguo.imagenPrincipal, "fotos-estudiantes");
                 newimagenPrincipalURL = `https://drive.google.com/uc?id=${newimagenPrincipalURL}`;
             } else {

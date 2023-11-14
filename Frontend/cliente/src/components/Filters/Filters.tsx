@@ -1,4 +1,4 @@
-import { Container,Row,Col, Button } from 'react-bootstrap'
+import { Container,Row,Col } from 'react-bootstrap'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState,useEffect } from 'react'
@@ -181,9 +181,9 @@ export const Filters: React.FC<FiltersProps> = ({structure,actions,filtersState,
       </Row>
       <Row>
         <Col xs={12} sm={6} md={3} lg={2} xl={2} className='filter-button-container'>
-          <Button onClick={clearFilters} className='clean-filters-button'>
+          <button onClick={clearFilters} className='clean-filters-button'>
               {t('limpiar_filtros')}
-          </Button>
+          </button>
         </Col>
       </Row>
     </Container>

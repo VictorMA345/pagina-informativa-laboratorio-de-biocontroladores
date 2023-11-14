@@ -175,6 +175,7 @@ const postProyectos = async(req,res) =>{
     
         for (const miembro of miembros) {
             miembro.proyectosParticipacion.push(proyectoNuevo._id);
+            miembro['__v'] = 0;
             await miembro.save();
         }
 

@@ -13,7 +13,6 @@ export const DropdownComponent: React.FC<DropdownComponentProps> = ({label ,opti
   return (
     <Dropdown className='filter-dropdown'>
         <Dropdown.Toggle className='filter-dropdown-toggle' id="dropdown-basic">
-
         <i className={`bx bx-${boxiconIconName} dropdown-button-icon`}  >
         </i>    
             {label}

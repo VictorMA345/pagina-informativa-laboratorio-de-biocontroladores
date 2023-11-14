@@ -1,5 +1,5 @@
 import { useEffect,useState} from 'react'
-import { Carousel,Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { getAllEnfermedad,getAllControlBiologico } from '../../services';
 import { ControlBiologico,Enfermedad } from '../../Models';
 import NoImagePlaceHolder from '../../images/no-image-placeholder.jpg'
@@ -39,12 +39,12 @@ export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
                   {enfermedad.descripcion}
                 </p>
                 <Link to = {`/enfermedades/${enfermedad._id}`}>
-                  <Button
+                  <button
                     className='carousel-button' 
                     onClick={() => setItem(enfermedad)}
                     >
                     {t('ver_mas')}
-                  </Button> 
+                  </button> 
                 </Link>
               </Carousel.Caption>
             </Carousel.Item>
@@ -62,12 +62,12 @@ export const Carrousel:React.FC<CarouselProps> = ({setItem}) => {
                   {controlBiologico.textoExplicativo}
                 </p>
                 <Link to = {`/control_biologico/${controlBiologico._id}`}>
-                  <Button
+                  <button
                     className='carousel-button' 
                     onClick={() => setItem(controlBiologico)}
                     >
                     Ver más
-                  </Button> 
+                  </button> 
                 </Link>
               </Carousel.Caption>
             </Carousel.Item>

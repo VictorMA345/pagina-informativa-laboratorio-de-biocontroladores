@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Modal,Button,Form     } from "react-bootstrap";
+import { Modal,Form     } from "react-bootstrap";
 import './ContactModal.css'
 import { sendMail } from "../../services";
 import { useTranslation } from 'react-i18next'
@@ -49,9 +49,9 @@ export const ContactModal: React.FC<ContactModal> = ({show,setShowModal}) => {
             </Modal.Body>
             
             <Modal.Footer className="contact-modal-footer">
-            <Button className="contact-modal-send-button" onClick={() => (setShowModal(!show),submit())}>
+            <button className="contact-modal-send-button" onClick={() => (setShowModal(!show),submit())}>
                 Enviar
-            </Button>
+            </button>
             </Modal.Footer>
 
         </Modal>

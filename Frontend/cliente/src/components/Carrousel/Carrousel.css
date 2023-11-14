@@ -35,6 +35,8 @@
   color: white;
   font-weight: bolder;
   border: 0;
+  padding: 10px;
+  border-radius: 10px;
   background-color: #1D3557;
 }
 .carousel-button:hover{

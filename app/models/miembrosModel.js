@@ -48,7 +48,6 @@ const MiembroSchema = new Schema({
     },
     fechaNacimiento : {
         type: Date,
-        required: true
     }
 },{ timestamps : true })
 

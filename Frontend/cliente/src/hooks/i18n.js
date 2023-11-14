@@ -189,8 +189,8 @@ i18n
         }
       },
     },
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: 'es',
+    fallbackLng: 'es',
     interpolation: {
       escapeValue: false,
     },

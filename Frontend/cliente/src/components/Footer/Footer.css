@@ -1,12 +1,15 @@
 .contact-button{
     background-color: #1D3557;
     border: 0px;
-    font-size: larger;
+    font-size: medium;
     font-weight: bolder;
-
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    max-height: 2rem;
 }
 .contact-button:hover{
-    background-color: #3582CE;
+    background-color: #FF5733; 
 }
 
 .footer-container {

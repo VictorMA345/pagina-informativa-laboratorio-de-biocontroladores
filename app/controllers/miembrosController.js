@@ -171,10 +171,6 @@ const patchMiembro = async(req,res) =>{
         return res.status(400).json({error: "Los números de teléfono no pueden contener letras."})
     }
 
-    if(!req.body.fechaNacimiento){
-        return res.status(400).json({error: "Ingrese una fecha de nacimiento válida."})
-    }
-
     const authClient = await authorize();
     let newFotoDePerfilURL = ""
     if (req.files && req.files['fotoPerfil'] && req.files['fotoPerfil'][0] ) {
@@ -304,10 +300,6 @@ const signUpUser = async(req,res) =>{
             return res.status(400).json({error: "Los números de teléfono no pueden contener letras."})
         }
 
-        if(!fechaNacimiento){
-            return res.status(400).json({error: "Ingrese una fecha de nacimiento válida."})
-        }
-        
         let areaEspecializacionList = req.body.areaEspecializacion;
         if (typeof req.body.areaEspecializacion === 'string'){
             areaEspecializacionList = [req.body.areaEspecializacion]

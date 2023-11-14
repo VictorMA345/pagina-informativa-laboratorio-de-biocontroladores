@@ -1,5 +1,4 @@
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-import { Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { ContactModal } from '..';
 import './Footer.css'
@@ -11,9 +10,6 @@ import { useTranslation } from 'react-i18next'
 export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
   const { t } = useTranslation();
   const [contactModal, setcontactModal] = useState<boolean>(false)
-
-  
-
   return (
     <>
     <MDBFooter bgColor='light' style ={{"background":"#C0C0C0"}}className=' text-center text-lg-start text-muted footer-container'>
@@ -23,12 +19,12 @@ export const Footer : React.FC<FooterProps> = ({generalInfo}) => {
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
             <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4 footer-text-container'>
-                <Button 
+                <button 
                   onClick={() => setcontactModal(!contactModal)}
                   className='contact-button'
                 >
                     {t('contactenos')}
-                </Button>
+                </button>
             </MDBCol>
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
